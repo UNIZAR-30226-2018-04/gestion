@@ -1189,8 +1189,8 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 448,
-											"top": -8,
+											"left": 160,
+											"top": 360,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -1214,9 +1214,9 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 877,
-											"top": 223,
-											"width": 193,
+											"left": 733,
+											"top": 407,
+											"width": 348,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -1240,8 +1240,8 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 448,
-											"top": -8,
+											"left": 160,
+											"top": 360,
 											"width": 73,
 											"height": 13,
 											"autoResize": false,
@@ -1266,8 +1266,8 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 448,
-											"top": -8,
+											"left": 160,
+											"top": 360,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -1286,9 +1286,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 872,
-									"top": 216,
-									"width": 203,
+									"left": 728,
+									"top": 400,
+									"width": 358,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -1313,6 +1313,37 @@
 									"model": {
 										"$ref": "AAAAAAFh+lyDwbIa6eg="
 									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB5p20JmVUs8=",
+											"_parent": {
+												"$ref": "AAAAAAFh+lyMlbIkNyQ="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5p2o5mS2ec="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 733,
+											"top": 430,
+											"width": 348,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+Estado: Estado_partida",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										}
+									],
 									"visible": true,
 									"enabled": true,
 									"lineColor": "#000000",
@@ -1322,10 +1353,10 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 872,
-									"top": 241,
-									"width": 203,
-									"height": 10,
+									"left": 728,
+									"top": 425,
+									"width": 358,
+									"height": 23,
 									"autoResize": false
 								},
 								{
@@ -1356,13 +1387,13 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 877,
-											"top": 256,
-											"width": 193,
+											"left": 733,
+											"top": 453,
+											"width": 348,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+crear(): estado_partida",
+											"text": "+crear(): Estado_partida",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1385,13 +1416,13 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 877,
-											"top": 271,
-											"width": 193,
+											"left": 733,
+											"top": 468,
+											"width": 348,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+lanzarCarta(): estado_partida",
+											"text": "+lanzarCarta(jugador: Jugador, carta: Carta): Estado_partida",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1414,13 +1445,13 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 877,
-											"top": 286,
-											"width": 193,
+											"left": 733,
+											"top": 483,
+											"width": 348,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+cantar40(): estado_partida",
+											"text": "+cantar40(jugador: Jugador): Estado_partida",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1443,13 +1474,13 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 877,
-											"top": 301,
-											"width": 193,
+											"left": 733,
+											"top": 498,
+											"width": 348,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+cantar20(): estado_partida",
+											"text": "+cantar20(jugador: Jugador): Estado_partida",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1472,13 +1503,13 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 877,
-											"top": 316,
-											"width": 193,
+											"left": 733,
+											"top": 513,
+											"width": 348,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+cambiarTriunfo(): estado_partida",
+											"text": "+cambiarTriunfo(jugador: Jugador): Estado_partida",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1501,13 +1532,13 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 877,
-											"top": 331,
-											"width": 193,
+											"left": 733,
+											"top": 528,
+											"width": 348,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+pasar(): estado_partida",
+											"text": "+pasar(): Estado_partida",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1522,9 +1553,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 872,
-									"top": 251,
-									"width": 203,
+									"left": 728,
+									"top": 448,
+									"width": 358,
 									"height": 98,
 									"autoResize": false
 								},
@@ -1546,8 +1577,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 224,
-									"top": -4,
+									"left": 80,
+									"top": 180,
 									"width": 10,
 									"height": 10,
 									"autoResize": false
@@ -1570,8 +1601,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 224,
-									"top": -4,
+									"left": 80,
+									"top": 180,
 									"width": 10,
 									"height": 10,
 									"autoResize": false
@@ -1586,10 +1617,10 @@
 							"showShadow": true,
 							"containerChangeable": true,
 							"containerExtending": false,
-							"left": 872,
-							"top": 216,
-							"width": 203,
-							"height": 133,
+							"left": 728,
+							"top": 400,
+							"width": 358,
+							"height": 146,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
@@ -3429,8 +3460,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 723,
-									"top": 271,
+									"left": 657,
+									"top": 348,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -3463,8 +3494,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 722,
-									"top": 256,
+									"left": 663,
+									"top": 334,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -3497,8 +3528,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 724,
-									"top": 300,
+									"left": 646,
+									"top": 375,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -3531,8 +3562,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 602,
-									"top": 276,
+									"left": 606,
+									"top": 327,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -3565,8 +3596,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 579,
-									"top": 263,
+									"left": 588,
+									"top": 316,
 									"width": 51,
 									"height": 13,
 									"autoResize": false,
@@ -3599,8 +3630,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 599,
-									"top": 304,
+									"left": 592,
+									"top": 351,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -3633,8 +3664,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 844,
-									"top": 266,
+									"left": 708,
+									"top": 369,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -3667,8 +3698,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 841,
-									"top": 252,
+									"left": 711,
+									"top": 356,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -3701,8 +3732,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 849,
-									"top": 293,
+									"left": 702,
+									"top": 396,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -3782,7 +3813,7 @@
 								"$ref": "AAAAAAFh911/25HLwTc="
 							},
 							"lineStyle": 1,
-							"points": "577:299;871:286",
+							"points": "577:338;727:399",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -3884,11 +3915,11 @@
 											"containerExtending": false,
 											"left": 741,
 											"top": 47,
-											"width": 287,
+											"width": 332,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "estado_partida",
+											"text": "Estado_partida",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -3956,7 +3987,7 @@
 									"containerExtending": false,
 									"left": 736,
 									"top": 40,
-									"width": 297,
+									"width": 342,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -3984,6 +4015,122 @@
 									"subViews": [
 										{
 											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB42804Mzomg=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB428moMkhm0="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 70,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+numJugadores",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB5k3CJWh+3A=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5k20pWSjLE="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 85,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+jugador1: Jugador",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB5mFl5cXFB4=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5mFZ5cIVtI="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 100,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+jugador2: Jugador",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB5s97JugESs=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5s9vZuRGSE="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 115,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+turno: Jugador",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
 											"_id": "AAAAAAFh/DBy95JmS1U=",
 											"_parent": {
 												"$ref": "AAAAAAFh/CWLOoRwTgM="
@@ -4001,12 +4148,186 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 741,
-											"top": 70,
-											"width": 287,
+											"top": 130,
+											"width": 332,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+cartas_jugador1: lista_cartas",
+											"text": "+cartas_jugador1: Lista_cartas",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB45LLYTf/KY=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB45K54TQuQ0="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 145,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+cartas_jugador2: Lista_cartas",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB48oHYXXoPY=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB48n7IXIbCI="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 160,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+cartas_en_juego: Lista_cartas",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB4/TfIaDQ/o=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB4/TS4Z0vA0="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 175,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+mazo: Lista_cartas",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB5I72Yjq/Q0=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5I7qIjbRHA="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 190,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+ganadas_jugador1: Lista_cartas",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB5KJPYlp+RQ=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5KJDYlan4o="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 205,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+ganadas_jugador2: Lista_cartas",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFiB5SYXo3n5qI=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLOoRwTgM="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5SYLY3Yuso="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 220,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+triunfo: Carta",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -4023,8 +4344,8 @@
 									"containerExtending": false,
 									"left": 736,
 									"top": 65,
-									"width": 297,
-									"height": 23,
+									"width": 342,
+									"height": 173,
 									"autoResize": false
 								},
 								{
@@ -4056,12 +4377,215 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 741,
-											"top": 93,
-											"width": 287,
+											"top": 243,
+											"width": 332,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getCartas(jugador: Judador): lsita_cartas",
+											"text": "+getCartas(jugador: Judador): Lista_cartas",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiB5BVLocC7Ws=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLO4RxyjU="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5BVAYbzwIc="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 258,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+addCartaJugador(jugador: Jugador, carta: Carta)",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiB5DhMYejV9w=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLO4RxyjU="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5DhAIeUY4Q="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 273,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+moveCartaJugadorTapete(jugador: Jugador, carta: Carta)",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiB5MYSorK83o=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLO4RxyjU="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5MYGYq71uo="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 288,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+getPrimeraCartaMazo(): Carta",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiB5eps5N3ztY=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLO4RxyjU="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5eph5No8gg="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 303,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+getTapete(): Lista_cartas",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiB5TPXI5mmuE=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLO4RxyjU="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5TPJo5XOMk="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 318,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+getTriunfo(): Carta",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiB5U4XI8j02I=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLO4RxyjU="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5U4Lo8U8i8="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 333,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+setTriunfo(carta: Carta)",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiB5cwFZLJ/0o=",
+											"_parent": {
+												"$ref": "AAAAAAFh/CWLO4RxyjU="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5cv6JK681I="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 741,
+											"top": 348,
+											"width": 332,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+moveTapeteGanadas(jugador: Jugador)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -4077,9 +4601,9 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 736,
-									"top": 88,
-									"width": 297,
-									"height": 23,
+									"top": 238,
+									"width": 342,
+									"height": 128,
 									"autoResize": false
 								},
 								{
@@ -4142,8 +4666,8 @@
 							"containerExtending": false,
 							"left": 736,
 							"top": 40,
-							"width": 297,
-							"height": 121,
+							"width": 342,
+							"height": 326,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
@@ -4200,8 +4724,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 913,
-									"top": 188,
+									"left": 891,
+									"top": 375,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4234,8 +4758,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 899,
-									"top": 195,
+									"left": 876,
+									"top": 375,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4268,8 +4792,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 940,
-									"top": 175,
+									"left": 920,
+									"top": 376,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4302,8 +4826,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 915,
-									"top": 192,
+									"left": 891,
+									"top": 367,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4336,8 +4860,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 902,
-									"top": 195,
+									"left": 877,
+									"top": 364,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4370,8 +4894,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 941,
-									"top": 184,
+									"left": 918,
+									"top": 371,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4404,8 +4928,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 911,
-									"top": 184,
+									"left": 891,
+									"top": 385,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4438,8 +4962,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 900,
-									"top": 192,
+									"left": 877,
+									"top": 388,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4472,8 +4996,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 934,
-									"top": 169,
+									"left": 918,
+									"top": 381,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -4553,7 +5077,7 @@
 								"$ref": "AAAAAAFh+lyMlLIeopo="
 							},
 							"lineStyle": 1,
-							"points": "940:215;914:161",
+							"points": "906:399;906:366",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -5059,7 +5583,7 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 0,
+											"left": -112,
 											"top": 0,
 											"width": 0,
 											"height": 13,
@@ -5084,7 +5608,7 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 1165,
+											"left": 1109,
 											"top": 55,
 											"width": 222,
 											"height": 13,
@@ -5110,7 +5634,7 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 0,
+											"left": -112,
 											"top": 0,
 											"width": 72,
 											"height": 13,
@@ -5136,7 +5660,7 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 0,
+											"left": -112,
 											"top": 0,
 											"width": 0,
 											"height": 13,
@@ -5156,7 +5680,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1160,
+									"left": 1104,
 									"top": 48,
 									"width": 232,
 									"height": 25,
@@ -5202,13 +5726,13 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 1165,
+											"left": 1109,
 											"top": 78,
 											"width": 222,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+Valor: integer",
+											"text": "+valor: integer",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -5231,7 +5755,7 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 1165,
+											"left": 1109,
 											"top": 93,
 											"width": 222,
 											"height": 13,
@@ -5252,7 +5776,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1160,
+									"left": 1104,
 									"top": 73,
 									"width": 232,
 									"height": 38,
@@ -5267,6 +5791,66 @@
 									"model": {
 										"$ref": "AAAAAAFh/DDb2pPlaHQ="
 									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiB5W4cI+2R38=",
+											"_parent": {
+												"$ref": "AAAAAAFh/DDb3ZPuRnI="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5W4Oo+k8pU="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1109,
+											"top": 116,
+											"width": 222,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+getValor()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiB5XuDJBTrAc=",
+											"_parent": {
+												"$ref": "AAAAAAFh/DDb3ZPuRnI="
+											},
+											"model": {
+												"$ref": "AAAAAAFiB5Xt3JBBmKg="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1109,
+											"top": 131,
+											"width": 222,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+getPalo()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										}
+									],
 									"visible": true,
 									"enabled": true,
 									"lineColor": "#000000",
@@ -5276,10 +5860,10 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1160,
+									"left": 1104,
 									"top": 111,
 									"width": 232,
-									"height": 10,
+									"height": 38,
 									"autoResize": false
 								},
 								{
@@ -5300,7 +5884,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 0,
+									"left": -56,
 									"top": 0,
 									"width": 10,
 									"height": 10,
@@ -5324,7 +5908,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 0,
+									"left": -56,
 									"top": 0,
 									"width": 10,
 									"height": 10,
@@ -5340,7 +5924,7 @@
 							"showShadow": true,
 							"containerChangeable": true,
 							"containerExtending": false,
-							"left": 1160,
+							"left": 1104,
 							"top": 48,
 							"width": 232,
 							"height": 144,
@@ -5400,8 +5984,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1096,
-									"top": 89,
+									"left": 1086,
+									"top": 132,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -5434,8 +6018,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1097,
-									"top": 74,
+									"left": 1083,
+									"top": 117,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -5468,8 +6052,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1095,
-									"top": 118,
+									"left": 1093,
+									"top": 161,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -5501,7 +6085,7 @@
 								"$ref": "AAAAAAFh/CWLOIRqOBQ="
 							},
 							"lineStyle": 1,
-							"points": "1033:107;1159:113",
+							"points": "1078:156;1103:150",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -8084,6 +8668,7 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -9644,6 +10229,28 @@
 						}
 					],
 					"visibility": "public",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB5p2o5mS2ec=",
+							"_parent": {
+								"$ref": "AAAAAAFh+lyDwbIa6eg="
+							},
+							"name": "Estado",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						}
+					],
 					"operations": [
 						{
 							"_type": "UMLOperation",
@@ -9705,6 +10312,40 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5pAgpisvgw=",
+									"_parent": {
+										"$ref": "AAAAAAFh+l0SzrJHV2I="
+									},
+									"name": "jugador",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFh+mWPgLX3sUI="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5pAg5itc9c=",
+									"_parent": {
+										"$ref": "AAAAAAFh+l0SzrJHV2I="
+									},
+									"name": "carta",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "Carta",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
@@ -9738,6 +10379,24 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5rSO5ps03c=",
+									"_parent": {
+										"$ref": "AAAAAAFh+l27M4aKCUM="
+									},
+									"name": "jugador",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFh+mWPgLX3sUI="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
@@ -9771,6 +10430,24 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5sId5rY0uo=",
+									"_parent": {
+										"$ref": "AAAAAAFh+l3Tq4aL9l4="
+									},
+									"name": "jugador",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFh+mWPgLX3sUI="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
@@ -9804,6 +10481,24 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5ssTJs1iV4=",
+									"_parent": {
+										"$ref": "AAAAAAFh+l+Z07JxEWc="
+									},
+									"name": "jugador",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFh+mWPgLX3sUI="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
@@ -9982,7 +10677,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "estado_partida",
+					"name": "Estado_partida",
 					"ownedElements": [
 						{
 							"_type": "UMLDependency",
@@ -10003,6 +10698,83 @@
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB428moMkhm0=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "numJugadores",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB5k20pWSjLE=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "jugador1",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": {
+								"$ref": "AAAAAAFh+mWPgLX3sUI="
+							},
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB5mFZ5cIVtI=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "jugador2",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": {
+								"$ref": "AAAAAAFh+mWPgLX3sUI="
+							},
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB5s9vZuRGSE=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "turno",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": {
+								"$ref": "AAAAAAFh+mWPgLX3sUI="
+							},
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
 							"_id": "AAAAAAFh/DBywpJXVl8=",
 							"_parent": {
 								"$ref": "AAAAAAFh/CWLN4RoaC4="
@@ -10011,7 +10783,115 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "lista_cartas",
+							"type": "Lista_cartas",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB45K54TQuQ0=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "cartas_jugador2",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "Lista_cartas",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB48n7IXIbCI=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "cartas_en_juego",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "Lista_cartas",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB4/TS4Z0vA0=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "mazo",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "Lista_cartas",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB5I7qIjbRHA=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "ganadas_jugador1",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "Lista_cartas",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB5KJDYlan4o=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "ganadas_jugador2",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "Lista_cartas",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFiB5SYLY3Yuso=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "triunfo",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "Carta",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -10057,11 +10937,270 @@
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "lsita_cartas",
+									"type": "Lista_cartas",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "return"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiB5BVAYbzwIc=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "addCartaJugador",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5C3+ocnb5E=",
+									"_parent": {
+										"$ref": "AAAAAAFiB5BVAYbzwIc="
+									},
+									"name": "jugador",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFh+mWPgLX3sUI="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5C3+ocoKeI=",
+									"_parent": {
+										"$ref": "AAAAAAFiB5BVAYbzwIc="
+									},
+									"name": "carta",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "Carta",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiB5DhAIeUY4Q=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "moveCartaJugadorTapete",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5INIohuSGc=",
+									"_parent": {
+										"$ref": "AAAAAAFiB5DhAIeUY4Q="
+									},
+									"name": "jugador",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFh+mWPgLX3sUI="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5INIohvPF4=",
+									"_parent": {
+										"$ref": "AAAAAAFiB5DhAIeUY4Q="
+									},
+									"name": "carta",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "Carta",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiB5MYGYq71uo=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "getPrimeraCartaMazo",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5NeqYrv1i0=",
+									"_parent": {
+										"$ref": "AAAAAAFiB5MYGYq71uo="
+									},
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "Carta",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "return"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiB5eph5No8gg=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "getTapete",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5fcGpPoJnM=",
+									"_parent": {
+										"$ref": "AAAAAAFiB5eph5No8gg="
+									},
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "Lista_cartas",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "return"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiB5TPJo5XOMk=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "getTriunfo",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5UefY6LkOI=",
+									"_parent": {
+										"$ref": "AAAAAAFiB5TPJo5XOMk="
+									},
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "Carta",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "return"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiB5U4Lo8U8i8=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "setTriunfo",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5VaII9I3xQ=",
+									"_parent": {
+										"$ref": "AAAAAAFiB5U4Lo8U8i8="
+									},
+									"name": "carta",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "Carta",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiB5cv6JK681I=",
+							"_parent": {
+								"$ref": "AAAAAAFh/CWLN4RoaC4="
+							},
+							"name": "moveTapeteGanadas",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiB5du9ZLu1ko=",
+									"_parent": {
+										"$ref": "AAAAAAFiB5cv6JK681I="
+									},
+									"name": "jugador",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFh+mWPgLX3sUI="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
@@ -10102,7 +11241,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFh/DDb2pPlaHQ="
 							},
-							"name": "Valor",
+							"name": "valor",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -10131,6 +11270,36 @@
 							"isDerived": false,
 							"aggregation": "none",
 							"isID": false
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiB5W4Oo+k8pU=",
+							"_parent": {
+								"$ref": "AAAAAAFh/DDb2pPlaHQ="
+							},
+							"name": "getValor",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiB5Xt3JBBmKg=",
+							"_parent": {
+								"$ref": "AAAAAAFh/DDb2pPlaHQ="
+							},
+							"name": "getPalo",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
 						}
 					],
 					"isAbstract": false,
