@@ -4,10 +4,20 @@
  * Fichero: Clase carta de la lógica del guiñote
  */
 
+/*
+ * Los valores de una carta pueden ser [1..7, 10..12]y los palos [C,O,B,E] siendo cada letra la inicial de cada uno de
+ * los palos de la baraja española
+ */
 
 public class Carta {
-    int valor;
-    String palo;
+    private int valor;
+    private String palo;
+
+
+    public Carta(){
+        valor = 1;
+        palo = "E";
+    }
 
     public Carta(int valor, String palo) throws ExceptionCartaIncorrecta {
         if ((valor>0 && valor<8) || (valor >= 10 && valor <= 12)){
@@ -18,6 +28,7 @@ public class Carta {
             this.palo = palo;
         } else throw new ExceptionCartaIncorrecta("Palo incorrecto: " + palo);
     }
+
 
     public int getValor() {
         return valor;
@@ -37,5 +48,9 @@ public class Carta {
         if (palo == "C" || palo == "B" || palo == "O"|| palo == "E"){
             this.palo = palo;
         } else throw new ExceptionCartaIncorrecta("Palo incorrecto: " + palo);
+    }
+
+    public String toString(){
+        return "[" + valor + "," + palo + "]";
     }
 }

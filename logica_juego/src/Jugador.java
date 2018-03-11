@@ -8,55 +8,79 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Jugador {
-    int id;
-    List<Carta> cartasEnMano;
-    int equipo;
-    List<Carta> cartasGanadas;
+    private List<Carta> cartasEnMano;
+    private List<Carta> cartasGanadas;
+    private int puntos;
 
-    public Jugador(int id, List<Carta> cartasEnMano, int equipo) {
-        this.id = id;
+    public Jugador() {
+        cartasEnMano = new ArrayList<>();
+        cartasGanadas = new ArrayList<>();
+        puntos = 0;
+    }
+
+    public Jugador(List<Carta> cartasEnMano, List<Carta> cartasGanadas, int puntos) {
         this.cartasEnMano = cartasEnMano;
-        if (equipo == 0 || equipo == 1){
-            this.equipo = equipo;
-        }
-        this.cartasGanadas = new ArrayList<Carta>();
+        this.cartasGanadas = cartasGanadas;
+        this.puntos = puntos;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    /*
+     * Devuelve una lista con las cartas en mano de cada jugador
+     */
     public List<Carta> getCartasEnMano() {
         return cartasEnMano;
     }
 
-    public void setCartasEnMano(List<Carta> cartasEnMano) {
-        this.cartasEnMano = cartasEnMano;
-    }
-
-    public int getEquipo() {
-        return equipo;
-    }
-
-    public void setEquipo(int equipo) {
-        if (equipo == 0 || equipo == 1){
-            this.equipo = equipo;
+    /*
+     * Añade una carta c al conjunto de cartas en mano si no está
+     */
+    public void anyadirCartaEnMano(Carta c) {
+        if (!this.cartasEnMano.contains(c)){
+            this.cartasEnMano.add(c);
         }
     }
 
+    /*
+     * Quita la carta c de las cartasEnMano sy y solo si está en el conjunto
+     */
+    public void quitarCartaEnMano(Carta c){
+        if (this.cartasEnMano.contains(c)){
+            this.cartasEnMano.remove(c);
+        }
+    }
+
+    /*
+     * Devuelve las cartas ganadas por el jugador
+     */
     public List<Carta> getCartasGanadas() {
         return cartasGanadas;
     }
 
-    public void setCartasGanadas(List<Carta> cartasGanadas) {
-        this.cartasGanadas = cartasGanadas;
+    /*
+     * Añade cada una de las cartas del conjunto de cartas a las cartasGanadas sin repeticiones de cartas
+     */
+    public void anyadirCartasGanadas(List<Carta> cartas) {
+        for (Carta c: cartas) {
+            if(!this.cartasGanadas.contains(c)){
+                this.cartasGanadas.add(c);
+            }
+        }
     }
 
-    public void anyadirCartasGanadas(List<Carta> nuevasCartas){
-        this.cartasGanadas.addAll(nuevasCartas);
+    /*
+     * Devuelve los puntos acumulados por el jugador
+     */
+    public int getPuntos() {
+        return puntos;
+    }
+
+    /*
+     * Pre: puntos > 0
+     * Añade puntos a los puntos acumulados por el jugador hasta el momento
+     */
+    public void sumarPuntos(int puntos) {
+        if (puntos>0){
+            this.puntos += puntos;
+        }
     }
 }
