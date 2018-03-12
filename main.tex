@@ -1,0 +1,86 @@
+\documentclass[]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{textpos}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{array}
+\usepackage{multirow}
+
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\lhead{\leftmark}
+\rhead{\thepage}
+\cfoot{}
+\lfoot{Plan de Gestión, Análisis, Diseño Y Memoria del Proyecto}
+
+\begin{document}
+\begin{titlepage}
+	\begin{textblock*}{100mm}(.75\textwidth,-1.5cm)
+	Equipo: \textsc{Margaret Hamilton}
+    \end{textblock*}
+    \begin{textblock*}{100mm}(.66\textwidth,-1.15cm)
+    \hspace{-3cm}Contacto:  Julia   716185@unizar.es / Sergio 721057@unizar.es
+	\end{textblock*}
+    \vfill
+	\centering \includegraphics[scale=0.3]{figuras/margaret.png}\\[3em]
+    \centering \huge \textsc{Proyecto Sota y Rey}\\[1em]
+    \centering \large \textsc{Plan de gestión, análisis, diseño y memoria del proyecto}\\[3em]
+    \centering \today
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+
+\section{Introducción}
+
+El presente documento recoge el plan de gestión, análisis, diseño y memoria del proyecto de implementación de una aplicación web para jugar partidas de Guiñote online. La aplicación permite jugar a este conocido juego de cartas contra amigos o adversarios desconocidos de su mismo nivel ya sea en uno contra uno o por parejas. Además, si se prefiere, la aplicación ofrece una Inteligencia Artificial a la que poder retar para entrenarse sin necesidad de un contrincante real.\\
+
+La aplicación no se limita a ser una plataforma para jugar partidas de Guiñote, sino que añade componentes de red social y funcionalidades para aumentar el atractivo del juego. El sistema utiliza un registro de perfil de usuario en el que se almacena un historial completo de cada jugador. Además, existirá la posibilidad de visualizar partidas que están siendo jugadas en ese momento en modo espectador. Las funcionalidades que incrementan la jugabilidad de la aplicación se basan en añadir competitividad. Existirá un sistema de ligas al que se pertenece en función de las habilidades del usuario, medidas según el ratio de partidas ganadas y perdidas, y un sistema de torneos de eliminación directa a los que los jugadores podrán inscribirse. Como recompensa al desempeño realizado en los torneos y ligas existirá una divisa virtual que los jugadores ganarán y que podrán utilizar para comprar items en la tienda del juego, que les permitirán personalizar sus partidas.\\
+
+El sistema será accesible desde el navegador (al menos Google Chrome 64). Para que se pueda jugar desde distintos dispositivos la aplicación tendrá una interfaz responsive, adaptándose al tamaño de la pantalla desde la que se juega. Este cambio de dispositivo podrá hacerse incluso durante una partida en curso, siempre que no se agote el tiempo de turno correspondiente. \\
+
+El sistema estará alojado en Amazon AWS como un servidor ejecutado en una instancia virtual de EC2 mientras que todo lo referente al almacenamiento de información (datos jugadores, partidas, elementos de la tienda…) estará almacenado en Amazon Aurora. \\
+
+El desarrollo del proyecto está dividido en dos fases, lo que permite que pueda ser validado y contrastado con el cliente. La primera fase incluirá un prototipo funcional de la aplicación que permitirá jugar partidas individuales, o en modo espectador e incluirá las pantallas de login y perfil de usuario, aunque todavía no tendrá implementada una Inteligencia Artificial funcional y competente. Esta versión del programa será mostrada al cliente el 9 de Abril de 2018.
+
+Como resultado final del proyecto el cliente recibirá la aplicación desplegada en AWS, el código fuente y el resultado de la compilación para la plataforma objetivo. Además, el cliente recibirá un manual técnico completo y una memoria resumen del proceso de desarrollo. La fecha de entrega del producto terminado es el 1 de Junio de 2018.\\
+
+\clearpage
+
+\subsection{Estructura del documento}
+En la sección \ref{organiz} se describe la organización del equipo de trabajo, incluyendo un organigrama de la empresa. A continuación, en la sección \ref{planes} se detalla el plan de gestión del proyecto. Esta sección incluye una primera parte relativa a cómo se llevarán a cabo las distintas tareas a lo largo del proyecto (subsección \ref{procesos}) y una segunda referente a los planes (subsección \ref{pl}), en la que se detallan el plan de gestión de configuraciones, el de despliegue, aseguramiento de la calidad y el plan de trabajo especificado en un diagrama de Gantt. Finalmente, se incluye en la sección \ref{analisis} una descripción detallada de los requisitos funcionales y no funcionales del sistema, así como el diseño del sistema, detallado mediante un diagrama de componentes.
+
+\input{2-organizacion.tex}
+\input{3-gestion.tex}
+\input{4-analisis-diseno.tex}
+
+
+\section*{Anexo I. Glosario}
+\begin{description}
+\item[Amazon AWS:] Amazon Web Services, plataforma cloud ofrecida por Amazon. \cite{aws}
+\item[Amazon RDS Aurora:] Servicio de creación y mantenimiento de bases de datos relacionales. \cite{aurora}
+\item[Amazon EC2:] Servicio de servidores privados virtuales de AWS que permite lanzar máquinas virtuales con los sistemas operativos y configuraciones deseadas. Además, permite contratar más o menos recursos bajo demanda, adaptándose así a los picos de carga. \cite{ec2}
+\item[PostgreSQL:] es un sistema de gestión de bases de datos relacional orientado a objetos y libre, publicado bajo la licencia PostgreSQL.
+\item[MySQL:] es un sistema de gestión de bases de datos relacional desarrollado bajo licencia dual: Licencia pública general/Licencia comercial por Oracle Corporation.
+\item[Guiñote:] Juego de cartas español en el que pueden participar dos jugadores o dos parejas de jugadores. Se utiliza la baraja española de 40 cartas con cuatro palos. A continuación se explican detalladamente las reglas del juego:
+\begin{itemize}
+\item{El juego comienza repartiendo 6 cartas a cada jugador y colocando una carta en medio del tapete que determina el palo que es "triunfo". La manera de jugar es por rondas denominadas bazas, en las que cada jugador tira una carta. La baza se gana si se tira el triunfo más alto, o si no hay triunfo, si se tira la carta con mayor valor del palo de la carta de salida. Al ganar la baza, se suma a la puntuación de la pareja o el jugador el valor de las cartas. Además si se gana la baza se puede intercambiar el siete del palo de triunfo por la carta que se encuentra en medio del tapa si su valor es superior a la del siete, o también se puede sumar puntuación si el jugador tiene un "cante" que significa que el jugador posee la sota y el rey de un mismo palo, lo cual da 20 puntos si el palo no es triunfo y 40 puntos si el palo es triunfo.}
+\item{El valor de las cartas de forma decreciente es el siguiente: As (11 pts), tres (10 pts), rey (4 pts), sota (3 pts), caballo (2 pts), siete (0 pts), seis (0 pts), cinco (0 pts), cuatro (0 pts) y dos (0 pts).}
+\item{Después de cada baza, y mientras queden cartas en el mazo, cada jugador roba una carta empezando por el jugador que se haya llevado la última baza. Tras esto, será el primer jugador en jugar la primera carta de la siguiente baza.}
+\item{Una vez que se acaban las cartas para robar se introducen restricciones a la hora de tirar las cartas. El primer jugador en tirar no tiene restricciones pero el resto de jugadores deberá tirar una carta del mismo palo o si no tiene, triunfo, además de que está obligado a "matar", es decir, tirar una carta para intentar ganar la baza. En caso de que el jugador no pueda cumplir ninguna de estas restricciones con las cartas que posee puede tirar la carta que desee. Finalmente, el equipo que gane la última baza ganará 10 puntos extra.}
+\item{Para determinar quién ha ganado, se suma la puntuación y gana el jugador o la pareja que supere los 100 puntos (divididos habitualmente en 50 “malas”, los primeros 50 puntos, y 50 “buenas”, los restantes). En caso de que nadie supere la anterior cifra se vuelve a repartir y a cada baza que se gana se incrementa la puntuación hasta que se llega a 100, momento en el que se gana. En el caso de que ambos equipos superasen los 100 puntos en la misma jugada, ganaría aquel que hubiese ganado la última baza.}
+\end{itemize}
+\end{description}
+\addcontentsline{toc}{section}{\protect\numberline{}Anexo I. Glosario}%
+\newpage
+\bibliographystyle{abbrv} % We choose the "plain" reference style
+\bibliography{data}
+\end{document}

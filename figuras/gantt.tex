@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage{pgfgantt}
+\usepackage[utf8]{inputenc}
+\begin{document}
+\ganttset{%
+  calendar week text={%
+    \pgfcalendarmonthshortname{\startmonth},~\startday%
+  }%
+}
+\begin{ganttchart}[
+    % hgrid,
+    vgrid,
+    x unit=2mm,
+    time slot format=isodate,
+  ]{2018-02-26}{2018-06-03}
+  \gantttitlecalendar{week} \\
+  \ganttbar[bar/.style={fill=blue!40}]{Desarrollo juego Guiñote}{2018-02-26}{2018-04-09} \\
+  \ganttbar[bar/.style={fill=red!60}]{Dis. e imp. vistas Web}{2018-03-05}{2018-05-13} \\
+  \ganttbar[bar/.style={fill=yellow!80}]{Desarrollo BBDD}{2018-03-05}{2018-04-02}
+  \ganttbar[bar/.style={fill=yellow!80}]{}{2018-04-30}{2018-05-13} \\
+  \ganttbar[bar/.style={fill=purple!60}]{Dis. e imp. Web dinámica}{2018-03-12}{2018-05-13} \\
+  \ganttbar[bar/.style={fill=green!60}]{Dis. e imp. Matchmaking}{2018-04-13}{2018-04-29} \\
+  \ganttbar[bar/.style={fill=blue!40}]{Dis. artículos personal}{2018-04-16}{2018-04-29} \\
+  \ganttbar[bar/.style={fill=red!60}]{Dis. e imp. IA}{2018-03-19}{2018-04-01}
+  \ganttbar[bar/.style={fill=red!60}]{}{2018-04-15}{2018-05-27} \\
+  \ganttbar[bar/.style={fill=yellow!80}]{Despliegue en AWS}{2018-04-03}{2018-04-09}
+  \ganttbar[bar/.style={fill=yellow!80}]{}{2018-05-14}{2018-05-27} \\
+  \ganttbar[bar/.style={fill=purple!60}]{Pruebas}{2018-03-19}{2018-04-11}
+  \ganttbar[bar/.style={fill=purple!60}]{}{2018-05-07}{2018-06-01} \\
+  \ganttbar[bar/.style={fill=green!60}]{Gestión}{2018-02-26}{2018-06-01}
+  \ganttvrule[
+    vrule/.append style={red},
+    ]{\hspace{-3cm}\textbf{Primera Iteración}}{2018-04-11}
+  \ganttvrule[
+    vrule/.append style={red,ultra thick},
+    ]{\hspace{-2.5cm}\textbf{Entrega Final}}{2018-06-01}
+\end{ganttchart}
+
+\end{document}
