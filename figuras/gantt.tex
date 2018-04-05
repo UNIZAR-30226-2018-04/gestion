@@ -7,27 +7,44 @@
     \pgfcalendarmonthshortname{\startmonth},~\startday%
   }%
 }
+
 \begin{ganttchart}[
     % hgrid,
     vgrid,
     x unit=2mm,
+    y unit chart=8mm,
     time slot format=isodate,
   ]{2018-02-26}{2018-06-03}
   \gantttitlecalendar{week} \\
-  \ganttbar[bar/.style={fill=blue!40}]{Desarrollo juego Guiñote}{2018-02-26}{2018-04-09} \\
-  \ganttbar[bar/.style={fill=red!60}]{Dis. e imp. vistas Web}{2018-03-05}{2018-05-13} \\
-  \ganttbar[bar/.style={fill=yellow!80}]{Desarrollo BBDD}{2018-03-05}{2018-04-02}
-  \ganttbar[bar/.style={fill=yellow!80}]{}{2018-04-30}{2018-05-13} \\
-  \ganttbar[bar/.style={fill=purple!60}]{Dis. e imp. Web dinámica}{2018-03-12}{2018-05-13} \\
-  \ganttbar[bar/.style={fill=green!60}]{Dis. e imp. Matchmaking}{2018-04-13}{2018-04-29} \\
-  \ganttbar[bar/.style={fill=blue!40}]{Dis. artículos personal}{2018-04-16}{2018-04-29} \\
-  \ganttbar[bar/.style={fill=red!60}]{Dis. e imp. IA}{2018-03-19}{2018-04-01}
-  \ganttbar[bar/.style={fill=red!60}]{}{2018-04-15}{2018-05-27} \\
-  \ganttbar[bar/.style={fill=yellow!80}]{Despliegue en AWS}{2018-04-03}{2018-04-09}
-  \ganttbar[bar/.style={fill=yellow!80}]{}{2018-05-14}{2018-05-27} \\
-  \ganttbar[bar/.style={fill=purple!60}]{Pruebas}{2018-03-19}{2018-04-11}
-  \ganttbar[bar/.style={fill=purple!60}]{}{2018-05-07}{2018-06-01} \\
-  \ganttbar[bar/.style={fill=green!60}]{Gestión}{2018-02-26}{2018-06-01}
+  \ganttgroup[group/.style={shape=ganttgroup, fill=blue!80}]{1. Desarrollo juego Guiñote}{2018-02-26}{2018-04-29} \\
+  \ganttbar[name=logica, bar/.style={fill=blue!40}]{1.1. Lógica juego}{2018-02-26}{2018-04-03} \\
+  \ganttbar[name=comunicacion, bar/.style={fill=blue!40}]{1.2. Comunicación}{2018-03-19}{2018-04-29} \\
+  \ganttgroup[group/.style={shape=ganttgroup, fill=red!80}]{2. Dis. e imp. vistas Web}{2018-03-05}{2018-05-13} \\
+  \ganttgroup[group/.style={shape=ganttgroup, fill=yellow!90}]{3. Desarrollo BBDD}{2018-02-26}{2018-05-13} \\
+  \ganttbar[name=base, bar/.style={fill=yellow!60}]{3.1. Dis. e implem. base de datos}{2018-02-26}{2018-03-13} \\
+  \ganttbar[name=acceso, bar/.style={fill=yellow!60}]{3.2. Dis. e implem. capa acceso a datos}{2018-03-16}{2018-04-14} \\
+  \ganttbar[name=period, bar/.style={fill=yellow!60}]{3.3. Dis. e implem. acciones periódicas}{2018-04-30}{2018-05-13} \\
+  \ganttgroup[group/.style={shape=ganttgroup, fill=purple!80}]{4. Dis. e implem. Web dinámica}{2018-03-12}{2018-05-13} \\
+  \ganttgroup[group/.style={shape=ganttgroup, fill=green!80}]{5. Dis. e implem. Matchmaking}{2018-04-13}{2018-04-29} \\
+  \ganttgroup[group/.style={shape=ganttgroup, fill=blue!80}]{6. Dis. e implem. IA}{2018-04-02}{2018-05-27} \\
+  \ganttbar[name=analisisia, bar/.style={fill=blue!40}]{6.1. Análisis y diseño IA}{2018-04-02}{2018-04-09} \\
+  \ganttbar[name=implia, bar/.style={fill=blue!40}]{6.2. Implementación IA}{2018-04-15}{2018-05-27} \\
+  \ganttgroup[group/.style={shape=ganttgroup, fill=red!80}]{7. Despliegue en AWS}{2018-03-09}{2018-05-27} \\
+  \ganttbar[name=config, bar/.style={fill=red!50}]{7.1. Configuración AWS}{2018-03-09}{2018-03-15} \\
+  \ganttbar[name=despliegue, bar/.style={fill=red!50}]{7.2. Despliegue base datos y servidor}{2018-04-03}{2018-04-11}
+  \ganttbar[bar/.style={fill=red!50}]{}{2018-05-14}{2018-05-27} \\
+  \ganttgroup[group/.style={shape=ganttgroup, fill=yellow!90}]{8. Pruebas}{2018-03-19}{2018-04-11} 
+  \ganttgroup[group/.style={shape=ganttgroup, fill=yellow!90}]{}{2018-05-07}{2018-06-01} \\
+  \ganttgroup[group/.style={shape=ganttgroup, fill=purple!80}]{9. Gestión}{2018-02-26}{2018-06-01} \\
+  \ganttbar[name=v1, bar/.style={fill=purple!50}]{9.1. Versión 1 plan y memoria}{2018-02-26}{2018-03-02} \\
+  \ganttbar[name=v2, bar/.style={fill=purple!50}]{9.2. Versión 2 plan y memoria}{2018-03-04}{2018-04-09} \\
+  \ganttbar[name=v3, bar/.style={fill=purple!50}]{9.3. Versión final plan y memoria}{2018-04-14}{2018-06-01} \\
+  \ganttbar[bar/.style={fill=purple!50}]{9.4. Organización interna}{2018-02-26}{2018-06-01}
+  \ganttlink{base}{acceso}
+  \ganttlink{analisisia}{implia}
+  \ganttlink{config}{despliegue}
+  \ganttlink{v1}{v2}
+  \ganttlink{v2}{v3}
   \ganttvrule[
     vrule/.append style={red},
     ]{\hspace{-3cm}\textbf{Primera Iteración}}{2018-04-11}
