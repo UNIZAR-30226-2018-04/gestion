@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>basedatos</OriginalElement>
+  <nodes>
+    <node x="250.34375" y="500.0">basedatos.InterfazDatos</node>
+    <node x="297.25" y="0.0">basedatos.modelo.UsuarioVO</node>
+    <node x="0.0" y="274.0">basedatos.dao.UsuarioDAO</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="basedatos.InterfazDatos" target="basedatos.dao.UsuarioDAO">
+      <point x="-91.25" y="-100.0" />
+      <point x="341.59375" y="475.0" />
+      <point x="274.5" y="475.0" />
+      <point x="0.0" y="88.0" />
+    </edge>
+    <edge source="basedatos.dao.UsuarioDAO" target="basedatos.modelo.UsuarioVO">
+      <point x="137.25" y="-88.0" />
+      <point x="0.0" y="112.0" />
+    </edge>
+    <edge source="basedatos.InterfazDatos" target="basedatos.modelo.UsuarioVO">
+      <point x="91.25" y="-100.0" />
+      <point x="524.09375" y="475.0" />
+      <point x="559.5" y="475.0" />
+      <point x="559.5" y="249.0" />
+      <point x="488.0833333333333" y="249.0" />
+      <point x="76.33333333333331" y="112.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="354.99999999999994" y="268.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>packageLocal</VISIBILITY>
+</Diagram>
+

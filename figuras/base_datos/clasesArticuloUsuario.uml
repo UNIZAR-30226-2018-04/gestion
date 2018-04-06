@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>basedatos</OriginalElement>
+  <nodes>
+    <node x="308.7954545454545" y="0.0">basedatos.modelo.LigaVO</node>
+    <node x="479.3636363636364" y="414.0">basedatos.modelo.ArticuloUsuarioVO</node>
+    <node x="0.0" y="592.0">basedatos.dao.ArticuloUsuarioDAO</node>
+    <node x="273.6136363636364" y="746.0">basedatos.InterfazDatos</node>
+    <node x="440.6136363636364" y="188.0">basedatos.modelo.ArticuloVO</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="basedatos.dao.ArticuloUsuarioDAO" target="basedatos.modelo.ArticuloUsuarioVO">
+      <point x="258.0" y="-52.0" />
+      <point x="602.0" y="572.0" />
+      <point x="572.3636363636364" y="572.0" />
+      <point x="0.0" y="64.0" />
+    </edge>
+    <edge source="basedatos.modelo.ArticuloVO" target="basedatos.modelo.LigaVO">
+      <point x="-45.0" y="-88.0" />
+      <point x="485.6136363636364" y="168.0" />
+      <point x="398.7954545454545" y="168.0" />
+      <point x="0.0" y="64.0" />
+    </edge>
+    <edge source="basedatos.InterfazDatos" target="basedatos.dao.ArticuloUsuarioDAO">
+      <point x="-126.0" y="-64.0" />
+      <point x="399.6136363636364" y="721.0" />
+      <point x="344.0" y="721.0" />
+      <point x="0.0" y="52.0" />
+    </edge>
+    <edge source="basedatos.InterfazDatos" target="basedatos.modelo.ArticuloUsuarioVO">
+      <point x="126.0" y="-64.0" />
+      <point x="651.6136363636364" y="721.0" />
+      <point x="698.5" y="721.0" />
+      <point x="698.5" y="572.0" />
+      <point x="634.3636363636364" y="572.0" />
+      <point x="62.000000000000014" y="64.0" />
+    </edge>
+    <edge source="basedatos.dao.ArticuloUsuarioDAO" target="basedatos.modelo.LigaVO">
+      <point x="-86.0" y="-52.0" />
+      <point x="258.0" y="572.0" />
+      <point x="287.68181818181813" y="572.0" />
+      <point x="287.68181818181813" y="168.0" />
+      <point x="362.7954545454545" y="168.0" />
+      <point x="-36.0" y="64.0" />
+    </edge>
+    <edge source="basedatos.modelo.ArticuloUsuarioVO" target="basedatos.modelo.ArticuloVO">
+      <point x="-62.0" y="-64.0" />
+      <point x="510.3636363636364" y="389.0" />
+      <point x="485.6136363636364" y="389.0" />
+      <point x="-45.0" y="88.0" />
+    </edge>
+    <edge source="basedatos.modelo.ArticuloUsuarioVO" target="basedatos.modelo.LigaVO">
+      <point x="62.000000000000014" y="-64.0" />
+      <point x="634.3636363636364" y="389.0" />
+      <point x="631.1136363636364" y="389.0" />
+      <point x="631.1136363636364" y="148.0" />
+      <point x="470.7954545454545" y="148.0" />
+      <point x="72.0" y="64.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="467.5" y="620.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>packageLocal</VISIBILITY>
+</Diagram>
+

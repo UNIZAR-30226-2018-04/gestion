@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>basedatos</OriginalElement>
+  <nodes>
+    <node x="102.5" y="524.0">basedatos.InterfazDatos</node>
+    <node x="86.01388888888891" y="72.0">basedatos.modelo.LigaVO</node>
+    <node x="10.5" y="322.0">basedatos.dao.LigaDAO</node>
+    <node x="420.9861111111111" y="0.0">basedatos.modelo.StatsUsuarioVO</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="basedatos.InterfazDatos" target="basedatos.modelo.LigaVO">
+      <point x="-161.33333333333337" y="-88.0" />
+      <point x="183.16666666666663" y="499.0" />
+      <point x="0.0" y="499.0" />
+      <point x="0.0" y="292.0" />
+      <point x="116.01388888888891" y="292.0" />
+      <point x="-60.0" y="64.0" />
+    </edge>
+    <edge source="basedatos.dao.LigaDAO" target="basedatos.modelo.LigaVO">
+      <point x="-83.5" y="-76.0" />
+      <point x="261.0" y="302.0" />
+      <point x="236.0138888888889" y="302.0" />
+      <point x="60.0" y="64.0" />
+    </edge>
+    <edge source="basedatos.InterfazDatos" target="basedatos.modelo.StatsUsuarioVO">
+      <point x="161.33333333333337" y="-88.0" />
+      <point x="505.83333333333337" y="499.0" />
+      <point x="689.0" y="499.0" />
+      <point x="689.0" y="292.0" />
+      <point x="575.9861111111111" y="292.0" />
+      <point x="62.0" y="136.0" />
+    </edge>
+    <edge source="basedatos.dao.LigaDAO" target="basedatos.modelo.StatsUsuarioVO">
+      <point x="250.5" y="-76.0" />
+      <point x="595.0" y="302.0" />
+      <point x="513.9861111111111" y="302.0" />
+      <point x="0.0" y="136.0" />
+    </edge>
+    <edge source="basedatos.InterfazDatos" target="basedatos.dao.LigaDAO">
+      <point x="0.0" y="-88.0" />
+      <point x="0.0" y="76.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="305.5" y="268.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+
