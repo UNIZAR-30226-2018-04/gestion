@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>basedatos</OriginalElement>
+  <nodes>
+    <node x="199.0" y="0.0">basedatos.modelo.LigaVO</node>
+    <node x="0.0" y="404.0">basedatos.dao.ArticuloDAO</node>
+    <node x="236.29464285714286" y="582.0">basedatos.InterfazDatos</node>
+    <node x="314.7321428571429" y="178.0">basedatos.modelo.ArticuloVO</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="basedatos.modelo.ArticuloVO" target="basedatos.modelo.LigaVO">
+      <point x="-45.0" y="-88.0" />
+      <point x="359.7321428571429" y="158.0" />
+      <point x="311.5" y="158.0" />
+      <point x="22.5" y="64.0" />
+    </edge>
+    <edge source="basedatos.dao.ArticuloDAO" target="basedatos.modelo.LigaVO">
+      <point x="-62.125" y="-64.0" />
+      <point x="186.375" y="384.0" />
+      <point x="196.33928571428572" y="384.0" />
+      <point x="196.33928571428572" y="158.0" />
+      <point x="266.5" y="158.0" />
+      <point x="-22.5" y="64.0" />
+    </edge>
+    <edge source="basedatos.dao.ArticuloDAO" target="basedatos.modelo.ArticuloVO">
+      <point x="62.125" y="-64.0" />
+      <point x="310.625" y="384.0" />
+      <point x="344.7321428571429" y="384.0" />
+      <point x="-60.0" y="88.0" />
+    </edge>
+    <edge source="basedatos.InterfazDatos" target="basedatos.modelo.ArticuloVO">
+      <point x="78.25" y="-76.0" />
+      <point x="471.0446428571429" y="557.0" />
+      <point x="507.5" y="557.0" />
+      <point x="507.5" y="384.0" />
+      <point x="464.7321428571429" y="384.0" />
+      <point x="60.0" y="88.0" />
+    </edge>
+    <edge source="basedatos.InterfazDatos" target="basedatos.dao.ArticuloDAO">
+      <point x="-78.25" y="-76.0" />
+      <point x="314.5446428571429" y="557.0" />
+      <point x="248.5" y="557.0" />
+      <point x="0.0" y="64.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="364.5" y="268.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>packageLocal</VISIBILITY>
+</Diagram>
+
