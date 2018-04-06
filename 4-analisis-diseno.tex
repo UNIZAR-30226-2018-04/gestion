@@ -90,6 +90,47 @@ La aplicación web que se va a desarrollar sigue un despliegue en tres capas con
 \label{fig:diagramaComponentes}
 \end{figure}
 
+\subsubsection{Base de Datos}
+
+Para la comunicación del sistema con la base de datos se ha utilizado el patrón DAO (Objeto de Acceso a Datos). Para ello se han implementado una serie de objetos VO que representan la información guardada de forma persistente y unos objetos DAO que abstraen las operaciones con el JDBC mediante métodos de Java. Para mayor seguridad de los datos, todos los posibles usos de la base se realizan a través de una interfaz que proporciona los métodos necesarios además de ofrecer un \textit{pool} de conexiones para aumentar la velocidad de la interacción cuando haya múltiples usuarios.\\
+
+Dado el gran número de clases empleado en la implementación del modelo, su representación se ha realizado mediante diferentes diagramas de clases enfocados en las diferentes funcionalidades de la base .
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/base_datos/clasesUsuario.png}
+\caption{Diagrama de clases para la funcionalidad de usuario}
+\label{fig:diagramaClasesUsuario}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/base_datos/clasesStats.png}
+\caption{Diagrama de clases para la funcionalidad de las estadísticas del usuario}
+\label{fig:diagramaClasesStats}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/base_datos/clasesPartida.png}
+\caption{Diagrama de clases para la funcionalidad de partida}
+\label{fig:diagramaClasesPartida}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/base_datos/clasesLiga.png}
+\caption{Diagrama de clases para la funcionalidad de liga}
+\label{fig:diagramaClasesLiga}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/base_datos/clasesArticulo.png}
+\caption{Diagrama de clases para la funcionalidad de artículo}
+\label{fig:diagramaClasesArticulo}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/base_datos/clasesArticuloUsuario.png}
+\caption{Diagrama de clases para la funcionalidad de los artículos de usuario}
+\label{fig:diagramaClasesArticuloUsuario}
+\end{figure}
 \subsection{Tecnologías elegidas}
 \begin{itemize}
 \item \textbf{Interfaz de la partida en el navegador web}. La interfaz del juego consiste en una única pantalla donde los jugadores que participan en la partida en curso se comunican. Se implementará utilizando JavaScript y Phaser. Phaser es un framework para desarrollo de juegos en HTML5 basado en la tecnología JavaScript.  \\ Se ha decidido utilizar JavaScript por la sencillez a la hora de ser visualizado en un navegador y se incorpora a la perfección con HTML5. Se ha barajado la posibilidad de utilizar Flash pero se descarta por estar obsoleta y porque algunos navegadores ya no lo soportan. También se podría haber utilizado Unity pero no se ha llevado a cabo por tener una curva de aprendizaje muy complicada.
