@@ -5,10 +5,12 @@
 A continuación se describen los objetivos principales de cada uno de los equipos de trabajo así como un pequeño resumen de cómo se ha desarrollado el trabajo de cada equipo en esta primera iteración. En el resto de la sección se describe detalladamente todo el desarrollo del proyecto.\\
 
 \subsubsection*{FrontEnd y Middleware}
-
+El principal objetivo del Frontend eran desarrollar las interfaces con las que los usuarios interaccionarían con la aplicación. Se distinguen dos interfaces, las de navegación web y la parte jugable del guiñote. La parte jugable se ha podido implementar en su mayoría, a falta del modo espectador y la parte de personalización. Sin embargo, la parte de la interfaz de navegación se completará para la segunda iteración, ya que únicamente se tienen las pantallas de login y la navegación.
+\\
+En cuanto al Middleware, el principal objetivo era comunicar la interfaz de juego para que los usuarios puedan jugar entre ellos, que se ha conseguido con éxito. Aun así, es necesario completar con la funcionalidad de que un usuario puede cambiar de dispositivo en una misma partida.
 
 \subsubsection*{BackEnd}
-El objetivo del equipo backend era desarrollar un paquete de java que representase la lógica del juego del guiñote, al mismo tiempo que desarrollaba gran parte de la página web dinámica del proyecto. Sin embargo a mitad de desarrollo el trabajo, se centró en acabar la parte de la lógica del juego. Dicho objetivo se ha cumplido completamente con algunos retrasos en la entrega. Como consecuencia la web dinámica arrastra un leve retraso que deberá ser compensado en la segunda iteración. A pesar de dichas dificultades el equipo ha trabajado mucho para conseguir una primera versión funcional antes de la primera iteración.
+El objetivo del equipo backend era desarrollar un paquete de java que representase la lógica del juego del guiñote, al mismo tiempo que desarrollaba gran parte de la página web dinámica del proyecto. Sin embargo, a mitad de desarrollo el trabajo, se centró en acabar la parte de la lógica del juego. Dicho objetivo se ha cumplido completamente con algunos retrasos en la entrega. Como consecuencia la web dinámica arrastra un leve retraso que deberá ser compensado en la segunda iteración. A pesar de dichas dificultades el equipo ha trabajado mucho para conseguir una primera versión funcional antes de la primera iteración.
 
 \subsubsection*{Base de datos}
 Los dos principales objetivos del equipo de bases de datos eran por una parte diseñar e implementar la base de datos para el sistema(esquema conceptual, lógico y físico) y por otra desarrollar la capa de acceso a datos proporcionando una interfaz para el backend. Los dos objetivos se han cumplido prácticamente en su totalidad, con excepción de la parte de acceso a datos relacionada con los torneos, que no ha sido posible terminar de implementar y será finalizada en la segunda iteración. Exceptuando las pequeñas dificultades iniciales relacionadas con un tardío diseño de la interfaz de acceso a datos, tanto la comunicación entre los miembros del equipo como con el resto de equipos relacionados con el acceso a los datos se ha desarrollado sin problemas.
@@ -46,14 +48,8 @@ Las características seleccionadas se deben al requerimiento de utilizar solamen
 En cuanto a formación, el equipo de bases de datos se formó en el funcionamiento de la api JDBC, así como en la utilización de pools de conexiones con c3p0. Al contrario de lo que se había establecido en los procesos de inicio del proyecto (sección \ref{inicio}), el equipo no se formó en lo que respecta a HTML/CSS y JSP, porque no lo requería para sus competencias en la primera iteración.
 \subsection{Ejecución y control del proyecto}
 \label{Ejecucion y control del proyecto}
-\subsubsection*{FrontEnd y Middleware}
-
-
-
-\subsubsection*{BackEnd}
 Los procesos de control no se han llevado a cabo tal y como estipulaba el primer plan de gestión. Ya que el director del proyecto no se ha coordinado con los responsables de grupo. Sin embargo a nivel local, los responsables de grupo si han dirigido y organizado sus respectivos grupos. Además no se ha producido ninguna situación que requiera de mediación ni necesidad de intervención extraordinaria por parte de los responsables. 
 Los procesos técnicos se han llevado a cabo tal y como estaban especificados en la primera versión del plan de gestión. Tanto en el apartado de pruebas como documentación. Aplicar los procesos acordados ha costado bastante por la falta de costumbre, sin embargo los ficheros fuente, pruebas y documentación obtenidos nos han permitido trabajar de forma más eficiente.
-
 \subsubsection{Reparto del trabajo}
 En un primer momento, el reparto de trabajo fue definido únicamente en relación a los equipos creados, como se detalla en la sección \ref{repartotrabajo}. Sin embargo, se detectó que este reparto, aunque necesario, era demasiado genérico y no permitía medir el progreso de forma clara. Por ello se decidió que dentro de cada equipo de trabajo se llevaría a cabo una división del trabajo en tareas o paquetes de trabajo, siguiendo la Estructura de Descomposición del Trabajo (WBS \cite{edt}). Cada paquete de trabajo corresponde a una tarea específica y claramente delimitada, como puede ser el desarrollo de una clase, y especifica un único responsable de este (no significa que sea la única persona que trabaje en él pero sí la responsable de su desarrollo). Para el control del progreso en relación a esta división del trabajo se ha utilizado el apartado Projects de GitHub, en el que cada paquete se marca con un tick cuando está finalizado y depurado.
 \begin{figure}[H]
@@ -70,39 +66,39 @@ En un primer momento, el reparto de trabajo fue definido únicamente en relació
 
 Es importante añadir que el trabajo de integración de los diferentes paquetes de trabajo no está reflejado en estos diagramas pero también ha sido necesario repartirlo y realizarlo.
 \subsubsection{Comunicación interna}
-\subsubsection*{Base datos}
-Se realizaron reuniones para diseñar las partes más importantes del desarrollo de la base de datos (diseño conceptual e interfaz de datos). Las reuniones fueron de tipo presencial y sirvieron para crear una esquema común sobre el que trabajar y para repartir los paquetes de trabajo entre los integrantes. Una vez definido el trabajo por persona la comunicación se redujo a la petición de alguna ayuda o sugerencia y para notificar comportamientos extraños o errores durante las pruebas.
-
 La decisión de la nueva estructura de grupos se realizó mediante una reunión entre los miembros afectados por el cambio.
-\subsubsection*{FrontEnd y Middleware}
-La comunicación entre el equipo se ha llevado a través del servicio de terceros Skype para, principalmente, resolver dudas acerca de como comunicar las distintas partes de la aplicación. Además, se utiliza el servicio de mensajería WhatsApp para reportar bugs, incidencias y comonunicaciones asíncronas.
-\subsubsection*{BackEnd}
-La comunicación del equipo del backend es mediante un grupo de Whatsapp. Inicialmente para discutir algunas decisiones de diseño se ha utilizado Skype. También se ha utilizado Skype junto con Floobits para la programación por parejas de los métodos más complejos y explicación de la configuración del proyecto para algunos de los miembros del equipo.
-Al inicio del proyecto la comunicación del equipo ha sido bastante pobre, ya que en algunos momentos varios integrantes del equipo han realizado la misma actividad por duplicado. En el desarrollo de los diferentes componentes cada miembro tenía su propio diseño en mente y ha sido necesario ponerse de acuerdo y plasmar el diseño en un diagrama UML de clases, que todos pudieran consultar y hacer referencia. Hacia el final de la primera iteración el equipo ha mejorado su comunicación en gran medida.
-Para la comunicación con otros equipos ha sido necesario realizar varias reuniones donde se ha especificado una interfaz común. De forma que la integración ha resultado bastante sencilla.
+En cuanto a la parte de BackEnd, al comienzo del proyecto la comunicación ha sido bastante pobre, ya que en algunos momentos los desarrolladores han realizado la misma actividad por duplicado. En el desarrollo de los diferentes componentes cada miembro tenía su propio diseño en mente y ha sido necesario ponerse de acuerdo y plasmar el diseño en un diagrama UML de clases, que todos pudieran consultar y hacer referencia. Hacia el final de la primera iteración el equipo ha mejorado su comunicación en gran medida.
+\\
+La comunicación entre los diferentes equipos se ha llevado a través del servicio de terceros Skype para, principalmente, resolver dudas acerca de como comunicar e integrar las distintas partes de la aplicación. Además, se utiliza el servicio de mensajería WhatsApp para reportar bugs, incidencias y comonunicaciones asíncronas. También se han llevado a cabo varias de tipo presencial reuniones para especificar interfaces comunes para facilitar la integración
+\\
+Se ha utilizado Floobits para la programación por parejas para las partes de la aplicación más complejas.
+
 \subsubsection{Adecuación a las herramientas y tecnologías}
-\subsubsection*{Base de Datos}
-La base de datos se ha implementado en el gestor elegido en un primer momento, MySQL en Amazon Aurora. Para la implementación se eligió Java como lenguaje de programación lo que ha permitido la utilización de librerias para la conexión de la base de datos (JDBC y c3p0). El desarrollo en Java fue acompañado del software IntelliJ que permitía el soporte para las librerías y el control de versiones. 
-\subsubsection*{FrontEnd y Middleware}
-Para el desarrollo de la interfaz de juego se ha utilizado la herramienta WebStorm, que permite de forma fácil hacer cambios en la interfaz y verlos reflejados de manera inmediata en el navegador. A su vez, se ha tenido que acompañar del software IntelliJ, para poder probar el funcionamiento del juego ya que se necesita del despliegue de la aplicación en Tomcat para poder probar las comunicaciones entre jugadores.
+% \subsubsection*{Base de Datos}
+La base de datos se ha desplegado en el gestor elegido en un primer momento, MySQL en Amazon Aurora. Para la implementación se eligió Java como lenguaje de programación lo que ha permitido la utilización de librerias para la conexión de la base de datos (JDBC y c3p0). El desarrollo en Java fue acompañado del software IntelliJ que permitía el soporte para las librerías y el control de versiones. Además permite programar en Java, por lo que el uso de la herramienta es una ventaja.
+\\
 
-Ambas herramientas no han dado ningún tipo de problema a la hora de desplegar la aplicación y probar las comunicaciones. El único problema ha sido que el equipo debe estar atento de no hacer ningún commit del archivo de configuración del proyecto, ya que incapacita al resto del equipo para trabajar y se ha de eliminar de forma manual.
-
-
-\subsubsection*{BackEnd}
+% \subsubsection*{FrontEnd y Middleware}
+En cuanto al desarrollo de la interfaz de juego se ha utilizado la herramienta WebStorm, que permite de forma fácil hacer cambios en la interfaz y verlos reflejados de manera inmediata en el navegador. A su vez, se ha tenido que acompañar del software IntelliJ, para poder probar el funcionamiento del juego ya que se necesita del despliegue de la aplicación en Tomcat para poder probar las comunicaciones entre jugadores.
+\\
+% \subsubsection*{BackEnd}
 Para el diseño de los diagramas de clases se ha utilizado la herramienta StarUML, la web draw.io y excel para los diagramas de las pruebas de caja blanca y las tablas para las pruebas de caja negra.
-Para el desarrollo del código del backend se ha utilizado el entorno de desarrollo IntelliJ IDEA ya que todo el código a desarrollar por este equipo era en Java.
-Además, se ha utilizado un plugin Floobits de Intellij para la programación en parejas ya que nos permitía trabajar remotamente a dos o más miembros sobre el mismo fichero en tiempo real utilizando dos cursores diferentes. Esta herramienta se ha utilizado para los métodos más difíciles como por ejemplo lanzarCarta de la clase EstadoPartida.
-El principal problema encontrado fue la tecnología utilizada ya que Java funciona con asociación dinámica. Todos los parámetros y tipos devueltos por las funciones son punteros. Esta característica hace que la encapsulación de los objetos desaparezca. Cuando se devuelve cualquier clase como resultado de un método, es necesario crear una replica exacta del objeto en memoria, para que el usuario no modifique los atributos privados de la clase. Por ejemplo, la clase logica\_partida debe devolver una copia exacta de su atributo interno estado\_partida con cada operación. Si en lugar de realizar una copia devuelve un puntero, un usuario externo puede modificar dicho estado con las funciones públicas de la clase estado\_partida clase.
+Se ha utilizado un plugin Floobits de Intellij para la programación en parejas ya que nos permitía trabajar remotamente a dos o más miembros sobre el mismo fichero en tiempo real utilizando dos cursores diferentes. Esta herramienta se ha utilizado para los métodos más difíciles como por ejemplo lanzarCarta de la clase EstadoPartida.
+El principal problema encontrado fue que la tecnología utilizada ya que Java funciona con asociación dinámica. Todos los parámetros y tipos devueltos por las funciones son punteros. Esta característica hace que la encapsulación de los objetos desaparezca. Cuando se devuelve cualquier clase como resultado de un método, es necesario crear una replica exacta del objeto en memoria, para que el usuario no modifique los atributos privados de la clase. Por ejemplo, la clase logica\_partida debe devolver una copia exacta de su atributo interno estado\_partida con cada operación. Si en lugar de realizar una copia devuelve un puntero, un usuario externo puede modificar dicho estado con las funciones públicas de la clase estado\_partida clase.
+\\
+Uno de los principales problemas al trabajar con IntelliJ ha sido que el equipo olvida en ocasiones que no se debe subir el archivo de configuración, ya que incapacita al resto del equipo para trabajar y se ha de eliminar de forma manual.
+
 \subsubsection{Control de versiones}
+\subsubsection*{FrontEnd y Middleware}
+En cuanto al control de versiones, no ha habido ningún problema grave. Si algún miembro de un equipo modifica algún fichero de otro equipo, el commit que se realice especifica de forma clara y directa que es lo que ha modificado. Para cambios grandes se pone en contacto con el responsable del equipo para solucionar el problema.
 \subsubsection*{Base de Datos}
 El mayor problema encontrado consecuencia de la utilización del control de versiones fue debido a la existencia de un fichero \textit{properties} con la información privada de acceso a la base de datos, que no debía de estar subida al repositorio público. Al no existir ese fichero en un repositorio público, se tuvo que compartir de forma privada y cada usuario colocó el fichero en lugares distintos, provocando errores al compilar dependiendo de la ruta del fichero.
 \subsubsection*{Integración y despliegue}
-\subsubsection*{FrontEnd y Middleware}
-En cuanto al control de versiones, no ha habido ningún problema grave. Si algún miembro de un equipo modifica algún fichero de otro equipo, el commit que se realice especifica de forma clara y directa que es lo que ha modificado. Para cambios grandes se pone en contacto con el responsable del equipo para solucionar el problema.
-\subsubsection*{Bases datos y Backend}
 En cuanto a la integración entre el acceso a datos y el backend, se detectó un claro problema de comunicación entre los grupos a mitad del desarrollo debido a que no existía una interfaz definida de forma precisa desde un primer momento. Únicamente se había comentado una interfaz ambigua que diferentes partes entendían de forma distinta, y que además, sin las definiciones concretas de las funciones, impedía llevar a cabo el desarrollo en paralelo. Cuando se detectó el problema, hubo una reunión entre ambos grupos para definir esta interfaz de acceso a los datos. Gracias a este incidente se ha aprendido la importancia del desarrollo de interfaces entre los distintos componentes de los sistemas.
 El despliegue del servidor de bases de datos se realizó en AWS sin mayores problemas. En cuanto al despliegue del servidor web hubo problemas debido a una configuración de red de la máquina virtual. Tras localizar el problema se pudo solventar y finalmente acceder al servidor mediante SSH sin problemas.
+
+Para desplegar la aplicación web, se ha utilizado el servidor Tomcat en local junto con la herramienta IntelliJ. Surgieron problemas con las versiones de Tomcat por lo que hubo que adaptar el código para que funcionara en la última versión. En cuanto a la parte jugable, se despliega directamente con la herramienta WebStorm y se ejecuta en el navegador Chrome.
+
 \subsubsection{Pruebas del software}
 \subsubsection*{FrontEnd y Middleware}
 Para probar la interfaz de juego se ha utilizado la herramienta Jasmine \footnote{ \url{https://jasmine.github.io/} }, que permite hacer tests unitarios en JavaScript. Se ha creado un protipo de una partida de prueba y se comprueba que el software pasa todos los tests diseñados.
