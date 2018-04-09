@@ -115,24 +115,139 @@ El principal problema encontrado fue que la tecnología utilizada ya que Java fu
 Uno de los principales problemas al trabajar con IntelliJ ha sido que el equipo olvida en ocasiones que no se debe subir el archivo de configuración, ya que incapacita al resto del equipo para trabajar y se ha de eliminar de forma manual.
 
 \subsubsection{Control de versiones}
-\subsubsection*{FrontEnd y Middleware}
-En cuanto al control de versiones, no ha habido ningún problema grave. Si algún miembro de un equipo modifica algún fichero de otro equipo, el commit que se realice especifica de forma clara y directa que es lo que ha modificado. Para cambios grandes se pone en contacto con el responsable del equipo para solucionar el problema.
-\subsubsection*{Base de Datos}
-El mayor problema encontrado consecuencia de la utilización del control de versiones fue debido a la existencia de un fichero \textit{properties} con la información privada de acceso a la base de datos, que no debía de estar subida al repositorio público. Al no existir ese fichero en un repositorio público, se tuvo que compartir de forma privada y cada usuario colocó el fichero en lugares distintos, provocando errores al compilar dependiendo de la ruta del fichero.
-\subsubsection*{Integración y despliegue}
+%\subsubsection*{FrontEnd y Middleware}
+La utilización de git ha sido de gran ayuda a la hora de integrar el código desarrollado por cada miembro del grupo. Si algún miembro de un equipo modifica algún fichero de otro equipo, el commit que se realice especifica de forma clara y directa que es lo que ha modificado. Para cambios grandes se pone en contacto con el responsable del equipo para solucionar el problema. Se ha utilizado git desde el software de desarrollo intellij IDEA, en vez de hacerlo directamente sobre la línea de comandos, para subir y actualizar el proyecto de manera más rápida y cómoda. Esto ha sumado en el tiempo de aprendizaje del uso de los IDE’s.Un problema que surgió al principio del desarrollo del proyecto relacionado con el uso de git fue no realizar commits de manera frecuente, lo que provocó que algunos miembros realizarán el mismo trabajo. Para solucionarlo, se está realizando commits de manera más frecuente y se está utilizando las task lists de github para llevar un control de lo que se ha realizado o de lo que falta por realizarse o probar. Otro de los problemas encontrados consecuencia de la utilización del control de versiones fue debido a la existencia de un fichero \textit{properties} con la información privada de acceso a la base de datos, que no debía de estar subida al repositorio público. Al no existir ese fichero en un repositorio público, se tuvo que compartir de forma privada y cada usuario colocó el fichero en lugares distintos, provocando errores al compilar dependiendo de la ruta del fichero.
+
+%\subsubsection*{Base de Datos}
+
+%\subsubsection*{Integración y despliegue}
 En cuanto a la integración entre el acceso a datos y el backend, se detectó un claro problema de comunicación entre los grupos a mitad del desarrollo debido a que no existía una interfaz definida de forma precisa desde un primer momento. Únicamente se había comentado una interfaz ambigua que diferentes partes entendían de forma distinta, y que además, sin las definiciones concretas de las funciones, impedía llevar a cabo el desarrollo en paralelo. Cuando se detectó el problema, hubo una reunión entre ambos grupos para definir esta interfaz de acceso a los datos. Gracias a este incidente se ha aprendido la importancia del desarrollo de interfaces entre los distintos componentes de los sistemas.
 El despliegue del servidor de bases de datos se realizó en AWS sin mayores problemas. En cuanto al despliegue del servidor web hubo problemas debido a una configuración de red de la máquina virtual. Tras localizar el problema se pudo solventar y finalmente acceder al servidor mediante SSH sin problemas.
 
 Para desplegar la aplicación web, se ha utilizado el servidor Tomcat en local junto con la herramienta IntelliJ. Surgieron problemas con las versiones de Tomcat por lo que hubo que adaptar el código para que funcionara en la última versión. En cuanto a la parte jugable, se despliega directamente con la herramienta WebStorm y se ejecuta en el navegador Chrome.
 
 \subsubsection{Pruebas del software}
-\subsubsection*{FrontEnd y Middleware}
+Para asegurar el correcto funcionamiento del software, cada equipo ha realizado pruebas unitarias para las funciones más complicadas que puedan generar errores.
+
+%\subsubsection*{FrontEnd y Middleware}
 Para probar la interfaz de juego se ha utilizado la herramienta Jasmine \footnote{ \url{https://jasmine.github.io/} }, que permite hacer tests unitarios en JavaScript. Se ha creado un protipo de una partida de prueba y se comprueba que el software pasa todos los tests diseñados.
+%\subsubsection*{Bases datos}
+
+La base de datos implementada en MySQL fue probada mediante la inserción de datos falsos de ejemplo, y la realización de consultas sencillas sobre ella, que garantizan el correcto funcionamiento. La interfaz de acceso a datos ha sido probada mediante pruebas unitarias. Se desarrolló un programa de pruebas al final del desarrollo de cada clase DAO, probando función a función sobre los datos de ejemplo introducidos, y solucionando errores de implementación. Para comprobar el funcionamiento de las clases a una escala mayor se escribió un programa en Python que generaba el código de Java que probaba la base de datos insertando nuevos datos. De esta forma también se tiene la base de datos poblada con datos de apariencia real, lo que puede ser beneficioso para pruebas de otros equipos.
+
+Todas las funciones de la lógica han sido sometido a algún tipo de prueba. El criterio que se ha seguido consiste en probar la funciones más triviales mediante pruebas de caja negra utilizando la técnica de clases de equivalencia y análisis de casos extremos para las funciones más triviales que operan en ciertos rango. 
+Por ejemplo, para la función de getPuntuación perteneciente al módulo Carta se ha utilizado la técnica de análisis de casos extremos. De esta forma se prueban todas las cartas que tienen una puntuación mayor que 0 y una de las que tienen puntuación 0.
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{Devuelve la puntuación de la carta según las normas del guiñote} \\ \hline
+\multicolumn{2}{|c|}{public int getPuntuación()} \\ \hline
+Casos extremos (valor de la carta) & Resultado \\ \hline
+   	1 & 11 \\ \hline
+	3 & 10 \\ \hline
+	12 & 4 \\ \hline
+	10 & 3 \\ \hline
+	11 & 2 \\ \hline
+	2 & 0 \\ \hline
+ \end{tabular}
+ \caption{Pruebas de la función getPuntuación().}
+\label{}
+\end{table}
+
+Para funciones con más complejidad como pueden ser los constructores y que además están formados por bucles se realizan pruebas de caja blanca utilizando la técnica de análisis de caminos. Este tipo de pruebas es especialmente utilizado en los constructores de las clases y algunos getters no triviales de dichas clases. 
+A continuación se muestra el grafo de caminos y los valores de las pruebas para la función getCartasEnMano de la clase Jugador.
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.8]{figuras/getCartas.png}
+		\caption{Grafo de caminos de la función.}
+	\end{figure}
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{3}{|c|}{Devuelve una lista con las cartas en mano del jugador} \\ \hline
+\multicolumn{3}{|c|}{public int getPuntuación()} \\ \hline
+Cartas del jugador & Camino de la ejecución (estados) & Resultado \\ \hline	
+C1 & S1, S2, S3, S4 & C1 \\ \hline
+ \end{tabular}
+ \caption{Entorno de prueba de la función.}
+\label{}
+\end{table}
+
+Basta con una ejecución de la función porque si el jugador tiene solo una carta en la mano se prueban todos los caminos posibles del grafo.
+
+Para las más complejas de la lógica como la función lanzarCarta de EstadoPartida y la función siguienteRonda se han realizado pruebas de caja negra para comprobar el correcto funcionamiento ya que son las funciones más importantes de la lógica del guiñote.
+
+Para la función lanzarCarta las pruebas se realizan para los casos donde ya no queden cartas en el mazo (ronda de arrastre), debido a que antes del arrastre no existen restricciones en las cartas que se pueden tirar. Se separan las pruebas en dos: las pruebas para una partida de uno contra uno al segundo jugador tiene que lanzar una carta y las pruebas para el tercer jugador en lanzar cuando la partida es dos contra dos. No se han realizado pruebas para el primer jugador en lanzar ya que no tiene restricciones ni al cuarto ya que el código ejecutado es el mismo que para el tercer jugador.
+
+\begin{center}
+    \begin{tabular}{ | p{10cm} | p{5cm} |}
+    \hline
+\multicolumn{2}{|p{14cm}|}{Lanza la carta c por el Jugador "jugador". Si no es su turno, no posee dicha carta o incumple alguna de las reglas del guiñote, lanza una excepción.} \\ \hline
+\multicolumn{2}{|l|}{public EstadoPartida lanzarCarta(String jugador, Carta c)} \\ \hline
+{Casos durante la ronda de arrastre (2º jugador)} & Resultado \\ \hline
+Lanza una carta de un palo diferente al inicial teniendo del mismo palo & Lanza excepción CartaIncorrecta \\ \hline
+Lanza una carta del mismo palo al inicial pero de valor inferior teniendo una carta de valor superior y mismo palo al inicial & Lanza excepción CartaIncorrecta \\ \hline
+Sin tener cartas del palo de la carta inicial, lanza una carta de un palo cualquiera teniendo triunfo & Lanza excepción CartaIncorrecta \\ \hline
+Lanza una carta superior del mismo palo al inicial & Se añade la carta a la lista de cartas en el tapete \\ \hline
+Lanza una carta inferior y del mismo palo a la inicial sin tener en la mano una superior del mismo palo & Se añade la carta a la lista de cartas en el tapete \\ \hline
+Sin tener cartas del palo incial, lanza una carta del palo del triunfo & Se añade la carta a la lista de cartas en el tapete \\ \hline
+Sin tener cartas del palo inicial o del palo del triunfo, lanza una carta cualquiera & Se añade la carta a la lista de cartas en el tapete \\ \hline
+Casos durante la ronda de arrastre (3º jugador) & Resultado \\ \hline
+Lanza una carta de un palo diferente al inicial teniendo del mismo palo & Lanza excepción CartaIncorrecta \\ \hline
+Con obligación de matar(el compañero no tiene la carta con mayor valor), lanza una carta que no mate teniendo una carta de valor superior y mismo palo al inicial que mata al rival & Lanza excepción CartaIncorrecta \\ \hline
+Con obligación de matar(el compañero no tiene la carta con mayor valor) y sin tener carta del palo inicial, lanza una carta que no mate teniendo triunfo & Lanza excepción CartaIncorrecta \\ \hline
+Habiendo matado el rival sin triunfo, lanza una carta superior del mismo palo al inicial & Se añade la carta a la lista de cartas en el tapete \\ \hline
+Habiendo matado el rival sin triunfo, lanza triunfo para matar & Se añade la carta a la lista de cartas en el tapete \\ \hline
+Habiendo matado el compañero y sin tener del palo incial, lanza una carta de un palo cualquiera & Se añade la carta a la lista de cartas en el tapete \\ \hline
+
+    \end{tabular}
+    
+\end{center}
+
+
+Para la función siguienteRonda se ha probado cada caso donde un jugador diferente ganaba y se ha comprobado que sumaba los puntos correspondientes al equipo que ganaba. Además se ha verificado que tras la última baza si se alcanzaban los 100 puntos por parte de un equipo se daba por finalizada la partida y en caso de no alcanzarse se daba comienzo a la partida de vueltas.
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{| p{7cm} | p{7cm} |}
+\hline
+\multicolumn{2}{|c|}{Asigna el turno y puntuación de las cartas del tapete de cada ronda al ganador de la ronda} \\ \hline
+\multicolumn{2}{|l|}{public EstadoPartida siguienteRonda()} \\ \hline
+Casos (4 jugadores) & Resultado \\ \hline
+   	
+Se ejecuta la función habiendo lanzado carta los tres primeros jugadores & Lanza excepción RondaNoAcabada \\ \hline
+Se ejecuta sin que ningún jugador lance triunfo ni supere al primer jugador & Turno==0 ganadorUltimaRonda==0 
+Puntuación j1 igual a la suma del valor de las cartas 
+Puntuación j1 == Puntuación j3 \\ \hline
+El jugador 2 mata con una carta superior & Turno==1 ganadorUltimaRonda==1
+Puntuación j2 igual a la suma del valor de las cartas
+Puntuación j2 == Puntuación j4 \\ \hline
+El jugador 3 mata con un triunfo después de que el jugador 2 haya matado & Turno==2 ganadorUltimaRonda==2
+Puntuación j1 igual a la suma del valor de las cartas
+Puntuación j1 == Puntuación j3 \\ \hline
+El jugador 4 mata con un triunfo superior después de que el jugador 3 haya matado & Turno==3 ganadorUltimaRonda==3
+Puntuación j2 igual a la suma del valor de las cartas
+Puntuación j2 == Puntuación j4 \\ \hline
+En la última baza el jugador 4 mata con un triunfo superior después de que el jugador 3 haya matado sin superar los 100 puntos & Turno==3 ganadorUltimaRonda==3
+Puntuación j2 igual a la suma del valor de las cartas
+Puntuación j2 == Puntuación j4
+deVueltas==1 \\ \hline
+En la última baza el jugador 4 mata con un triunfo superior después de que el jugador 3 haya matado superando así los 100 puntos & Lanza excepción PartidaFinalizada \\ \hline
+
+ \end{tabular}
+ \caption{Pruebas de la función siguienteRonda().}
+\label{}
+\end{center}
+\end{table}
 
 Al tratarse de un videojuego, es difícil abordar todos las posibles situaciones de la partida, por lo que para probarlo, se hace el trabajo similar al de un tester, donde juega partidas y fuerza situaciones que se salen de lo normal para comprobar el comportamiento de la partida. Cuando se detecta algún bug, se notifica a través de un issue en GitHub para que el equipo causante del mismo lo solucione.
 
-\subsubsection*{Bases datos}
-La base de datos implementada en MySQL fue probada mediante la inserción de datos falsos de ejemplo, y la realización de consultas sencillas sobre ella, que garantizan el correcto funcionamiento. La interfaz de acceso a datos ha sido probada mediante pruebas unitarias. Se desarrolló un programa de pruebas al final del desarrollo de cada clase DAO, probando función a función sobre los datos de ejemplo introducidos, y solucionando errores de implementación. Para comprobar el funcionamiento de las clases a una escala mayor se escribió un programa en Python que generaba el código de Java que probaba la base de datos insertando nuevos datos. De esta forma también se tiene la base de datos poblada con datos de apariencia real, lo que puede ser beneficioso para pruebas de otros equipos.
+
 
 \subsubsection*{Progreso y Divergencias frente a la planificación inicial}
 \subsubsection*{FrontEnd y Middleware}
