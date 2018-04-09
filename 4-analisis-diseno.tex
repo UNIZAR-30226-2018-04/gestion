@@ -142,6 +142,24 @@ Se ha descartado utilizar Sockets.io ya que va ligado a Node.js, que es una tecn
 \item \textbf{Base de datos}. Se utilizará un Sistema Gestor de Bases de Datos relacional, ya que la principales consultas que se hacen son de tipo JOIN. Se ha decidido utilizar MySQL ya que es un sistema que el equipo domina. La desventaja es que es poco eficiente en comparación con otros como Oracle, pero para el número de usuarios que tendrá la aplicación es suficiente con dicho gestor.
 \end{itemize}
 
+\subsubsection{BackEnd}
+
+Para la implementación de la lógica del juego se ha análizado el dominio del problema y se ha realizado un primer diseño de clases de análisis. Posteriormente se ha implementado objeto a objeto el diseño inicial y al mismo tiempo actualizando el diagrama de clases.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/logica_juego/diagramaClasesDisenyo.png}
+\caption{Diagrama de clases en la fase de análisis del problema}
+\label{fig:diagramaClasesLogicaJuegoInicial}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/logica_juego/diagramaClasesImplementacion.png}
+\caption{Diagrama de clases final}
+\label{fig:diagramaClasesLogicaJuegoFinal}
+\end{figure}
+
 \subsection{Despliegue}
 La aplicación se pondrá en marcha en un servidor Tomcat, ya que permite la instalación de aplicaciones web en formato .war. Se distinguen dos aplicaciones diferentes: la que dará soporte a la lógica de la aplicación y la encargada de coordinar una partida en curso. Ambas se comunicarán indirectamente a través de la base de datos y estarán coordinadas. \\
 La base de datos será relacional ya que se necesitan muchas consultas de los datos almacenados y para cada partida hay varias inserciones o actualización de los datos almacenados. El sistema gestor de la base de datos va a ser MySQL porque se ahorran costes al ser un SGBD de código abierto y no tener que adquirir una licencia de pago. Además, el equipo cuentan con experiencia en el diseño e implementación de bases de datos utilizando MySQL. \\
