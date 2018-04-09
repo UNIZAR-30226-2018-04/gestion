@@ -17,19 +17,14 @@ Durante la primera semana el equipo adquirió y configuró el software de desarr
 \subsubsection*{Base de datos}
 En el inicio del proyecto el equipo realizó la configuración de la base de datos en AWS, utilizando Amazon Aurora sobre MySQL como se había decidido. Las principales características de la base de datos utilizada para el proyecto se detallan a continuación:
 
-\begin{lstlisting}
-Aurora compatible mysql 5.7.12
-
-db.t2.small - 1 CPU, 2 GIB RAM
-
-Instance identifier: sotayrey-aurora
-
-DB cluster identifier: sotayrey-cluster
-
-Database name: sotayrey\_db
-
-Backup every 30 days
-\end{lstlisting}
+\begin{itemize}
+	\item Versión Software: Aurora MySQL 5.7.12
+	\item Hardware: 1 CPU, 2GB RAM
+	\item Identificador de la Intancia: sotayrey-aurora
+	\item Identificador del Cluster: sotayrey-cluster
+	\tiem Identificador de la base de datos: sotayrey_db
+	\item Copia de Seguridad: Cada 30 días
+\end{itemize}
 
 Las características seleccionadas se deben al requerimiento de utilizar solamente aquellos recursos disponibles para la versión gratuita de estudiantes, que es con la que se está trabajando. Además, el servidor de base de datos se ha configurado de forma que se puede acceder desde el exterior para hacer más fácil el acceso durante el desarrollo de la base de datos, pero este será deshabilitado una vez el sistema esté desplegado, por razones de seguridad.\\
 
@@ -60,7 +55,10 @@ En un primer momento, el reparto de trabajo fue definido únicamente en relació
 
 Es importante añadir que el trabajo de integración de los diferentes paquetes de trabajo no está reflejado en estos diagramas pero también ha sido necesario repartirlo y realizarlo.
 \subsubsection{Comunicación interna}
+\subsubsection*{Base datos}
+Se realizaron reuniones para diseñar las partes más importantes del desarrollo de la base de datos (diseño conceptual e interfaz de datos). Las reuniones fueron de tipo presencial y sirvieron para crear una esquema común sobre el que trabajar y para repartir los paquetes de trabajo entre los integrantes. Una vez definido el trabajo por persona la comunicación se redujo a la petición de alguna ayuda o sugerencia y para notificar comportamientos extraños o errores durante las pruebas.
 \subsubsection{Adecuación a las herramientas y tecnologías}
+El gestor de base de datos elegido ha 
 \subsubsection{Control de versiones}
 \subsubsection{Integración y despliegue}
 En cuanto a la integración entre el acceso a datos y el backend, se detectó un claro problema de comunicación entre los grupos a mitad del desarrollo debido a que no existía una interfaz definida de forma precisa desde un primer momento. Únicamente se había comentado una interfaz ambigua que diferentes partes entendían de forma distinta, y que además, sin las definiciones concretas de las funciones, impedía llevar a cabo el desarrollo en paralelo. Cuando se detectó el problema, hubo una reunión entre ambos grupos para definir esta interfaz de acceso a los datos y fue solucionado el problema. Gracias a este incidente se ha aprendido la importancia del desarrollo de interfaces entre los distintos componentes de los sistemas.
