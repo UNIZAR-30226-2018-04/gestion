@@ -5,10 +5,12 @@
 A continuación se describen los objetivos principales de cada uno de los equipos de trabajo así como un pequeño resumen de cómo se ha desarrollado el trabajo de cada equipo en esta primera iteración. En el resto de la sección se describe detalladamente todo el desarrollo del proyecto.\\
 
 \subsubsection*{FrontEnd y Middleware}
-
+El principal objetivo del Frontend eran desarrollar las interfaces con las que los usuarios interaccionarían con la aplicación. Se distinguen dos interfaces, las de navegación web y la parte jugable del guiñote. La parte jugable se ha podido implementar en su mayoría, a falta del modo espectador y la parte de personalización. Sin embargo, la parte de la interfaz de navegación se completará para la segunda iteración, ya que únicamente se tienen las pantallas de login y la navegación.
+\\
+En cuanto al Middleware, el principal objetivo era comunicar la interfaz de juego para que los usuarios puedan jugar entre ellos, que se ha conseguido con éxito. Aun así, es necesario completar con la funcionalidad de que un usuario puede cambiar de dispositivo en una misma partida.
 
 \subsubsection*{BackEnd}
-El objetivo del equipo backend era desarrollar un paquete de java que representase la lógica del juego del guiñote, al mismo tiempo que desarrollaba gran parte de la página web dinámica del proyecto. Sin embargo a mitad de desarrollo el trabajo, se centró en acabar la parte de la lógica del juego. Dicho objetivo se ha cumplido completamente con algunos retrasos en la entrega. Como consecuencia la web dinámica arrastra un leve retraso que deberá ser compensado en la segunda iteración. A pesar de dichas dificultades el equipo ha trabajado mucho para conseguir una primera versión funcional antes de la primera iteración.
+El objetivo del equipo backend era desarrollar un paquete de java que representase la lógica del juego del guiñote, al mismo tiempo que desarrollaba gran parte de la página web dinámica del proyecto. Sin embargo, a mitad de desarrollo el trabajo, se centró en acabar la parte de la lógica del juego. Dicho objetivo se ha cumplido completamente con algunos retrasos en la entrega. Como consecuencia la web dinámica arrastra un leve retraso que deberá ser compensado en la segunda iteración. A pesar de dichas dificultades el equipo ha trabajado mucho para conseguir una primera versión funcional antes de la primera iteración.
 
 \subsubsection*{Base de datos}
 Los dos principales objetivos del equipo de bases de datos eran por una parte diseñar e implementar la base de datos para el sistema(esquema conceptual, lógico y físico) y por otra desarrollar la capa de acceso a datos proporcionando una interfaz para el backend. Los dos objetivos se han cumplido prácticamente en su totalidad, con excepción de la parte de acceso a datos relacionada con los torneos, que no ha sido posible terminar de implementar y será finalizada en la segunda iteración. Exceptuando las pequeñas dificultades iniciales relacionadas con un tardío diseño de la interfaz de acceso a datos, tanto la comunicación entre los miembros del equipo como con el resto de equipos relacionados con el acceso a los datos se ha desarrollado sin problemas.
@@ -49,14 +51,8 @@ Las características seleccionadas se deben al requerimiento de utilizar solamen
 En cuanto a formación, el equipo de bases de datos se formó en el funcionamiento de la api JDBC, así como en la utilización de pools de conexiones con c3p0. Al contrario de lo que se había establecido en los procesos de inicio del proyecto (sección \ref{inicio}), el equipo no se formó en lo que respecta a HTML/CSS y JSP, porque no lo requería para sus competencias en la primera iteración.
 \subsection{Ejecución y control del proyecto}
 \label{Ejecucion y control del proyecto}
-\subsubsection*{FrontEnd y Middleware}
-
-
-
-\subsubsection*{BackEnd}
 Los procesos de control no se han llevado a cabo tal y como estipulaba el primer plan de gestión. Ya que el director del proyecto no se ha coordinado con los responsables de grupo. Sin embargo a nivel local, los responsables de grupo si han dirigido y organizado sus respectivos grupos. Además no se ha producido ninguna situación que requiera de mediación ni necesidad de intervención extraordinaria por parte de los responsables. 
 Los procesos técnicos se han llevado a cabo tal y como estaban especificados en la primera versión del plan de gestión. Tanto en el apartado de pruebas como documentación. Aplicar los procesos acordados ha costado bastante por la falta de costumbre, sin embargo los ficheros fuente, pruebas y documentación obtenidos nos han permitido trabajar de forma más eficiente.
-
 \subsubsection{Reparto del trabajo}
 En un primer momento, el reparto de trabajo fue definido únicamente en relación a los equipos creados, como se detalla en la sección \ref{repartotrabajo}. Sin embargo, se detectó que este reparto, aunque necesario, era demasiado genérico y no permitía medir el progreso de forma clara. Por ello se decidió que dentro de cada equipo de trabajo se llevaría a cabo una división del trabajo en tareas o paquetes de trabajo, siguiendo la Estructura de Descomposición del Trabajo (WBS \cite{edt}). Cada paquete de trabajo corresponde a una tarea específica y claramente delimitada, como puede ser el desarrollo de una clase, y especifica un único responsable de este (no significa que sea la única persona que trabaje en él pero sí la responsable de su desarrollo). Para el control del progreso en relación a esta división del trabajo se ha utilizado el apartado Projects de GitHub, en el que cada paquete se marca con un tick cuando está finalizado y depurado.
 \begin{figure}[H]
@@ -97,8 +93,6 @@ El principal problema encontrado fue la tecnología utilizada ya que Java funcio
 \subsubsection*{Integración y despliegue}
 \subsubsection*{FrontEnd y Middleware}
 En cuanto al control de versiones, no ha habido ningún problema grave. Si algún miembro de un equipo modifica algún fichero de otro equipo, el commit que se realice especifica de forma clara y directa que es lo que ha modificado. Para cambios grandes se pone en contacto con el responsable del equipo para solucionar el problema.
-\subsubsection*{FrontEnd y Middleware}
-
 \subsubsection*{Bases datos y Backend}
 En cuanto a la integración entre el acceso a datos y el backend, se detectó un claro problema de comunicación entre los grupos a mitad del desarrollo debido a que no existía una interfaz definida de forma precisa desde un primer momento. Únicamente se había comentado una interfaz ambigua que diferentes partes entendían de forma distinta, y que además, sin las definiciones concretas de las funciones, impedía llevar a cabo el desarrollo en paralelo. Cuando se detectó el problema, hubo una reunión entre ambos grupos para definir esta interfaz de acceso a los datos. Gracias a este incidente se ha aprendido la importancia del desarrollo de interfaces entre los distintos componentes de los sistemas.
 El despliegue del servidor de bases de datos se realizó en AWS sin mayores problemas. En cuanto al despliegue del servidor web,...TODO
