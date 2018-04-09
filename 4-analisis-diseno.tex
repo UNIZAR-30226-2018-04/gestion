@@ -91,8 +91,27 @@ La distribución de las diferentes partes se puede apreciar en el diagrama de co
 \end{figure}
 
 \subsubsection{Base de Datos}
+El primer paso en el diseño de la base de datos fue plantear el esquema entidad relación como esquema conceptual del problema. Una vez diseñado el paso a un esquema relacional fue sencillo.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/base_datos/diagrama-conceptual.pdf}
+\caption{Esquema Conceptual}
+\label{fig:diagramaConceptual}
+\end{figure}
+
+Antes de llegar al esquema actual se plantearon otras posibilidades, primeramente por una falta de claridad entre los datos que debían ser persistentes y los que no. En un primer momento se creó una entidad Espera, débil respecto a un Usuario que representaba que un usuario estaba esperando para encontrar jugadores. Finalmente la entidad no existe y la información de una espera no es almacenada en la base de datos. Las partidas son introducidas en la base cuando se empieza una partida, para así poder tener la información de las partidas en curso. La parte con más dificultad es la relacionada con los torneos. Para representar los torneos existen las fases, entendidas como octavos, cuartos, semifinales... Una partida puede estar ligada a una fase, y la fase pertenece a un torneo. Finalmente los jugadores están relacionados con una fase para poder emparejar jugadores.\\
 
 Para la comunicación del sistema con la base de datos se ha utilizado el patrón DAO (Objeto de Acceso a Datos). Para ello se han implementado una serie de objetos VO que representan la información guardada de forma persistente y unos objetos DAO que abstraen las operaciones con el JDBC mediante métodos de Java. Para mayor seguridad de los datos, todos los posibles usos de la base se realizan a través de una interfaz que proporciona los métodos necesarios además de ofrecer un \textit{pool} de conexiones para aumentar la velocidad de la interacción cuando haya múltiples usuarios.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figuras/base_datos/Componentes.pdf}
+\caption{Esquema de la estructura del acceso a datos}
+\label{fig:componentesbases}
+\end{figure}
+
+Los clientes que usen la base de datos deben realizar todas las operaciones a través de la Interfaz de Datos. La Interfaz utiliza el pool manager para no tener que crear una nueva conexión con cada cliente y poder reutilizarlas. La Interfaz invocará a las clases DAO que utilizaran las conexiones para conectarse finalmente con la base. Las clases VO sirven para representar los objetos de la base en la comunicación entre las clases.\\
 
 Dado el gran número de clases empleado en la implementación del modelo, su representación se ha realizado mediante diferentes diagramas de clases enfocados en las diferentes funcionalidades de la base .
 \begin{figure}[H]
