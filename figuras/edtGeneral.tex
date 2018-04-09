@@ -7,18 +7,22 @@
 \tikzset{
   basic/.style  = {draw, text width=3cm, drop shadow, font=\sffamily, rectangle},
   root/.style   = {basic, rounded corners=2pt, thin, align=center,
-                   fill=white},
+                   fill=white,sibling distance=45mm},
+  level 1/.style = {basic, rounded corners=6pt, thin,align=center,
+                   text width=10em,sibling distance=80mm},
   level 2/.style = {basic, rounded corners=6pt, thin,align=center,
-                   text width=10em},
+                   text width=10em,sibling distance=40mm},
   level 3/.style = {basic, rounded corners=6pt, thin,align=center,
-                   text width=10em},
+                   text width=10em,sibling distance=450mm},
 }
 
 \begin{document}
 
 \begin{tikzpicture}[
-  level 1/.style={sibling distance=45mm},
   edge from parent/.style={->,draw},
+  %level 1/.style={sibling distance=45mm},
+  %level 2/.style={sibling distance=45mm},
+  %level 2/.style={sibling distance=5mm},
   >=latex]
 
 % raiz inicial
@@ -29,7 +33,7 @@
         child {node[level 3, fill=blue!50] (c12) {1.2. Desarrollo Gestor de Mensajes}}}
   child {node[level 2, fill=yellow!80] (c2) {2. BackEnd \\ y Lógica}
         child {node[level 3, fill=yellow!60] (c21) {2.1. Lógica \\ del juego}}
-        child {node[level 3, fill=yellow!60] (c22) {2.2. BackEnd \\  }}}
+        child {node[level 3, fill=yellow!60] (c22) {2.2. Desarrollo del BackEnd \\  }}}
   child {node[level 2, fill=red!60] (c3) {3. Inteligencia \\ Artificial}}
   child {node[level 2, fill=green!80] (c4) {4. Base de Datos \\ y Despliegue}
         child {node[level 3, fill=green!60] (c41) {4.1. Desarrollo Base de Datos}}
