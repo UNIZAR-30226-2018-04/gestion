@@ -90,6 +90,47 @@ La distribución de las diferentes partes se puede apreciar en el diagrama de co
 \label{fig:diagramaComponentes}
 \end{figure}
 
+\subsubsection{Interfaz}
+La interfaz se ha desarrollado utilizando la herramienta Phaser, basada en JavaScript. Se ha implementado de manera que sea fácilmente modificable ya que a lo largo de la producción del software se han de introducir cambios, por lo que se han parametrizado la mayoría de las funciones en medida de lo posible.
+
+Una de las principales decisiones de diseño que se han tenido que llevar a cabo es como representar a cada jugador. Se ha hecho de manera que cada jugador tiene su posición como referencia y la interfaz es capaz de representar al resto en función de éste. Como hay un máximo de 4 jugadores, la interfaz toma cada posición como un rol,  teniendo todos los roles los mismos parámetros simulando un patrón de diseño Strategy, para facilitar la integración. El diagrama de clases de la figura \ref{fig:clasesInterfazJuego} muestra la implementación de la interfaz. Aunque en JavaScript no haya clases como tal, se ha aprovechado la sintaxis UML para visualizar las diferentes partes.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figuras/clasesInterfazJuego.png}
+  \caption{Diagrama de clases de la interfaz de juego}
+  \label{fig:clasesInterfazJuego}
+\end{figure}
+
+Otra decisión de diseño que sobre la que se ha reflexionado ha sido acerca de la comunicación entre la interfaz y el controlador de la partida. La tecnología que se ha escogido han sido WebSockets como se ha dicho previamente. Dicha tecnología permite únicamente comunicarse a través del paso de mensajes, por lo que se ha decidido que los mensajes sean en formato JSON para que sean fácilmente legibles para ambos extremos de la comunicación.
+
+La aplicación web que no se corresponda con la parte jugable, es decir, el perfil del usuario, la vista del historial de partidas, ligas, torneos, etc. se implementa con JSP y servlets. Se puede observar el mapa de navegación de la aplicación en la figura \ref{fig:mapaDeNavegacion}.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figuras/mapaNavegacion.png}
+  \caption{Mapa de navegación}
+  \label{fig:mapaDeNavegacion}
+  \ref{fig:mapaNavegacion}
+\end{figure}
+
+\subsubsection{Lógica y BackEnd}
+
+Para la implementación de la lógica del juego se ha análizado el dominio del problema y se ha realizado un primer diseño de clases de análisis. Posteriormente se ha implementado objeto a objeto el diseño inicial y al mismo tiempo actualizando el diagrama de clases.
+
+\begin{figure}[H]
+\hspace{-1cm}
+\includegraphics[scale = 0.5]{figuras/logica_juego/diagramaClasesDisenyo.png}
+\caption{Diagrama de clases en la fase de análisis del problema}
+\label{fig:diagramaClasesLogicaJuegoInicial}
+\end{figure}
+
+\begin{figure}[H]
+\hspace{-2cm}
+\includegraphics[scale = 0.4]{figuras/logica_juego/diagramaClasesImplementacion.png}
+\caption{Diagrama de clases final}
+\label{fig:diagramaClasesLogicaJuegoFinal}
+\end{figure}
+
+
 \subsubsection{Base de Datos}
 El primer paso en el diseño de la base de datos fue plantear el esquema entidad relación como esquema conceptual del problema. Una vez diseñado el paso a un esquema relacional fue sencillo.
 
@@ -150,6 +191,15 @@ Dado el gran número de clases empleado en la implementación del modelo, su rep
 \caption{Diagrama de clases para la funcionalidad de los artículos de usuario}
 \label{fig:diagramaClasesArticuloUsuario}
 \end{figure}
+
+\subsubsection{Despliegue}
+La aplicación se pone en marcha en un servidor Tomcat, ya que permite la instalación de aplicaciones web en formato .war. Se distinguen dos aplicaciones diferentes: la que da soporte a la lógica de la aplicación y la encargada de coordinar una partida en curso. Ambas se comunican indirectamente a través de la base de datos y están coordinadas. \\
+La base de datos es relacional ya que se necesitan muchas consultas de los datos almacenados y para cada partida hay varias inserciones o actualización de los datos almacenados. El sistema gestor de la base de datos va a ser MySQL porque se ahorran costes al ser un SGBD de código abierto y no tener que adquirir una licencia de pago. Además, el equipo cuentan con experiencia en el diseño e implementación de bases de datos utilizando MySQL. \\
+La razón por la que no se ha elegido otro SGBD de código abierto son los problemas que presenta RDS Aurora. Otros SGBD como PostgreSQL son más exigentes en recursos y, por lo tanto, el coste es mayor sin repercutir un beneficio real sobre la aplicación ya que se considera que MySQL es más que suficiente para una aplicación de estas características.
+Otra alternativa era Oracle pero debido al alto coste de la licencia no se ha escogido. \\
+El patrón de diseño utilizado para la comunicación del sistema con la base de datos es \textit{façade} ya que permite dividir el sistema completo en dos o más subsistemas consiguiendo un alto desacoplamiento de la base de datos y el juego. De esta forma, se puede dividir mejor el trabajo de forma independiente entre los equipos para poder llevar a cabo un diseño e implementación top-down.
+
+
 \subsection{Tecnologías elegidas}
 \begin{itemize}
 \item \textbf{Interfaz de la partida en el navegador web}. La interfaz del juego consiste en una única pantalla donde los jugadores que participan en la partida en curso se comunican. Se implementa utilizando JavaScript y Phaser. Phaser es un framework para desarrollo de juegos en HTML5 basado en la tecnología JavaScript.  \\ Se ha decidido utilizar JavaScript por la sencillez a la hora de ser visualizado en un navegador y se incorpora a la perfección con HTML5. Se ha barajado la posibilidad de utilizar Flash pero se descarta por estar obsoleta y porque algunos navegadores ya no lo soportan. También se podría haber utilizado Unity pero no se ha llevado a cabo por tener una curva de aprendizaje muy complicada.
@@ -161,51 +211,7 @@ Se ha descartado utilizar Sockets.io ya que va ligado a Node.js, que es una tecn
 \item \textbf{Base de datos}. Se utiliza un Sistema Gestor de Bases de Datos relacional, ya que la principales consultas que se hacen son de tipo JOIN. Se ha decidido utilizar MySQL ya que es un sistema que el equipo domina. La desventaja es que es poco eficiente en comparación con otros como Oracle, pero para el número de usuarios que tendrá la aplicación es suficiente con dicho gestor.
 \end{itemize}
 
-\subsubsection{BackEnd}
 
-Para la implementación de la lógica del juego se ha análizado el dominio del problema y se ha realizado un primer diseño de clases de análisis. Posteriormente se ha implementado objeto a objeto el diseño inicial y al mismo tiempo actualizando el diagrama de clases.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.5]{figuras/logica_juego/diagramaClasesDisenyo.png}
-\caption{Diagrama de clases en la fase de análisis del problema}
-\label{fig:diagramaClasesLogicaJuegoInicial}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.5]{figuras/logica_juego/diagramaClasesImplementacion.png}
-\caption{Diagrama de clases final}
-\label{fig:diagramaClasesLogicaJuegoFinal}
-\end{figure}
-
-\subsection{Despliegue}
-La aplicación se pone en marcha en un servidor Tomcat, ya que permite la instalación de aplicaciones web en formato .war. Se distinguen dos aplicaciones diferentes: la que da soporte a la lógica de la aplicación y la encargada de coordinar una partida en curso. Ambas se comunican indirectamente a través de la base de datos y están coordinadas. \\
-La base de datos es relacional ya que se necesitan muchas consultas de los datos almacenados y para cada partida hay varias inserciones o actualización de los datos almacenados. El sistema gestor de la base de datos va a ser MySQL porque se ahorran costes al ser un SGBD de código abierto y no tener que adquirir una licencia de pago. Además, el equipo cuentan con experiencia en el diseño e implementación de bases de datos utilizando MySQL. \\
-La razón por la que no se ha elegido otro SGBD de código abierto son los problemas que presenta RDS Aurora. Otros SGBD como PostgreSQL son más exigentes en recursos y, por lo tanto, el coste es mayor sin repercutir un beneficio real sobre la aplicación ya que se considera que MySQL es más que suficiente para una aplicación de estas características.
-Otra alternativa era Oracle pero debido al alto coste de la licencia no se ha escogido. \\
-El patrón de diseño utilizado para la comunicación del sistema con la base de datos es \textit{façade} ya que permite dividir el sistema completo en dos o más subsistemas consiguiendo un alto desacoplamiento de la base de datos y el juego. De esta forma, se puede dividir mejor el trabajo de forma independiente entre los equipos para poder llevar a cabo un diseño e implementación top-down.
-
-\subsection{Interfaz}
-La interfaz, como se ha dicho previamente, se ha desarrollado utilizando la herramienta Phaser, basada en JavaScript. Se ha implementado de manera que sea fácilmente modificable ya que a lo largo de la producción del software se han de introducir cambios, por lo que se han parametrizado la mayoría de las funciones en medida de lo posible.
-
-Una de las principales decisiones de diseño que se han tenido que llevar a cabo es como representar a cada jugador. Se ha hecho de manera que cada jugador tiene su posición como referencia y la interfaz es capaz de representar al resto en función de éste. Como hay un máximo de 4 jugadores, la interfaz toma cada posición como un rol,  teniendo todos los roles los mismos parámetros simulando un patrón de diseño Strategy, para facilitar la integración. El diagrama de clases de la figura \ref{fig:clasesInterfazJuego} muestra la implementación de la interfaz. Aunque en JavaScript no haya clases como tal, se ha aprovechado la sintaxis UML para visualizar las diferentes partes.
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{figuras/clasesInterfazJuego.png}
-  \caption{Diagrama de clases de la interfaz de juego}
-  \label{fig:clasesInterfazJuego}
-\end{figure}
-
-Otra decisión de diseño que sobre la que se ha reflexionado ha sido acerca de la comunicación entre la interfaz y el controlador de la partida. La tecnología que se ha escogido han sido WebSockets como se ha dicho previamente. Dicha tecnología permite únicamente comunicarse a través del paso de mensajes, por lo que se ha decidido que los mensajes sean en formato JSON para que sean fácilmente legibles para ambos extremos de la comunicación.
-
-La aplicación web que no se corresponda con la parte jugable, es decir, el perfil del usuario, la vista del historial de partidas, ligas, torneos, etc. se implementa con JSP y servlets. Se puede observar el mapa de navegación de la aplicación en la figura \ref{fig:mapaDeNavegacion}.
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{figuras/mapaNavegacion.png}
-  \caption{Mapa de navegación}
-  \label{fig:mapaDeNavegacion}
-\end{figure}
 
 %\begin{itemize}
 %\item  DIAGRAMA DE DESPLIEGUE DE LA APPLICACIÓN WEB EN 3 CAPAS
