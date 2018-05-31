@@ -52,6 +52,11 @@
 \node [below of = c211, node distance=0.5in] (c212) {\small{2.1.2.Iconos y \\ Nicknames}};
 \node [below of = c212, node distance=0.4in] (c213) {\small{2.1.3.Personalización}};
 \node [below of = c213, node distance=0.3in] (c214) {\small{2.1.4.Animaciones}};
+\node [below of = c214, node distance=0.3in] (c215) {\small{2.1.5.Espectadores}};
+\node [below of = c215, node distance=0.3in] (c216) {\small{2.1.6.Delays IA}};
+\node [below of = c216, node distance=0.3in] (c217) {\small{2.1.7.Efectos sonido}};
+\node [below of = c217, node distance=0.3in] (c218) {\small{2.1.8.Notificaciones}};
+\node [below of = c218, node distance=0.4in] (c219) {\small{2.1.9.Redirecciones \\ \footnotesize{(partidas y torneos)}}};
 
 \node [below of = c22, xshift=35pt] (c221) {\small{2.2.1.Estadísticas}};
 \node [below of = c221, node distance=0.3in] (c222) {\small{2.2.2.Matchmaking}};
@@ -60,6 +65,7 @@
 \node [below of = c224, node distance=0.3in] (c225) {\small{2.2.5.Liga}};
 \node [below of = c225, node distance=0.3in] (c226) {\small{2.2.6.Torneos}};
 \node [below of = c226, node distance=0.3in] (c227) {\small{2.2.7.Configuración}};
+\node [below of = c227, node distance=0.3in] (c228) {\small{2.2.8.Espectadores}};
 
 \end{scope}
 
@@ -75,10 +81,10 @@
 \foreach \value in {1,2}
   \draw[->] (c12.195) |- (c12\value.west);
 
-\foreach \value in {1,...,4}
+\foreach \value in {1,...,9}
   \draw[->] (c21.195) |- (c21\value.west);
 
-\foreach \value in {1,...,7}
+\foreach \value in {1,...,8}
   \draw[->] (c22.195) |- (c22\value.west);
 \end{tikzpicture}
 
