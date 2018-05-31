@@ -273,7 +273,34 @@ Como se ha explicado anteriormente, como respuesta a los problemas de divergenci
 \label{Cierre del proyecto}
 Los procesos de control no se han llevado a cabo tal y como estipulaba el primer plan de gestión. Ya que el director del proyecto no se ha coordinado con los responsables de grupo. Sin embargo a nivel local, los responsables de grupo si han dirigido y organizado sus respectivos grupos. Además no se ha producido ninguna situación que requiera de mediación ni necesidad de int
 \subsubsection{Comparación estimaciones iniciales}
-Bla bla bla
+En la fase inicial del proyecto se realizó una estimación inicial del coste de 630 horas de desarrollo de software y 170 horas en gestión del proyecto, de la calidad del software y de las configuraciones. Un total de 800 horas, de las cuales se han llevado a cabo 778 horas, un 97\%. A pesar de que la estimacion global se haya cumplido, una análisis más fino de la distribución de las horas revela unas conclusiones diferentes.
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{3}{|c|}{Distribución de las horas del proyecto en diferentes agrupaciones} \\ \hline
+	Agrupacion & Estimacion & Horas invertidas \\ \hline
+	Desarrollo del juego & 128 h & 160 h \\ \hline
+	Pagina web & 140 h & 82 h \\ \hline
+	Base de datos & 122 & 88 h \\ \hline
+	Despliegue & 10 h & 20 h \\ \hline
+	Implementacion IA & 85 h & 64 h \\ \hline
+	MatchMaking & 35 h & 26 h \\ \hline
+	Gestión & 95 h & 141 h \\ \hline
+	Gestión de configuraciones & 31 h & 20 h \\ \hline
+	Aseguramiento de la calidad & 44 h & 136 h \\ \hline
+	Integración & 0 h & 22 h \\ \hline
+ \end{tabular}
+ \caption{Distribucion de las horas }
+\label{}
+\end{table}
+
+Como se puede apreciar en la tabla, la distribución de las horas estimadas y la de las invertidas son muy diferentes. Estas divergencias entre la estimación y los resultados finales se deben a la falta de experiencia en la realización de proyectos de esta magnitud, el desconocimiento de la dificultad del aseguramiento de la calidad en juegos online y algunos errores en el diseño del proyecto. Como por ejemplo la subestimación de los componentes de comunicación y sincronización.
+
+A nivel individual el equipo ha trabajado de forma uniforme y repartiendo la carga de trabajo. 
+
+
 \subsubsection{Lecciones aprendidas sobre herramientas y tecnologías}
 La experiencia con IntelliJ, el entorno con el que se ha desarrollado el sistema, ha sido positiva en su totalidad. Gracias a su plena integración con Git, no hace falta realizar ninguna acción externa a la aplicación. Sin embargo, conforme el proyecto se iba desarrollando, los problemas de configuración del mismo aumentaban debido a las dependencias y la organización interna del mismo. Ésto no habría pasado si se hubiera configurado con Maven o Graddle en vez de hacerlo manualmente.
 \\
