@@ -277,29 +277,46 @@ En la fase inicial del proyecto se realizó una estimación inicial del coste de
 
 \begin{table}[htb]
 \centering
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-\multicolumn{3}{|c|}{Distribución de las horas del proyecto en diferentes agrupaciones} \\ \hline
-	Agrupacion & Estimacion & Horas invertidas \\ \hline
-	Desarrollo del juego & 128 h & 160 h \\ \hline
-	Pagina web & 140 h & 82 h \\ \hline
-	Base de datos & 122 & 88 h \\ \hline
-	Despliegue & 10 h & 20 h \\ \hline
-	Implementacion IA & 85 h & 64 h \\ \hline
-	MatchMaking & 35 h & 26 h \\ \hline
-	Gestión & 95 h & 141 h \\ \hline
-	Gestión de configuraciones & 31 h & 20 h \\ \hline
-	Aseguramiento de la calidad & 44 h & 136 h \\ \hline
-	Integración & 0 h & 22 h \\ \hline
+\multicolumn{4}{|c|}{Distribución de las horas del proyecto en diferentes agrupaciones} \\ \hline
+	Agrupacion & Estimacion & Horas invertidas & Porcentaje cumplido\\ \hline
+	Desarrollo del juego & 128 h & 160 h & 125\%\\ \hline
+	Pagina web & 140 h & 82 h & 58\% \\ \hline
+	Base de datos & 122 & 88 h & 72\%\\ \hline
+	Despliegue & 10 h & 20 h & 200\%\\ \hline
+	Implementacion IA & 85 h & 64 h & 75\% \\ \hline
+	MatchMaking & 35 h & 26 h & 74\% \\ \hline
+	Gestión & 95 h & 141 h & 148\% \\ \hline
+	Gestión de configuraciones & 31 h & 20 h & 64\% \\ \hline
+	Aseguramiento de la calidad & 44 h & 136 h & 300\% \\ \hline
+	Integración & 0 h & 22 h & -\% \\ \hline
  \end{tabular}
- \caption{Distribucion de las horas }
+ \caption{Distribucion de las horas por tipo de actividad}
 \label{}
 \end{table}
 
 Como se puede apreciar en la tabla, la distribución de las horas estimadas y la de las invertidas son muy diferentes. Estas divergencias entre la estimación y los resultados finales se deben a la falta de experiencia en la realización de proyectos de esta magnitud, el desconocimiento de la dificultad del aseguramiento de la calidad en juegos online y algunos errores en el diseño del proyecto. Como por ejemplo la subestimación de los componentes de comunicación y sincronización.
 
-A nivel individual el equipo ha trabajado de forma uniforme y repartiendo la carga de trabajo. 
+A nivel individual el equipo ha trabajado de forma uniforme y repartiendo la carga de trabajo. La división de los integrantes del equipo en grupos de trabajo se ha llevado a cabo de forma efectiva y muestra de ello es la siguiente tabla que recoge un resumen del trabajo de cada miembro.
 
+\begin{table}[htb]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{3}{|c|}{Distribución de las horas del proyecto por persona} \\ \hline
+	Nombre & Horas trabajadas & Actividad principal \\ \hline
+	Javier & 106 h & Gestor de mensajes y MatchMaking \\ \hline
+	Marius & 116 h & Implementación de la lógica del juego y servlets \\ \hline
+	Sergio & 128 h & Diseño de la base de datos y representación del problema de la IA \\ \hline
+	Carlos & 108 h & Interfaz y vistas web \\ \hline
+	Víctor & 117 h & Web dinámica y representación de la lógica del juego \\ \hline
+	Julia  & 123 h & Diseño de la base de datos y análisis de la IA \\ \hline
+	Ignacio & 79 h & Pruebas y lógica del juego \\ \hline
+ \end{tabular}
+ \caption{Distribucion de las horas por persona}
+\label{}
+\end{table}
 
 \subsubsection{Lecciones aprendidas sobre herramientas y tecnologías}
 La experiencia con IntelliJ, el entorno con el que se ha desarrollado el sistema, ha sido positiva en su totalidad. Gracias a su plena integración con Git, no hace falta realizar ninguna acción externa a la aplicación. Sin embargo, conforme el proyecto se iba desarrollando, los problemas de configuración del mismo aumentaban debido a las dependencias y la organización interna del mismo. Ésto no habría pasado si se hubiera configurado con Maven o Graddle en vez de hacerlo manualmente.
@@ -307,5 +324,3 @@ La experiencia con IntelliJ, el entorno con el que se ha desarrollado el sistema
 En cuanto a la tecnología Phaser, la experiencia ha resultado ser positiva. Se trata de un software fácil de usar por lo que su aprendizaje no ha sido del todo costoso. Además, gracias a la comunidad disponible se han podido resulver las dudas sin problema alguno. La utilización de WebSockets para el paso de mensajes ha resultado más costosa ya que se deben tratar las desconexiones de los jugadores de manera individual. Habría sido más efectivo tratar de utilizar una teconología basada en eventos, por ejemplo.
 \\
 El software utilizado para los diagramas ha sido StarUML. Éste ha ofrecido una experiencia neutra. Cumple en todos sus aspectos pero el tener la versión gratuita hace que cada vez que sea ejecutado apareza el mensaje de compra.
-\subsubsection{Esfuerzos dedicados}
-bla bla bla
