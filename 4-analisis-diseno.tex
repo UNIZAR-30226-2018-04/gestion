@@ -122,7 +122,7 @@ Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el
 \subsubsection{Gestor de mensajes (Netcode)}
 
 Para poder sincronizar los eventos que suceden en una partida entre el servidor y todos los clientes se usan websockets,
-siendo el gestor de mensajes un endpoint de websockets seguros en la URL
+siendo el gestor de mensajes un endpoint de websockets seguros en la URL "wss://[raíz]/gm/endpoint". 
 El ciclo de vida de una partida comienza recibiendo el gestor los mensajes de listoJugador. Una vez se reciben los de todos,
 se les envía un estado inicial de la partida con toda la información necesaria. Después, cada jugador informa de los eventos
 sucedidos en su cliente al gestor, el cual se encarga de verificar su coherencia y retransmitirlo al resto de clientes. Al
