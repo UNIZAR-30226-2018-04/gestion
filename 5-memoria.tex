@@ -18,6 +18,10 @@ El objetivo del equipo de inteligencia artificial ha sido cumplido con un claro 
 
 Como decisión importante, destaca que tras un análisis del progreso del proyecto y adecuación a la planificación, el equipo de Bases de Datos iba más avanzado y tenía mucha menos carga de trabajo de cara a la segunda iteración que los equipos de BackEnd y FrontEnd. Por ello, antes de que los miembros del BackEnd comenzaran a trabajar en la Inteligencia Artificial (como así estaba decidido en un principio) se decidió reconfigurar el equipo de Inteligencia Artificial y que pasaran a formar parte de él los miembros del de Bases de Datos, con una organización final como la que se muestra en el organigrama de la sección \ref{organiz}.
 
+\subsubsection*{IA}
+El objetivo del equipo de la IA era desarrollar una inteligencia artificial capaz de tomar decisiones inteligentes a la hora de jugar al guiñote en partidas individuales. A la hora de desarrollar la IA, se decidió realizar primero un prototipo en Phyton para verificar la eficacia del algoritmo que trata el problema. Mediante una recopilación de estadísticas se determinó que el algoritmo elegido cumplía con el objetivo y se procedió a implementarlo en java.
+El equipo que formaba la IA fue reconfigurado antes de empezar a trabajar añadiendo a los miembros del equipo dedicado a la base de datos dado que iban avanzados y tenían una menor carga de trabajo.
+
 \subsection{Inicio del proyecto}
 \label{Inicio del proyecto}
 Tal y como se describió, tras un diseño preliminar del sistema en general, cada subequipo se puso a analizar sus necesidades concretas y a buscar ejemplos para comenzar a implementar con cierto contexto. Cabe destacar que entre las búsquedas de esos ejemplos, se estableció contacto con Iván López Asín, desarrollador de la app guiñotepro.es. Fue una sorpresa que usase generalmente las mismas tecnologías que las propuestas preliminarmente (Phaser.io y WebView para móviles), lo que resalta un buen trabajo de documentación previo del equipo. Además, mostró su interés en integrar nuestra  inteligencia artificial, pero habría que portarla a Javascript y adaptarla a su implementación, lo que se analizará y negociará al término de la segunda iteración.\\
@@ -106,7 +110,9 @@ La base de datos se ha desplegado en el gestor elegido en un primer momento, MyS
 \\
 
 % \subsubsection*{FrontEnd y Middleware}
-En cuanto al desarrollo de la interfaz de juego se ha utilizado la herramienta WebStorm, que permite de forma fácil hacer cambios en la interfaz y verlos reflejados de manera inmediata en el navegador. A su vez, se ha tenido que acompañar del software IntelliJ, para poder probar el funcionamiento del juego ya que se necesita del despliegue de la aplicación en Tomcat para poder probar las comunicaciones entre jugadores.
+En cuanto al desarrollo de la interfaz de juego se ha utilizado la herramienta WebStorm, en un primer momento, ya que permite de forma fácil hacer cambios en la interfaz y verlos reflejados de manera inmediata en el navegador. Sin embargo, al integrar esta parte con el resto del proyecto se ha seguido su desarrollo con el software IntelliJ. De esta manera, se consigue probar el funcionamiento del juego gracias al despliegue con el servidor Tomcat para poder probar las comunicaciones entre jugadores.
+\\
+Una vez se despliegua el sistema en Amazon, para depurar las comunicaciones basta con modificar aquel fichero que se necesitaba ajustar, ya que simplemente había que ajustar parametros de retardos al tratarse de un sistema distribuido en cuanto al paso de mensajes se refiere. De esta manera no se despliega toda la aplicación de nuevo sino que sólo una parte de ella.
 \\
 % \subsubsection*{BackEnd}
 Para el diseño de los diagramas de clases se ha utilizado la herramienta StarUML, la web draw.io y excel para los diagramas de las pruebas de caja blanca y las tablas para las pruebas de caja negra.
@@ -251,17 +257,77 @@ Al tratarse de un videojuego, es difícil abordar todos las posibles situaciones
 
 
 \subsubsection*{Progreso y Divergencias frente a la planificación inicial}
-\subsubsection*{FrontEnd y Middleware}
-Para la primera iteración era necesario tener funcional el juego del guiñote. El resultado ha sido que se ha realizado una versión básica funcional jugable a través de interfaz. Sin embargo, se ha dejado para la segunda iteración el requisito de cambio de dispositivo y de personalización del juego principalmente. Además, se garantizó que el modo espectador debía estar implementado. Sin embargo, no está desarrollado plenamente. La situación actual de la implementación de dicho requisito está casi terminada, a falta de la integración con la comunicación entre capas y las pruebas correspondientes.
 
-El matchmaking y la web dinámica debería estar empezado para la primera iteración. El resultado es que se tienen las ventanas de creación y login del usuario, por lo que faltan el resto de las ventanas del mapa de navegación por implementar. El motivo del retraso ha sido que se ha subestimado el coste en tiempo de la implementación de la comunicación y el de la interfaz del juego, ya que se desconocía la tecnología con la que se iba a implementar.
+Para la primera iteración era necesario realizar una demostración al cliente de una versión funcional el juego del guiñote. Se ha realizado una versión básica funcional jugable a través de interfaz. Sin embargo, se ha dejado para la segunda iteración el requisito de cambio de dispositivo y de personalización del juego principalmente. Además, se garantizó que el modo espectador debía estar implementado. Sin embargo, no está desarrollado plenamente. La situación actual de la implementación de dicho requisito está casi terminada, a falta de la integración con la comunicación entre capas y las pruebas correspondientes.
 
-En la estimación de los costes se había especificado que la interfaz eran 30 horas, pero debido los problemas que el equipo se ha tenido que enfrentar como el desconocimiento y la integración con capas inferiores, se ha superado el coste inicial.
+En el primer plan de gestión se especificó que tanto el matchmaking y como la web dinámica deberían estar avanzados para la primera iteración. En cuanto a la web dinámica, faltan bastantes vistas y funcionalidades básicas debido a la sobre carga de trabajo que han sufrido los equipos de backend y frontend. Ambos equipos se centraron en obtener las funcionalidades básicas del juego dejando de lado el resto de aspectos. Si bien es cierto que ya se ha alcanzado un tercio del total, mientras que el objetivo en esta primera iteración era de la mitad.
+
+En cuanto a la capa de persistencia y la capa de acceso de datos, el equipo de bases de datos ha cumplido el diagrama de Gantt establecido, exceptuando la implementación del acceso a datos relacionado con los torneos, que estaba planificado para la primera iteración y se debe alargar a la segunda, sin suponer ningún problema de dependencias con el resto de componentes del sistema y que no se estima muy costosa. También se puede comentar que, en lo que respecta al diseño de la base de datos, se requirió algo menos tiempo del estimado (se finalizó con una semana de antelación), mientras que el diseño del acceso a datos requirió más tiempo del estimado por lo que fueron compensados, cumpliendo bastante bien la planificación inicial.
+
+En cuanto a la 2ª iteración, se ha conseguido implementar el resto de requisitos en su plenitud. De los cuales, los más importantes eran el matchmaking, torneos, espectadores, permitir el cambio de dispositivo y la incorporación de la inteligencia artificial. El más problemático ha sido implementar la posibilidad de los torneos, ya que el equipo se ha enfrentado a diferentes problemas de diseño relacionados con el abandono de jugadores. La integración de la inteligencia artificial también ha resultado ser problemática ya que respondía practicamente de manera instantánea y el jugador no podía ver la carta que ésta había lanzado.
+\\
+Debido a los problemas comentados anteriormente las horas de trabajo se incrementas considerablemente. Además, habría que sumarle los problemas realacionados al despliegue y la latencia de la red que aparece y como lidiar con este nuevo problema.
 
 \subsubsection*{BackEnd}
 El equipo ha cumplido el diagrama de Gantt en el apartado de implementación de lógica del juego. Si bien es cierto que se ha logrado con un retraso de media semana. Puesto que el equipo se centró en la implementación de la lógica la parte de desarrollo de la web dinámica no ha cumplido el calendario impuesto al comienzo del proyecto y arrastra un leve retraso que deberá ser compensado en la segunda iteración. El retraso se debe a la gran cantidad de trabajo asignado en la planificación inicial, muy superior a la capacidad del equipo.
 
-\subsubsection*{Bases datos}
-En general se ha cumplido el diagrama de Gantt establecido, exceptuando la implementación del acceso a datos relacionado con los torneos, que estaba planificado para la primera iteración y se debe alargar a la segunda, sin suponer ningún problema de dependencias con el resto de componentes del sistema y que no se estima muy costosa. También se puede comentar que, en lo que respecta al diseño de la base de datos, se requirió algo menos tiempo del estimado (se finalizó con una semana de antelación), mientras que el diseño del acceso a datos requirió más tiempo del estimado por lo que fueron compensados, cumpliendo bastante bien la planificación inicial.
+Debido a las divergencias entre las horas de implementación reales y las estimaciones iniciales, el equipo ha decidido realizar un registro y posteriormente un estudio de las horas empleadas en el desarrollo del proyecto. El equipo ha realizado 349 horas de trabajo, de las cuales 106 se han invertido en tareas de gestión, una cifra muy superior a establecida en la estimación inicial. También cabe destacar las 33 horas de realización de pruebas y corrección de errores, que deberían asegurar la calidad del proyecto. En cuanto a las estimaciones sobre los diferentes componenetes, la implementacion del juego y su comunicación, junto con el desarrollo de la web dinámica están realizadas de forma precisa, completando las horas asignadas. Sin embargo, los componentes de la base de datos y las vistas de la web se han sobredimensionado ligeramente, por lo que el equipo ha tenido que realizar menos trabajo del especificado. 
 
 Como se ha explicado anteriormente, como respuesta a los problemas de divergencias de horas de trabajo frente a la planificación se realizó una reestructuración de los equipos de trabajo que afectó al equipo de Inteligencia Artificial. Se decidió incorporar a los nuevos miembros en este equipo y no a otras tareas porque era el único que todavía no había comenzado a trabajar y, por tanto, la reestructuración no afecta al rendimiento del equipo de trabajo como ocurriría si fuesen añadidos a mitad (tal y como se explica en el libro Mythical Man-month cuyo tema principal es la idea de \textit{'adding manpower to a late software project makes it later'} \cite{libroMMM}.)
+
+
+\subsection{Cierre del proyecto}
+\label{Cierre del proyecto}
+Los procesos de control no se han llevado a cabo tal y como estipulaba el primer plan de gestión. Ya que el director del proyecto no se ha coordinado con los responsables de grupo. Sin embargo a nivel local, los responsables de grupo si han dirigido y organizado sus respectivos grupos. Además no se ha producido ninguna situación que requiera de mediación ni necesidad de int
+\subsubsection{Comparación estimaciones iniciales}
+En la fase inicial del proyecto se realizó una estimación inicial del coste de 630 horas de desarrollo de software y 170 horas en gestión del proyecto, de la calidad del software y de las configuraciones. Un total de 800 horas, de las cuales se han llevado a cabo 778 horas, un 97\%. A pesar de que la estimacion global se haya cumplido, una análisis más fino de la distribución de las horas revela unas conclusiones diferentes.
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{4}{|c|}{Distribución de las horas del proyecto en diferentes agrupaciones} \\ \hline
+	Agrupacion & Estimacion & Horas invertidas & Porcentaje cumplido\\ \hline
+	Desarrollo del juego & 128 h & 160 h & 125\%\\ \hline
+	Pagina web & 140 h & 82 h & 58\% \\ \hline
+	Base de datos & 122 & 88 h & 72\%\\ \hline
+	Despliegue & 10 h & 20 h & 200\%\\ \hline
+	Implementacion IA & 85 h & 64 h & 75\% \\ \hline
+	MatchMaking & 35 h & 26 h & 74\% \\ \hline
+	Gestión & 95 h & 141 h & 148\% \\ \hline
+	Gestión de configuraciones & 31 h & 20 h & 64\% \\ \hline
+	Aseguramiento de la calidad & 44 h & 136 h & 300\% \\ \hline
+	Integración & 0 h & 22 h & -\% \\ \hline
+ \end{tabular}
+ \caption{Distribucion de las horas por tipo de actividad}
+\label{}
+\end{table}
+
+Como se puede apreciar en la tabla, la distribución de las horas estimadas y la de las invertidas son muy diferentes. Estas divergencias entre la estimación y los resultados finales se deben a la falta de experiencia en la realización de proyectos de esta magnitud, el desconocimiento de la dificultad del aseguramiento de la calidad en juegos online y algunos errores en el diseño del proyecto. Como por ejemplo la subestimación de los componentes de comunicación y sincronización.
+
+A nivel individual el equipo ha trabajado de forma uniforme y repartiendo la carga de trabajo. La división de los integrantes del equipo en grupos de trabajo se ha llevado a cabo de forma efectiva y muestra de ello es la siguiente tabla que recoge un resumen del trabajo de cada miembro.
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{3}{|c|}{Distribución de las horas del proyecto por persona} \\ \hline
+	Nombre & Horas trabajadas & Actividad principal \\ \hline
+	Javier & 106 h & Gestor de mensajes y MatchMaking \\ \hline
+	Marius & 116 h & Implementación de la lógica del juego y servlets \\ \hline
+	Sergio & 128 h & Diseño de la base de datos y representación del problema de la IA \\ \hline
+	Carlos & 108 h & Interfaz y vistas web \\ \hline
+	Víctor & 117 h & Web dinámica y representación de la lógica del juego \\ \hline
+	Julia  & 123 h & Diseño de la base de datos y análisis de la IA \\ \hline
+	Ignacio & 79 h & Pruebas y lógica del juego \\ \hline
+ \end{tabular}
+ \caption{Distribucion de las horas por persona}
+\label{}
+\end{table}
+
+\subsubsection{Lecciones aprendidas sobre herramientas y tecnologías}
+La experiencia con IntelliJ, el entorno con el que se ha desarrollado el sistema, ha sido positiva en su totalidad. Gracias a su plena integración con Git, no hace falta realizar ninguna acción externa a la aplicación. Sin embargo, conforme el proyecto se iba desarrollando, los problemas de configuración del mismo aumentaban debido a las dependencias y la organización interna del mismo. Ésto no habría pasado si se hubiera configurado con Maven o Graddle en vez de hacerlo manualmente.
+\\
+En cuanto a la tecnología Phaser, la experiencia ha resultado ser positiva. Se trata de un software fácil de usar por lo que su aprendizaje no ha sido del todo costoso. Además, gracias a la comunidad disponible se han podido resulver las dudas sin problema alguno. La utilización de WebSockets para el paso de mensajes ha resultado más costosa ya que se deben tratar las desconexiones de los jugadores de manera individual. Habría sido más efectivo tratar de utilizar una teconología basada en eventos, por ejemplo.
+\\
+El software utilizado para los diagramas ha sido StarUML. Éste ha ofrecido una experiencia neutra. Cumple en todos sus aspectos pero el tener la versión gratuita hace que cada vez que sea ejecutado apareza el mensaje de compra.
