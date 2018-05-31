@@ -3,9 +3,9 @@
 A continuación se describen los objetivos principales de cada uno de los equipos de trabajo así como un pequeño resumen de cómo se ha desarrollado el trabajo de cada equipo a lo largo de todo el proyecto. En el resto de la sección se describe más detalladamente el desarrollo del proyecto.\\
 
 \subsubsection*{FrontEnd y Middleware}
-El principal objetivo del Frontend eran desarrollar las interfaces con las que los usuarios interaccionarían con la aplicación. Se distinguen dos interfaces, las de navegación web y la parte jugable del guiñote. La parte jugable se ha podido implementar en su mayoría, a falta del modo espectador y la parte de personalización. Para la segunda interación se realizaron los torneos, integración de la IA, espectadores y resto de vistas web, junto con las del administrador.
+El principal objetivo del Frontend eran desarrollar las interfaces con las que los usuarios interaccionarían con la aplicación. Se distinguen dos interfaces, las de navegación web y la parte jugable del guiñote. La parte jugable se ha podido implementar en su mayoría, a falta del modo espectador y la parte de personalización. Sin embargo, la parte de la interfaz de navegación se completará para la segunda iteración, ya que únicamente se tienen las pantallas de login y la navegación.
 \\
-En cuanto al Middleware, el principal objetivo era comunicar la interfaz de juego para que los usuarios puedan jugar entre ellos, gracias al paso de mensajes.
+En cuanto al Middleware, el principal objetivo era comunicar la interfaz de juego para que los usuarios puedan jugar entre ellos, que se ha conseguido con éxito. Aun así, es necesario completar con la funcionalidad de que un usuario puede cambiar de dispositivo en una misma partida.
 
 \subsubsection*{BackEnd}
 El objetivo del equipo backend era desarrollar un paquete de java que representase la lógica del juego del guiñote, al mismo tiempo que desarrollaba gran parte de la página web dinámica del proyecto. Sin embargo, a mitad de desarrollo el trabajo, se centró en acabar la parte de la lógica del juego. Dicho objetivo se ha cumplido completamente con algunos retrasos en la entrega. Como consecuencia la web dinámica arrastra un leve retraso que deberá ser compensado en la segunda iteración. A pesar de dichas dificultades el equipo ha trabajado mucho para conseguir una primera versión funcional antes de la primera iteración.
@@ -66,7 +66,7 @@ A continuación se muestran los diagramas de paquetes desarrollados:
 
 \begin{figure}[H]
 		\hspace{-2cm}
-		\includegraphics[scale=0.75]{figuras/edtGestorMensajes.pdf}
+		\includegraphics[scale=0.55]{figuras/edtGestorMensajes.pdf}
 		\caption{Diagrama de Paquetes de Trabajo Gestor de Mensajes}
 	\end{figure}
 
@@ -84,6 +84,12 @@ A continuación se muestran los diagramas de paquetes desarrollados:
 	\end{figure}
 
 \begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.8]{figuras/edtIA.pdf}
+		\caption{Diagrama de Paquetes de Trabajo Inteligencia Artificial}
+	\end{figure}
+
+\begin{figure}[H]
 		\hspace{-2cm}
 		\includegraphics[scale=0.8]{figuras/edtBasesDatos.pdf}
 		\caption{Diagrama de Paquetes de Trabajo Bases de Datos}
@@ -95,7 +101,8 @@ A continuación se muestran los diagramas de paquetes desarrollados:
 		\caption{Diagrama de Paquetes de Trabajo Despliegue}
 	\end{figure}
 
-Es importante añadir que el trabajo de integración de los diferentes paquetes de trabajo no está reflejado en estos diagramas pero también ha sido necesario repartirlo y realizarlo. A su vez, algunos de los paquetes correspondientes a la segunda iteración no se han diseñado todavía, o aunque se haya hecho, podrían producirse modificaciones sobre ellos ya que todavía no se han analizado ciertas partes a fondo.
+Es importante añadir que el trabajo de integración de los diferentes paquetes de trabajo no está reflejado en estos diagramas pero también ha sido necesario repartirlo y realizarlo.
+
 \subsubsection{Comunicación interna}
 La decisión de la nueva estructura de grupos se realizó mediante una reunión entre los miembros afectados por el cambio.
 En cuanto a la parte de BackEnd, al comienzo del proyecto la comunicación ha sido bastante pobre, ya que en algunos momentos los desarrolladores han realizado la misma actividad por duplicado. En el desarrollo de los diferentes componentes cada miembro tenía su propio diseño en mente y ha sido necesario ponerse de acuerdo y plasmar el diseño en un diagrama UML de clases, que todos pudieran consultar y hacer referencia. Hacia el final de la primera iteración el equipo ha mejorado su comunicación en gran medida.

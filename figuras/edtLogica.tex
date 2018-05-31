@@ -41,6 +41,7 @@
 \node [below of = c31, node distance=0.8in] (c32) {3.2. Jugador};
 \node [below of = c32, node distance=1.2in] (c33) {3.3. EstadoPartida};
 \node [below of = c33, node distance=1.2in] (c34) {3.4. LógicaPartida};
+\node [below of = c34, node distance=1.2in] (c35) {3.5. General};
 \end{scope}
 
 % The second level, relatively positioned nodes
@@ -69,12 +70,15 @@
 \node [below of = c34, xshift=45pt] (c341) {\small{3.4.1.SiguienteRonda} \\ \textcolor{red}{\small{Nacho}}};
 \node [below of = c341] (c342) {\small{3.4.2.Otros métodos} \\ \textcolor{red}{\small{Marius}}};
 
+\node [below of = c35, xshift=45pt] (c351) {\small{3.5.1. Pruebas \\partidas completas} \\ \textcolor{red}{\small{Nacho}}};
+\node [below of = c351, node distance=0.55in] (c352) {\small{3.5.2.Depuración errores} \\ \textcolor{red}{\small{Marius}}};
+
 \end{scope}
 
 \foreach \value in {1,2,3,4}
   \draw [->] (c2.195) |- (c2\value.west);
 
-\foreach \value in {1,2,3,4}
+\foreach \value in {1,2,3,4,5}
   \draw [->] (c3.195) |- (c3\value.west);
 
 \foreach \value in {1}
@@ -103,6 +107,9 @@
 
 \foreach \value in {1,2}
   \draw[->] (c34.195) |- (c34\value.west);
+
+\foreach \value in {1,2}
+  \draw[->] (c35.195) |- (c35\value.west);
 
 \end{tikzpicture}
 
