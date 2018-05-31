@@ -103,12 +103,21 @@ Una de las principales decisiones de diseño que se han tenido que llevar a cabo
 
 Otra decisión de diseño que sobre la que se ha reflexionado ha sido acerca de la comunicación entre la interfaz y el controlador de la partida. La tecnología que se ha escogido han sido WebSockets como se ha dicho previamente. Dicha tecnología permite únicamente comunicarse a través del paso de mensajes, por lo que se ha decidido que los mensajes sean en formato JSON para que sean fácilmente legibles para ambos extremos de la comunicación.
 
-La aplicación web que no se corresponda con la parte jugable, es decir, el perfil del usuario, la vista del historial de partidas, ligas, torneos, etc. se implementa con JSP y servlets. Se puede observar el mapa de navegación de la aplicación en la figura \ref{fig:mapaDeNavegacion}.
+La aplicación web que no se corresponda con la parte jugable, es decir, el perfil del usuario, la vista del historial de partidas, ligas, torneos, etc. se implementa con JSP y servlets. Se puede observar el mapa de navegación inicial de la aplicación en la figura \ref{fig:mapaDeNavegacion}.
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figuras/mapaNavegacion.png}
   \caption{Mapa de navegación}
   \label{fig:mapaDeNavegacion}
+  \ref{fig:mapaNavegacion}
+\end{figure}
+
+Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el mapa de navegación resultate se observa en la figura \ref{fig:mapaDeNavegacionFinal}.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figuras/mapNavFinal.png}
+  \caption{Mapa de navegación final}
+  \label{fig:mapaDeNavegacionFinal}
   \ref{fig:mapaNavegacion}
 \end{figure}
 
