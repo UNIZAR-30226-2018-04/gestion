@@ -16,8 +16,6 @@ Los principales objetivos del equipo de bases de datos eran por una parte diseñ
 \subsubsection*{Inteligencia Artificial}
 El objetivo del equipo de inteligencia artificial ha sido cumplido con un claro éxito: desarrollar una ia competente para jugar al guiñote 1 vs. 1. El trabajo de este equipo ha consistido en primer lugar en investigar en la literatura para aprender sobre algoritmos de inteligencia artificial utilizados en juegos similares, la decisión del algoritmo a utilizar, el desarrollo de un prototipo funcional para estudiar su viabilidad, y finalmente su implementación final y la integración de este con el resto de la aplicación. El trabajo se ha desarrollado sin problemas destacables, a excepción de que la fase de análisis e investigación fue algo más costosa de lo planificado. Los resultados de SophIA han sido mucho mejores de lo esperado, suponiendo esta una de las características más distintivas de la aplicación final.
 
-Como decisión importante, destaca que tras un análisis del progreso del proyecto y adecuación a la planificación, el equipo de Bases de Datos iba más avanzado y tenía mucha menos carga de trabajo de cara a la segunda iteración que los equipos de BackEnd y FrontEnd. Por ello, antes de que los miembros del BackEnd comenzaran a trabajar en la Inteligencia Artificial (como así estaba decidido en un principio) se decidió reconfigurar el equipo de Inteligencia Artificial y que pasaran a formar parte de él los miembros del de Bases de Datos, con una organización final como la que se muestra en el organigrama de la sección \ref{organiz}.
-
 \subsubsection*{IA}
 El objetivo del equipo de la IA era desarrollar una inteligencia artificial capaz de tomar decisiones inteligentes a la hora de jugar al guiñote en partidas individuales. A la hora de desarrollar la IA, se decidió realizar primero un prototipo en Phyton para verificar la eficacia del algoritmo que trata el problema. Mediante una recopilación de estadísticas se determinó que el algoritmo elegido cumplía con el objetivo y se procedió a implementarlo en java.
 El equipo que formaba la IA fue reconfigurado antes de empezar a trabajar añadiendo a los miembros del equipo dedicado a la base de datos dado que iban avanzados y tenían una menor carga de trabajo.
@@ -273,19 +271,47 @@ En cuanto a la capa de persistencia y la capa de acceso de datos, el equipo de b
 
 En cuanto a la 2ª iteración, se ha conseguido implementar el resto de requisitos en su plenitud. De los cuales, los más importantes eran el matchmaking, torneos, espectadores, permitir el cambio de dispositivo y la incorporación de la inteligencia artificial. El más problemático ha sido implementar la posibilidad de los torneos, ya que el equipo se ha enfrentado a diferentes problemas de diseño relacionados con el abandono de jugadores. La integración de la inteligencia artificial también ha resultado ser problemática ya que respondía practicamente de manera instantánea y el jugador no podía ver la carta que ésta había lanzado.
 \\
-Debido a los problemas comentados anteriormente las horas de trabajo se incrementas considerablemente. Además, habría que sumarle los problemas realacionados al despliegue y la latencia de la red que aparece y como lidiar con este nuevo problema.
+Debido a los problemas comentados anteriormente las horas de trabajo se incrementan considerablemente. Además, habría que sumarle los problemas relacionados al despliegue y la latencia de la red que aparece y como lidiar con este nuevo problema.
 
 \subsubsection*{BackEnd}
 El equipo ha cumplido el diagrama de Gantt en el apartado de implementación de lógica del juego. Si bien es cierto que se ha logrado con un retraso de media semana. Puesto que el equipo se centró en la implementación de la lógica la parte de desarrollo de la web dinámica no ha cumplido el calendario impuesto al comienzo del proyecto y arrastra un leve retraso que deberá ser compensado en la segunda iteración. El retraso se debe a la gran cantidad de trabajo asignado en la planificación inicial, muy superior a la capacidad del equipo.
 
 Debido a las divergencias entre las horas de implementación reales y las estimaciones iniciales, el equipo ha decidido realizar un registro y posteriormente un estudio de las horas empleadas en el desarrollo del proyecto. El equipo ha realizado 349 horas de trabajo, de las cuales 106 se han invertido en tareas de gestión, una cifra muy superior a establecida en la estimación inicial. También cabe destacar las 33 horas de realización de pruebas y corrección de errores, que deberían asegurar la calidad del proyecto. En cuanto a las estimaciones sobre los diferentes componenetes, la implementacion del juego y su comunicación, junto con el desarrollo de la web dinámica están realizadas de forma precisa, completando las horas asignadas. Sin embargo, los componentes de la base de datos y las vistas de la web se han sobredimensionado ligeramente, por lo que el equipo ha tenido que realizar menos trabajo del especificado. 
 
-Como se ha explicado anteriormente, como respuesta a los problemas de divergencias de horas de trabajo frente a la planificación se realizó una reestructuración de los equipos de trabajo que afectó al equipo de Inteligencia Artificial. Se decidió incorporar a los nuevos miembros en este equipo y no a otras tareas porque era el único que todavía no había comenzado a trabajar y, por tanto, la reestructuración no afecta al rendimiento del equipo de trabajo como ocurriría si fuesen añadidos a mitad (tal y como se explica en el libro Mythical Man-month cuyo tema principal es la idea de \textit{'adding manpower to a late software project makes it later'} \cite{libroMMM}.)
-
-
 \subsection{Cierre del proyecto}
 \label{Cierre del proyecto}
-Los procesos de control no se han llevado a cabo tal y como estipulaba el primer plan de gestión. Ya que el director del proyecto no se ha coordinado con los responsables de grupo. Sin embargo a nivel local, los responsables de grupo si han dirigido y organizado sus respectivos grupos. Además no se ha producido ninguna situación que requiera de mediación ni necesidad de int
+Los procesos de control no se han llevado a cabo tal y como estipulaba el primer plan de gestión, ya que el director del proyecto no se ha coordinado con los responsables de grupo. Sin embargo a nivel local, los responsables de grupo sí han dirigido y organizado sus respectivos grupos. Además no se ha producido ninguna situación que requiera de mediación ni necesidad de intervención por parte de personas ajenas al equipo.
+\subsubsection{Planificación}
+Con respecto a la planificación y los cambios que ha ido sufriendo esta a lo largo del proyecto, se muestran a continuación los diagramas de Gantt inicial y final.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{figuras/gantt-viejo.pdf}
+	\caption{Diagrama de Gantt Inicial (02/03/2018)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{figuras/gantt.pdf}
+	\caption{Diagrama de Gantt Final (01/06/2018)}
+\end{figure}
+
+Como se puede observar, ha habido algunos cambios con respecto a los plazos planificados y los plazos que realmente ocurrieron. 
+
+Destaca claramente en primer lugar la larga duración del desarrollo del juego en relación con lo planificado, ya que esperaba ser terminado en la primera iteración y finalmente se alargó hasta pasada la mitad de la segunda. Esto se debe a que, como se reflejará posteriormente en la distribución de horas, no se estimó correctamente la dificultad que requería un juego multijugador como el guiñote, especialmente en las partes de lógica y la depuración de esta, y la gestión de las comunicaciones (principalmente estas últimas en el entorno de despliegue).
+
+En cuanto al desarrollo de las vistas web y la web dinámica, la planificación se ha cumplido bastante, alargándose algo menos de una semana al final, en especial porque no se detectaron correctamente las dependencias en el diagrama de Gantt inicialmente planteado, y porque se alargó la parte de desarrollo de la GUI del juego, al añadir todas las personalizaciones de artículos, posibilidad de espectadores y efectos de sonido.
+
+El desarrollo de la base de datos también cumplió con los plazos establecidos. Como diferencias, destacar que el desarrollo de la interfaz de datos se vio alargado por la dificultad extra que entrañaban los torneos y por la reestructuración de equipos que centró a estos en el análisis e implementación de la IA durante las primeras semanas de la segunda iteración. Por el contrario, la implementación de acciones periódicas supuso menos tiempo del planificado con lo que se terminó esta parte adelantándose a los plazos establecidos.
+
+La implementación del matchmaking sufrió un ligero retraso en su instante de comienzo, pero no se retrasó mucho de lo estimado en un principio, como se refleja en el número de horas dedicadas a este. De forma similar, el desarrollo de la inteligencia artificial también se retrasó en su inicio pero finalmente cumplió con todos los plazos estipulados.
+
+Finalmente, en cuanto al despliegue, aunque se cumplieron los plazos, se detectó que no se había planificado correctamente con la antelación suficiente para poder solucionar todos los errores (principalmente de latencias) que suponía garantizar el funcionamiento de la aplicación de forma robusta, lo que implicó un trabajo extra de horas en las últimas semanas del proyecto, que no se esperaba.\\
+
+Como decisión importante de planificación, destaca que, al final de la primera iteración, tras un análisis del progreso del proyecto y como respuesta a los problemas de divergencias de horas frente a la planificación, se realizó una reestructuración de los equipos con respecto al de Inteligencia Artificial. Los miembros del equipo de Lógica y BackEnd se mantuvieron en este únicamente durante la segunda iteración y fueron los miembros del equipo de Base de Datos los que comenzaron a trabajar en la IA, dejando la organización final como la que se muestra en el organigrama de la sección \ref{organiz}. Se decidió incorporar a los nuevos miembros en este equipo y no a otras tareas porque era el único que todavía no había comenzado a trabajar y, por tanto, la reestructuración no afecta al rendimiento del equipo de trabajo como ocurriría si fuesen añadidos a mitad (tal y como se explica en el libro Mythical Man-month cuyo tema principal es la idea de \textit{'adding manpower to a late software project makes it later'} \cite{libroMMM}.)\\
+
+Como conclusión, destacar que la planificación ha sido un elemento esencial de la gestión de este proyecto, y que, a pesar de que pueda haber bastantes divergencias, solamente gracias a ser conscientes de ello se ha aprendido mucho para futuros proyectos.
+
 \subsubsection{Comparación estimaciones iniciales}
 En la fase inicial del proyecto se realizó una estimación inicial del coste de 630 horas de desarrollo de software y 170 horas en gestión del proyecto, de la calidad del software y de las configuraciones. Un total de 800 horas, de las cuales se han llevado a cabo 778 horas, un 97\%. A pesar de que la estimacion global se haya cumplido, una análisis más fino de la distribución de las horas revela unas conclusiones diferentes.
 
