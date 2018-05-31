@@ -109,7 +109,6 @@ La aplicación web que no se corresponda con la parte jugable, es decir, el perf
   \includegraphics[width=\linewidth]{figuras/mapaNavegacion.png}
   \caption{Mapa de navegación}
   \label{fig:mapaDeNavegacion}
-  \ref{fig:mapaNavegacion}
 \end{figure}
 
 Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el mapa de navegación resultate se observa en la figura \ref{fig:mapaDeNavegacionFinal}.
@@ -118,7 +117,78 @@ Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el
   \includegraphics[width=\linewidth]{figuras/mapaNavFinal.png}
   \caption{Mapa de navegación final}
   \label{fig:mapaDeNavegacionFinal}
-  \ref{fig:mapaNavegacion}
+\end{figure}
+
+\subsubsection{Gestor de mensajes (Netcode)}
+
+Para poder sincronizar los eventos que suceden en una partida entre el servidor y todos los clientes se usan websockets,
+siendo el gestor de mensajes un endpoint de websockets seguros en la URL
+El ciclo de vida de una partida comienza recibiendo el gestor los mensajes de listoJugador. Una vez se reciben los de todos,
+se les envía un estado inicial de la partida con toda la información necesaria. Después, cada jugador informa de los eventos
+sucedidos en su cliente al gestor, el cual se encarga de verificar su coherencia y retransmitirlo al resto de clientes. Al
+informar de los eventos de forma incremental, se evita el overhead de tener que enviar el estado completo cada vez. El único
+momento en el que es imposible evitar el mandar el estado completo es en la transición de idas a vueltas.\\
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figuras/diagramasSecuencia/partidaCompleta1.png}
+\caption{Diagrama de secuencia de una partida completa}
+\label{fig:partidaCompleta1}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figuras/diagramasSecuencia/partidaCompleta2.png}
+\caption{Diagrama de secuencia de una partida completa}
+\label{fig:partidaCompleta2}
+\end{figure}
+
+Como caso interesantes se encuentra la desconexión/reconexión de jugadores, que se gestiona notificando al resto de jugadores
+de un timeout para programar una "alarma". Si antes de recibir el gestor la "alarma" de cualquiera de los otros jugadores, recibe
+un mensaje listoJugador del ausente, se entiende que se reconecta y se le envía el estado de la partida en ese momento, notificando
+también al resto de jugadores. La otra posibilidad es que se reciba el timeout antes de que se reconecte, lo que significa que
+el jugador ha expirado su tiempo, finalizando la partida y notificando a los jugadores.\\
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/desconexion.png}
+  \caption{Caso de desconexión/reconexión de jugador}
+  \label{fig:desconexion}
+\end{figure}
+
+El otro caso interesante es la gestión de los espectadores, que básicamente son tratados como jugadores en el sentido de que son
+notificados de todos los eventos acontecidos pero no pueden emitir ningún evento. Además, su reconexión tampoco es gestionada
+ya que no influye para el desarrollo de la partida.\\
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/espectador.png}
+  \caption{Gestión de espectadores}
+  \label{fig:espectador}
+\end{figure}
+
+\subsubsection{Emparejamiento (Matchmaking)}
+Una de las funcionalidades principales de la aplicación consiste en permitir que los jugadores encuentren a otros de su mismo nivel
+para jugar automáticamente. Esta funcionalidad la gestiona el endpoint de websockets seguros "wss://[raíz]/mm/matchmaking". 
+La secuencia de búsqueda de partida es relativamente sencilla: El jugador que busca partida envía un mensaje con los parámetros de 
+la partida deseada. En caso de que sea con la IA, se crea una partida nueva y se le redirige inmediatamente. En el resto de casos,
+si hay suficientes jugadores buscando una partida de las mismas características y pertenecen a la misma liga, se les empareja y son
+redirigidos a su partida. Además, el jugador envía periódicamente mensajes informando de que sigue buscando, de forma que si excede
+un número determinado de "sigo buscandos", se le empareja con un jugador de cualquier liga ya que se considera que ha esperado 
+demasiado tiempo y jugar con alguien de diferente nivel tiene un impacto menos negativo sobre la experiencia de usuario que estar esperando
+largos periodos de tiempo.\\
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/buscarPartida.png}
+  \caption{Búsqueda de partida}
+  \label{fig:buscarPartida}
+\end{figure}
+
+Además, este endpoint se encarga de gestionar también los torneos, de forma que cuando un jugador busca torneo envía un mensaje buscoTorneo
+con el identificador del torneo. El endpoint le contesta con el tiempo restante hasta la hora límite de comienzo del torneo. En cuanto haya
+un número suficiente de jugadores, se les empareja en partidas y se les redirige. Sin embargo, si llegada la hora límite no está lleno el torneo,
+los jugadores esperando envían un mensaje empezarTorneo al endpoint, que rellena los huecos del torneo con IAs.\\
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/buscarTorneo.png}
+  \caption{Búsqueda de torneos}
+  \label{fig:buscarTorneo}
 \end{figure}
 
 \subsubsection{Lógica y BackEnd}
