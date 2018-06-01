@@ -117,11 +117,23 @@ Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el
 
 Para poder sincronizar los eventos que suceden en una partida entre el servidor y todos los clientes se usan websockets,
 siendo el gestor de mensajes un endpoint de websockets seguros en la URL "wss://[raíz]/gm/endpoint". 
+
 El ciclo de vida de una partida comienza recibiendo el gestor los mensajes de listoJugador. Una vez se reciben los de todos,
 se les envía un estado inicial de la partida con toda la información necesaria. Después, cada jugador informa de los eventos
 sucedidos en su cliente al gestor, el cual se encarga de verificar su coherencia y retransmitirlo al resto de clientes. Al
 informar de los eventos de forma incremental, se evita el overhead de tener que enviar el estado completo cada vez. El único
-momento en el que es imposible evitar el mandar el estado completo es en la transición de idas a vueltas.\\
+momento en el que es imposible evitar el mandar el estado completo es en la transición de idas a vueltas. El diagrama de secuencias correspondiente a una partida completa se muestra en la figura \ref{fig:partidaCompleta1}\\
+
+Como caso interesante se encuentra la desconexión/reconexión de jugadores, que se gestiona notificando al resto de jugadores
+de un timeout para programar una 'alarma'. Si antes de recibir el gestor la 'alarma' de cualquiera de los otros jugadores, recibe
+un mensaje listoJugador del ausente, se entiende que se reconecta y se le envía el estado de la partida en ese momento, notificando
+también al resto de jugadores. La otra posibilidad es que se reciba el timeout antes de que se reconecte, lo que significa que
+el jugador ha expirado su tiempo, finalizando la partida y notificando a los jugadores. El diagrama de secuecias correspondiente al caso de desconexión/reconexión de un jugador se observa en la figura \ref{fig:desconexion}.\\
+
+Finalmente, el otro caso interesante es la gestión de los espectadores, que básicamente son tratados como jugadores en el sentido de que son
+notificados de todos los eventos acontecidos pero no pueden emitir ningún evento. Además, su reconexión tampoco es gestionada
+ya que no influye para el desarrollo de la partida. Su diagrama de secuencias se muestra en la figura \ref{fig:espectador}.\\
+
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/partidaCompleta1.png}
@@ -135,21 +147,11 @@ momento en el que es imposible evitar el mandar el estado completo es en la tran
 \label{fig:partidaCompleta2}
 \end{figure}
 
-Como caso interesantes se encuentra la desconexión/reconexión de jugadores, que se gestiona notificando al resto de jugadores
-de un timeout para programar una 'alarma'. Si antes de recibir el gestor la 'alarma' de cualquiera de los otros jugadores, recibe
-un mensaje listoJugador del ausente, se entiende que se reconecta y se le envía el estado de la partida en ese momento, notificando
-también al resto de jugadores. La otra posibilidad es que se reciba el timeout antes de que se reconecte, lo que significa que
-el jugador ha expirado su tiempo, finalizando la partida y notificando a los jugadores.\\
-
 \begin{figure}[H]
   \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/desconexion.png}
   \caption{Caso de desconexión/reconexión de jugador}
   \label{fig:desconexion}
 \end{figure}
-
-El otro caso interesante es la gestión de los espectadores, que básicamente son tratados como jugadores en el sentido de que son
-notificados de todos los eventos acontecidos pero no pueden emitir ningún evento. Además, su reconexión tampoco es gestionada
-ya que no influye para el desarrollo de la partida.\\
 
 \begin{figure}[H]
   \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/espectador.png}
