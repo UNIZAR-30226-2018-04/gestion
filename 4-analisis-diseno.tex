@@ -109,7 +109,6 @@ La aplicación web que no se corresponda con la parte jugable, es decir, el perf
   \includegraphics[width=\linewidth]{figuras/mapaNavegacion.png}
   \caption{Mapa de navegación}
   \label{fig:mapaDeNavegacion}
-  \ref{fig:mapaNavegacion}
 \end{figure}
 
 Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el mapa de navegación resultate se observa en la figura \ref{fig:mapaDeNavegacionFinal}.
@@ -118,12 +117,84 @@ Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el
   \includegraphics[width=\linewidth]{figuras/mapaNavFinal.png}
   \caption{Mapa de navegación final}
   \label{fig:mapaDeNavegacionFinal}
-  \ref{fig:mapaNavegacion}
+\end{figure}
+
+\subsubsection{Gestor de mensajes (Netcode)}
+
+Para poder sincronizar los eventos que suceden en una partida entre el servidor y todos los clientes se usan websockets,
+siendo el gestor de mensajes un endpoint de websockets seguros en la URL "wss://[raíz]/gm/endpoint". 
+El ciclo de vida de una partida comienza recibiendo el gestor los mensajes de listoJugador. Una vez se reciben los de todos,
+se les envía un estado inicial de la partida con toda la información necesaria. Después, cada jugador informa de los eventos
+sucedidos en su cliente al gestor, el cual se encarga de verificar su coherencia y retransmitirlo al resto de clientes. Al
+informar de los eventos de forma incremental, se evita el overhead de tener que enviar el estado completo cada vez. El único
+momento en el que es imposible evitar el mandar el estado completo es en la transición de idas a vueltas.\\
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figuras/diagramasSecuencia/partidaCompleta1.png}
+\caption{Diagrama de secuencia de una partida completa}
+\label{fig:partidaCompleta1}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figuras/diagramasSecuencia/partidaCompleta2.png}
+\caption{Diagrama de secuencia de una partida completa}
+\label{fig:partidaCompleta2}
+\end{figure}
+
+Como caso interesantes se encuentra la desconexión/reconexión de jugadores, que se gestiona notificando al resto de jugadores
+de un timeout para programar una "alarma". Si antes de recibir el gestor la "alarma" de cualquiera de los otros jugadores, recibe
+un mensaje listoJugador del ausente, se entiende que se reconecta y se le envía el estado de la partida en ese momento, notificando
+también al resto de jugadores. La otra posibilidad es que se reciba el timeout antes de que se reconecte, lo que significa que
+el jugador ha expirado su tiempo, finalizando la partida y notificando a los jugadores.\\
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/desconexion.png}
+  \caption{Caso de desconexión/reconexión de jugador}
+  \label{fig:desconexion}
+\end{figure}
+
+El otro caso interesante es la gestión de los espectadores, que básicamente son tratados como jugadores en el sentido de que son
+notificados de todos los eventos acontecidos pero no pueden emitir ningún evento. Además, su reconexión tampoco es gestionada
+ya que no influye para el desarrollo de la partida.\\
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/espectador.png}
+  \caption{Gestión de espectadores}
+  \label{fig:espectador}
+\end{figure}
+
+\subsubsection{Emparejamiento (Matchmaking)}
+Una de las funcionalidades principales de la aplicación consiste en permitir que los jugadores encuentren a otros de su mismo nivel
+para jugar automáticamente. Esta funcionalidad la gestiona el endpoint de websockets seguros "wss://[raíz]/mm/matchmaking". 
+La secuencia de búsqueda de partida es relativamente sencilla: El jugador que busca partida envía un mensaje con los parámetros de 
+la partida deseada. En caso de que sea con la IA, se crea una partida nueva y se le redirige inmediatamente. En el resto de casos,
+si hay suficientes jugadores buscando una partida de las mismas características y pertenecen a la misma liga, se les empareja y son
+redirigidos a su partida. Además, el jugador envía periódicamente mensajes informando de que sigue buscando, de forma que si excede
+un número determinado de "sigo buscandos", se le empareja con un jugador de cualquier liga ya que se considera que ha esperado 
+demasiado tiempo y jugar con alguien de diferente nivel tiene un impacto menos negativo sobre la experiencia de usuario que estar esperando
+largos periodos de tiempo.\\
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/buscarPartida.png}
+  \caption{Búsqueda de partida}
+  \label{fig:buscarPartida}
+\end{figure}
+
+Además, este endpoint se encarga de gestionar también los torneos, de forma que cuando un jugador busca torneo envía un mensaje buscoTorneo
+con el identificador del torneo. El endpoint le contesta con el tiempo restante hasta la hora límite de comienzo del torneo. En cuanto haya
+un número suficiente de jugadores, se les empareja en partidas y se les redirige. Sin embargo, si llegada la hora límite no está lleno el torneo,
+los jugadores esperando envían un mensaje empezarTorneo al endpoint, que rellena los huecos del torneo con IAs.\\
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figuras/diagramasSecuencia/buscarTorneo.png}
+  \caption{Búsqueda de torneos}
+  \label{fig:buscarTorneo}
 \end{figure}
 
 \subsubsection{Lógica y BackEnd}
 
-Para la implementación de la lógica del juego se ha análizado el dominio del problema y se ha realizado un primer diseño de clases de análisis. Posteriormente se ha implementado objeto a objeto el diseño inicial y al mismo tiempo actualizando el diagrama de clases.
+Para la implementación de la lógica del juego se ha analizado el dominio del problema y se ha realizado un primer diseño de clases de análisis. Posteriormente se ha implementado objeto a objeto el diseño inicial y al mismo tiempo actualizado el diagrama de clases. 
+
 
 \begin{figure}[H]
 \hspace{-1cm}
@@ -132,12 +203,12 @@ Para la implementación de la lógica del juego se ha análizado el dominio del 
 \label{fig:diagramaClasesLogicaJuegoInicial}
 \end{figure}
 
-\begin{figure}[H]
-\hspace{-2cm}
-\includegraphics[scale = 0.4]{figuras/logica_juego/diagramaClasesImplementacion.png}
-\caption{Diagrama de clases final}
-\label{fig:diagramaClasesLogicaJuegoFinal}
-\end{figure}
+% \begin{figure}[H]
+% \hspace{-2cm}
+% \includegraphics[scale = 0.4]{figuras/logica_juego/diagramaClasesImplementacion.png}
+% \caption{Diagrama de clases final}
+% \label{fig:diagramaClasesLogicaJuegoFinal}
+% \end{figure}
 
 
 \subsubsection{Base de Datos}
@@ -200,6 +271,57 @@ Dado el gran número de clases empleado en la implementación del modelo, su rep
 \caption{Diagrama de clases para la funcionalidad de los artículos de usuario}
 \label{fig:diagramaClasesArticuloUsuario}
 \end{figure}
+
+\subsubsection{Inteligencia Artificial}
+Crear una inteligencia artificial para el Guiñote dista mucho de ser una tarea sencilla pues la propia lógica del juego hace que sea díficil decidir que cartas son beneficiosas para el jugador a tirar. Las personas cuando juegan aplican unas estrategias personales que pueden variar desde guardar triunfos para el final, maximizar los puntos en cada ronda, descartarse de palos para el arrastre... y ninguna de estas estrategias es superior al resto ni garantiza ganar. Basar la IA en los mecanismos humanos no es una buena estrategia debido a que la forma de jugar de las personas está condicionada por prejuicios que han ido adquiriendo a lo largo del tiempo tras numerosas partidas por los pueblos de Aragón. Además, al tratarse de un juego poco extendido sus estrategias nunca han trascendido a niveles académicos dónde hayan sido estudiadas de forma objetiva. Por ello se ha decidido que la inteligencia a desarrollar debía ser independiente de lo que a priori puedan parecer buenas jugadas. Todo esto quiere decir que el sistema en ningún momento se basa en reglas escritas manualmente por los desarrolladores.\\
+
+Para elegir el algoritmo más adecuado se ha consultado numerosa literatura buscando juegos similares al Guiñote. Se trata de un juego con información oculta y además no determinista, es decir, no se conoce la carta del rival, y no se sabe el orden de las cartas a robar, que podría ser cualquiera, dando lugar a distintos finales de la partida.\\
+
+El primer algoritmo que se ha tenido en cuenta es el \textit{expectiminimax}. Se ha descartado debido a que basa sus resultados en función de la probabilidad de cada carta, pero a ojos de un jugador del Guiñote, el rival puede tener cualquier carta, y cualquier carta puede ser la siguiente en ser robada.
+
+El algoritmo final ha sido una variante del \textit{monte carlo tree search}, conocido como \textit{MCTS}. Este algoritmo es ampliamente utilizado para juegos de tablero donde el estado completo de la partida es conocido en cada momento. Basa su éxito en la realización de simulaciones desde un punto concreto de la partida. De esta forma elige el siguiente movimiento comprobando que jugada ofrece unos resultados mas favorecedores en las simulaciones. El problema de este algoritmo es que es necesario conocer el estado completo de la partida para poder utillizarlo (saber las cartas del rival y las del mazo), y hacer trampas no es una opción viable para una inteligencia artificial.\\
+
+La forma de solucionar la información oculta viene con una variación del algoritmo original, utilizando el \textit{information set monte carlo tree search}, conocido como \textit{ISMCTS}~\cite{ismcts}. La variación que incluye este algoritmo se basa en determinizar el estado de la partida. Conseguir el estado de la partida completo, pero debido a que es desconocido, se inventa. En cada iteración del algoritmo se 'barajan' las cartas desconocidas para la IA y se reparten al rival y al mazo de forma que en ese momento se tiene un estado conocido (aunque no tiene por qué ser real). El éxito del \textit{ISMCTS} recae en que al realizar un gran número de simulaciones, la determinización aleatoria del estado de la partida tiende a representa el estado real.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 1]{figuras/mcts}
+\caption{Fases del algoritmo \textit{MCTS} \cite{ismcts2}}
+\label{fig:mcts}
+\end{figure}
+
+El esquema del algoritmo \textit{MCTS} se basa en cuatro fases, cada nodo del árbol representa un movimiento, y cada nivel representa el jugador que realiza ese movimiento:
+\begin{description}
+  \item[Selección: ] Se va bajando por los nodos del árbol hasta llegar a una hoja eligiendo el siguiente nodo con los resultados de la fórmula UCT basada en UCB1. Esta fórmula elige nodos que ofrecen un gran beneficio o que han sido poco explorados. El factor con el que realiza la exploración puede ser modificado a favor de mas exploración o más explotación. 
+  \item[Expansión: ] Cuando se llega a un nodo hoja se generan todos sus posibles hijos, es decir, las respuestas que da el otro jugador al movimiento de esa hoja.
+  \item[Simulación: ] Desde el nodo hoja al que se ha llegado se realiza una simulación en la que se van realizando movimientos aleatorios (pero posibles) hasta finalizar la partida.
+  \item[Propagación: ] Cuando la simulación ha finalizado se obtiene el resultado de la partida (ganada o perdida) y se va propagando esa información hacia arriba hasta la raíz.
+\end{description}
+
+Este proceso se repite multiples veces de forma que la simulaciones modelan el resultado real. Cuando se acaba el tiempo para realizar las iteraciones se elige como movimiento a realizar el hijo con más visitas de la raíz del árbol.
+
+En el \textit{ISMCTS} implementado se añade un primer paso previo a las cuatro fases. En ese paso se determiniza el estado de la partida. Específicamente en el Guiñote se mezclan las cartas desconocidas por la IA y se reparten de forma que ahora se conocen aunque no representan la realidad.\\
+
+La IA realiza las simulaciones de forma aleatoria pero siguiendo las reglas del juego, de forma que para la implementación sólo ha sido necesario conocer las reglas del Guiñote pero no ninguna estrategia de victoria. El esqueleto de la implementación se ha basado en una implementación realizada en \textit{Python} por quienes publicaron el artículo sobre el \textit{ISMCTS} \cite{ismctspy}.\\
+
+En primer lugar se ha realizado una implementación en \textit{Python} para evaluar y validar que el algoritmo juega correctamente. Una vez comprobada la viabilidad se paso a realizar la implementación definitiva en \textit{Java} que sería conectada con el resto de componentes del sistema. Con la versión definitiva se realizaron una serie de pruebas a fin de determinar el mejor número de iteraciones que no suponga una espera al usuario y el mejor factor de explotación y exploración. A fin poder comparar la IA se le han presentado cutro distintos rivales: 
+\begin{description}
+  \item[random: ] Juega una carta al azar.
+  \item[greedy: ] Jugador voraz que siempre que tira en segundo lugar intenta maximizar los puntos obtenidos (con una penalización a gastar triunfo) y cuando lanza primera minimiza los puntos. Con esta estrategia sencilla se consigue una jugada óptima local que puede representar las jugadas de un rival novato.
+  \item[cheating:] Se trata de la misma IA, pero en vez de determinizar aleatoriamente la partida, 'mira' las cartas del rival y del mazo, de forma que hace trampas.
+  \item[humano:] Ignacio Bitrián, integrante del grupo, es un gran jugador del juego y ha participado en numerosos torneos.
+\end{description}
+
+El número de iterciones elegido finalmente ha sido 20.000. De esta forma la IA responde en menos de un segundo pero son suficientes para que suponga una notable dificultad ganarle. Para elegir el factor entre explotación y exploración se han comparado distintos factores contra los distintos rivales, obteniendo que el mejor factor es 0.7, coincidiendo con el factor que aparece en algoritmo original. Con los parámetros ajustados se han enfrentado los rivales a partidas entre ellos obteniendo la siguiente matriz de resultado:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.7]{figuras/statsIA}
+\caption{Matriz de resultados del algoritmo}
+\label{fig:mcts}
+\end{figure}
+
+Observando la matriz de resultados se puede concluir que la IA es muy competente, consiguiendo más victorias que derrotas frente a un rival humano experimentado. La IA que hace trampas gana en bastantes ocasiones a la IA normal, pero la IA ha sabido defenderse en el 30\% de las partidas. Jugando contra el jugador voraz y el aleatorio consigue victoria en casi todas las ocasiones.
 
 \subsubsection{Despliegue}
 La aplicación se pone en marcha en un servidor Tomcat, ya que permite la instalación de aplicaciones web en formato .war. Se distinguen dos aplicaciones diferentes: la que da soporte a la lógica de la aplicación y la encargada de coordinar una partida en curso. Ambas se comunican indirectamente a través de la base de datos y están coordinadas. \\
