@@ -108,7 +108,7 @@ La aplicación web que no se corresponda con la parte jugable, es decir, el perf
 Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el mapa de navegación resultante se observa en la figura \ref{fig:mapaDeNavegacionFinal}. También se puede consultar en el Anexo IV el prototipo del mapa de navegación de la aplicación desarrollado en las fases iniciales del proyecto.
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{figuras/mapaNavFinal.png}
+  \includegraphics[width=\linewidth]{figuras/mapaFinal}
   \caption{Mapa de navegación final}
   \label{fig:mapaDeNavegacionFinal}
 \end{figure}
@@ -136,7 +136,7 @@ momento en el que es imposible evitar el mandar el estado completo es en la tran
 \end{figure}
 
 Como caso interesantes se encuentra la desconexión/reconexión de jugadores, que se gestiona notificando al resto de jugadores
-de un timeout para programar una "alarma". Si antes de recibir el gestor la "alarma" de cualquiera de los otros jugadores, recibe
+de un timeout para programar una 'alarma'. Si antes de recibir el gestor la 'alarma' de cualquiera de los otros jugadores, recibe
 un mensaje listoJugador del ausente, se entiende que se reconecta y se le envía el estado de la partida en ese momento, notificando
 también al resto de jugadores. La otra posibilidad es que se reciba el timeout antes de que se reconecte, lo que significa que
 el jugador ha expirado su tiempo, finalizando la partida y notificando a los jugadores.\\
@@ -185,6 +185,7 @@ los jugadores esperando envían un mensaje empezarTorneo al endpoint, que rellen
   \label{fig:buscarTorneo}
 \end{figure}
 
+\clearpage
 \subsubsection{Lógica y BackEnd}
 
 Para la implementación de la lógica del juego se ha analizado el dominio del problema y se ha realizado un primer diseño de clases de análisis. Posteriormente se ha implementado objeto a objeto el diseño inicial y al mismo tiempo actualizado el diagrama de clases. 
@@ -204,7 +205,7 @@ Para la implementación de la lógica del juego se ha analizado el dominio del p
 % \label{fig:diagramaClasesLogicaJuegoFinal}
 % \end{figure}
 
-
+\clearpage
 \subsubsection{Base de Datos}
 El primer paso en el diseño de la base de datos fue plantear el esquema entidad relación como esquema conceptual del problema. Una vez diseñado el paso a un esquema relacional fue sencillo.
 
@@ -217,6 +218,7 @@ El primer paso en el diseño de la base de datos fue plantear el esquema entidad
 
 Antes de llegar al esquema actual se plantearon otras posibilidades, primeramente por una falta de claridad entre los datos que debían ser persistentes y los que no. En un primer momento se creó una entidad Espera, débil respecto a un Usuario que representaba que un usuario estaba esperando para encontrar jugadores. Finalmente la entidad no existe y la información de una espera no es almacenada en la base de datos. Las partidas son introducidas en la base cuando se empieza una partida, para así poder tener la información de las partidas en curso. La parte con más dificultad es la relacionada con los torneos. Para representar los torneos existen las fases, entendidas como octavos, cuartos, semifinales... Una partida puede estar ligada a una fase, y la fase pertenece a un torneo. Finalmente los jugadores están relacionados con una fase para poder emparejar jugadores.\\
 
+\clearpage
 Para la comunicación del sistema con la base de datos se ha utilizado el patrón DAO (Objeto de Acceso a Datos). Para ello se han implementado una serie de objetos VO que representan la información guardada de forma persistente y unos objetos DAO que abstraen las operaciones con el JDBC mediante métodos de Java. Para mayor seguridad de los datos, todos los posibles usos de la base se realizan a través de una interfaz que proporciona los métodos necesarios además de ofrecer un \textit{pool} de conexiones para aumentar la velocidad de la interacción cuando haya múltiples usuarios.\\
 
 \begin{figure}[H]
@@ -274,7 +276,7 @@ El número de iteraciones elegido finalmente ha sido 20.000. De esta forma la IA
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.7]{figuras/statsIA}
+\includegraphics[scale = 0.6]{figuras/statsIA}
 \caption{Matriz de resultados del algoritmo}
 \label{fig:mcts}
 \end{figure}
