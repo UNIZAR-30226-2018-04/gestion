@@ -29,7 +29,7 @@ En aquellas tecnologías donde el equipo de desarrollo no posee ninguna experien
 
 Una de las funciones más importantes del director del proyecto es gestionar la comunicación dentro del equipo. Para garantizar que esta máxima se cumple, el director tiene la capacidad de convocar reuniones que incluyan a todo el equipo o solo a los responsables de cada grupo de desarrollo. En cada reunión se realiza un acta que recoge todos los aspectos y decisiones importantes acaecidas en la reunión. Las decisiones tomadas en estas reuniones deben trasladarse a la documentación del proyecto y finalmente a la implementación.
 \\\\
-Los grupos de desarrollo se coordinan de forma autónoma para no sobrecargar la figura de director, para ello existe la figura de responsable, ya avanzada anteriormente. Si el equipo de trabajo sigue un correcto funcionamiento el director solo debe reunirse con los responsables de cada grupo, sin embargo en ocasiones extraordinarias puede reunirse con todo el grupo para tomar decisiones que engloben a todo el proyecto, o para corregir posibles funcionamientos incorrectos. Los objetivos globales de cada grupo son supervisados semana a semana por el director del proyecto. Mientras que dentro de cada grupo el responsable asigna día a día las tareas necesarias para cumplir con los objetivos. Los objetivos que semanalmente cada grupo de desarrollo se marca deben ser sencillos, concretos y trazables, de forma que permitan  medir semanalmente el progreso del proyecto. Si una semana un grupo de desarrollo no cumple con las tareas asignadas el responsable puede reforzar el grupo con nuevos miembros y enfocando las tareas de forma diferente para completar esos objetivos antes de la semana siguiente.\\
+Los grupos de desarrollo se coordinan de forma autónoma para no sobrecargar la figura de director, para ello existe la figura de responsable, ya avanzada anteriormente. Si el equipo de trabajo sigue un correcto funcionamiento el director solo debe reunirse con los responsables de cada grupo, sin embargo en ocasiones extraordinarias puede reunirse con todo el grupo para tomar decisiones que engloben a todo el proyecto, o para corregir posibles funcionamientos incorrectos. Los objetivos globales de cada grupo son supervisados semana a semana por el director del proyecto. Mientras que dentro de cada grupo el responsable asigna día a día las tareas necesarias para cumplir con los objetivos. Los objetivos que semanalmente cada grupo de desarrollo se marca deben ser sencillos, concretos y trazables, de forma que permitan  medir semanalmente el progreso del proyecto.\\
 
 En aquellas situaciones donde se requiera mediación, ya sean disputa o bajo rendimiento, el responsable del grupo de desarrollo debe intervenir realizando aquellas acciones que considere necesarias. En caso de disputa si su resolución no satisface a ambas partes, el director del proyecto junto con el responsable del grupo y las dos partes de la disputa se reunen para tomar las decisiones y resoluciones necesarias para finalizar la disputa.\\
 
@@ -68,7 +68,7 @@ El despliegue de la aplicación se lleva a cabo utilizando los servicios de Amaz
 \item{Cada responsable de equipo designa las tareas de los miembros de su equipo utilizando el gestor de tareas propio de GitHub. }
 
     % \item\textbf{ Responsable o responsables de las distintas actividades (puesta en marcha, apoyo al equipo, revisión de commits, copias de seguridad, control de las versiones entregadas a cliente...).}
-\item{Se deben realizar commits frecuentes siempre que el código compile. Los commits deben representar avances lógicos y atómicos de trabajo.  Si el códgio subido afecta al de los compañeros se debe crear una incidencia para notificarles  y recibir aprobación del resto del equipo para realizar el commit. Al programar en parejas, la revisión de los commits por parte de los compañeros de equipo (en parejas o tríos) se produce de forma natural. Los responsables de equipo son los encargados de realizar una copia de seguridad semanal off-site de su parte del repositorio mientras que el director del proyecto la debe realizar del repositorio completo. El director también es el responsable directo del control de las versiones entregadas al cliente. }
+\item{Se deben realizar commits frecuentes siempre que el código compile. Los commits deben representar avances lógicos y atómicos de trabajo.  Si el código subido afecta al de los compañeros se debe crear una incidencia para notificarles  y recibir aprobación del resto del equipo para realizar el commit. Al programar en parejas, la revisión de los commits por parte de los compañeros de equipo (en parejas o tríos) se produce de forma natural. Los responsables de equipo son los encargados de realizar una copia de seguridad semanal off-site de su parte del repositorio mientras que el director del proyecto la debe realizar del repositorio completo. El director también es el responsable directo del control de las versiones entregadas al cliente. }
     % \item \textbf{Recursos: repositorios de control de versiones (cuáles, cuántos, permisos de acceso a los mismos) y sistema de gestión de incidencias.}
     % \item \textbf{Procedimiento para realizar cambios al código fuente y los documentos técnicos: workflow de control de versiones utilizado, cuándo/cómo se permiten realizar commits al repositorio compartido, si tienen que ser aceptados por alguien previamente o no, qué hay que anotar en el sistema de gestión de incidencias, quién decide el estado de las incidencias, en qué estados puede estar una incidencia etc.}
 		\item Los equipos realizan su trabajo sobre una rama basada en la rama central del repositorio (rama del equipo). Los miembros de los equipos realizan los commits sobre la rama del equipo (aunque pueden tener ramas auxiliares basadas en la rama del equipo). El responsable de cada equipo es quien puede incluir los avances hechos sobre una rama de equipo en la rama central del repositorio.
@@ -76,17 +76,16 @@ El despliegue de la aplicación se lleva a cabo utilizando los servicios de Amaz
 
 \subsubsection{Plan de construcción y despliegue del software}
 
-\begin{itemize}
-\item { La construcción del software se desarrolla con la utilización del framework Intelij.}
+La construcción del software se desarrolla con la utilización del framework Intellij IDEA.\\
+
+El software se despliega en tres niveles. El cliente, utilizando un navegador Chrome, interactua con el software desplegado en el servidor web, a través de una conexión https. El servidor web mantiene  el puerto 443 abierto para permitir las conexiones https efectuadas por los clientes. El software del servidor web se despliega en Amazon AWS, en una instancia de EC2, y este interactúa con la base de datos desplegada en Amazon Aurora para la creación de partidas o la modificación de los datos de un jugador. La comunicación entre el servidor web y la base de datos se desarrollara en una intranet utilizando la API JDBC que permite la ejecución de operaciones sobre bases de datos.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.4]{figuras/despliegue.jpg}
 \caption{Diagrama de despliegue}
 \label{fig:diagramaDespliegue}
 \end{figure}
-
-\item{ El software se despliega en tres niveles. El cliente, utilizando un navegador Chrome, interactua con el software desplegado en el servidor web, a través de una conexión https. El servidor web mantiene  el puerto 443 abierto para permitir las conexiones https efectuadas por los clientes. El software del servidor web se despliega en Amazon AWS, en una instancia de EC2, y este interactúa con la base de datos desplegada en Amazon Aurora para la creación de partidas o la modificación de los datos de un jugador. La comunicación entre el servidor web y la base de datos se desarrollara en una intranet utilizando la API JDBC que permite la ejecución de operaciones sobre bases de datos.}
-\end{itemize}
 
 \subsubsection{Plan de aseguramiento de la calidad}
 

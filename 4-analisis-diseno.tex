@@ -103,15 +103,9 @@ Una de las principales decisiones de diseño que se han tenido que llevar a cabo
 
 Otra decisión de diseño que sobre la que se ha reflexionado ha sido acerca de la comunicación entre la interfaz y el controlador de la partida. La tecnología que se ha escogido han sido WebSockets como se ha dicho previamente. Dicha tecnología permite únicamente comunicarse a través del paso de mensajes, por lo que se ha decidido que los mensajes sean en formato JSON para que sean fácilmente legibles para ambos extremos de la comunicación.
 
-La aplicación web que no se corresponda con la parte jugable, es decir, el perfil del usuario, la vista del historial de partidas, ligas, torneos, etc. se implementa con JSP y servlets. Se puede observar el mapa de navegación inicial de la aplicación en la figura \ref{fig:mapaDeNavegacion}.
+La aplicación web que no se corresponda con la parte jugable, es decir, el perfil del usuario, la vista del historial de partidas, ligas, torneos, etc. se implementa con JSP y servlets.
 
-\begin{figure}[H]
-  \includegraphics[width=\linewidth]{figuras/mapaNavegacion.png}
-  \caption{Mapa de navegación}
-  \label{fig:mapaDeNavegacion}
-\end{figure}
-
-Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el mapa de navegación resultate se observa en la figura \ref{fig:mapaDeNavegacionFinal}.
+Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el mapa de navegación resultante se observa en la figura \ref{fig:mapaDeNavegacionFinal}. También se puede consultar en el Anexo IV el prototipo del mapa de navegación de la aplicación desarrollado en las fases iniciales del proyecto.
 
 \begin{figure}[H]
   \includegraphics[width=\linewidth]{figuras/mapaNavFinal.png}
@@ -232,56 +226,18 @@ Para la comunicación del sistema con la base de datos se ha utilizado el patró
 \label{fig:componentesbases}
 \end{figure}
 
-Los clientes que usen la base de datos deben realizar todas las operaciones a través de la Interfaz de Datos. La Interfaz utiliza el pool manager para no tener que crear una nueva conexión con cada cliente y poder reutilizarlas. La Interfaz invocará a las clases DAO que utilizaran las conexiones para conectarse finalmente con la base. Las clases VO sirven para representar los objetos de la base en la comunicación entre las clases.\\
-
-Dado el gran número de clases empleado en la implementación del modelo, su representación se ha realizado mediante diferentes diagramas de clases enfocados en las diferentes funcionalidades de la base .
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.5]{figuras/base_datos/clasesUsuario.png}
-\caption{Diagrama de clases para la funcionalidad de usuario}
-\label{fig:diagramaClasesUsuario}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.5]{figuras/base_datos/clasesStats.png}
-\caption{Diagrama de clases para la funcionalidad de las estadísticas del usuario}
-\label{fig:diagramaClasesStats}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.5]{figuras/base_datos/clasesPartida.png}
-\caption{Diagrama de clases para la funcionalidad de partida}
-\label{fig:diagramaClasesPartida}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.5]{figuras/base_datos/clasesLiga.png}
-\caption{Diagrama de clases para la funcionalidad de liga}
-\label{fig:diagramaClasesLiga}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.5]{figuras/base_datos/clasesArticulo.png}
-\caption{Diagrama de clases para la funcionalidad de artículo}
-\label{fig:diagramaClasesArticulo}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.5]{figuras/base_datos/clasesArticuloUsuario.png}
-\caption{Diagrama de clases para la funcionalidad de los artículos de usuario}
-\label{fig:diagramaClasesArticuloUsuario}
-\end{figure}
+Los clientes que usen la base de datos deben realizar todas las operaciones a través de la Interfaz de Datos. La Interfaz utiliza el pool manager para no tener que crear una nueva conexión con cada cliente y poder reutilizarlas. La Interfaz invocará a las clases DAO que utilizaran las conexiones para conectarse finalmente con la base. Las clases VO sirven para representar los objetos de la base en la comunicación entre las clases. Los diagramas de clases de la Interfaz de Datos se pueden consultar en el Anexo IV.\\
 
 \subsubsection{Inteligencia Artificial}
-Crear una inteligencia artificial para el Guiñote dista mucho de ser una tarea sencilla pues la propia lógica del juego hace que sea díficil decidir que cartas son beneficiosas para el jugador a tirar. Las personas cuando juegan aplican unas estrategias personales que pueden variar desde guardar triunfos para el final, maximizar los puntos en cada ronda, descartarse de palos para el arrastre... y ninguna de estas estrategias es superior al resto ni garantiza ganar. Basar la IA en los mecanismos humanos no es una buena estrategia debido a que la forma de jugar de las personas está condicionada por prejuicios que han ido adquiriendo a lo largo del tiempo tras numerosas partidas por los pueblos de Aragón. Además, al tratarse de un juego poco extendido sus estrategias nunca han trascendido a niveles académicos dónde hayan sido estudiadas de forma objetiva. Por ello se ha decidido que la inteligencia a desarrollar debía ser independiente de lo que a priori puedan parecer buenas jugadas. Todo esto quiere decir que el sistema en ningún momento se basa en reglas escritas manualmente por los desarrolladores.\\
+Crear una inteligencia artificial para el Guiñote dista mucho de ser una tarea sencilla pues la propia lógica del juego hace que sea díficil decidir qué cartas son beneficiosas para el jugador a tirar. Las personas cuando juegan aplican unas estrategias personales que pueden variar desde guardar triunfos para el final, maximizar los puntos en cada ronda, descartarse de palos para el arrastre... y ninguna de estas estrategias es superior al resto ni garantiza ganar. Basar la IA en los mecanismos humanos no es una buena estrategia debido a que la forma de jugar de las personas está condicionada por prejuicios que han ido adquiriendo a lo largo del tiempo tras numerosas partidas por los pueblos de Aragón. Además, al tratarse de un juego poco extendido sus estrategias nunca han trascendido a niveles académicos donde hayan sido estudiadas de forma objetiva. Por ello se ha decidido que la inteligencia a desarrollar debía ser independiente de lo que a priori puedan parecer buenas jugadas. Todo esto quiere decir que el sistema en ningún momento se basa en reglas escritas manualmente por los desarrolladores.\\
 
 Para elegir el algoritmo más adecuado se ha consultado numerosa literatura buscando juegos similares al Guiñote. Se trata de un juego con información oculta y además no determinista, es decir, no se conoce la carta del rival, y no se sabe el orden de las cartas a robar, que podría ser cualquiera, dando lugar a distintos finales de la partida.\\
 
 El primer algoritmo que se ha tenido en cuenta es el \textit{expectiminimax}. Se ha descartado debido a que basa sus resultados en función de la probabilidad de cada carta, pero a ojos de un jugador del Guiñote, el rival puede tener cualquier carta, y cualquier carta puede ser la siguiente en ser robada.
 
-El algoritmo final ha sido una variante del \textit{monte carlo tree search}, conocido como \textit{MCTS}. Este algoritmo es ampliamente utilizado para juegos de tablero donde el estado completo de la partida es conocido en cada momento. Basa su éxito en la realización de simulaciones desde un punto concreto de la partida. De esta forma elige el siguiente movimiento comprobando que jugada ofrece unos resultados mas favorecedores en las simulaciones. El problema de este algoritmo es que es necesario conocer el estado completo de la partida para poder utillizarlo (saber las cartas del rival y las del mazo), y hacer trampas no es una opción viable para una inteligencia artificial.\\
+El algoritmo final ha sido una variante del \textit{monte carlo tree search}, conocido como \textit{MCTS}. Este algoritmo es ampliamente utilizado para juegos de tablero donde el estado completo de la partida es conocido en cada momento. Basa su éxito en la realización de simulaciones desde un punto concreto de la partida. De esta forma elige el siguiente movimiento comprobando qué jugada ofrece unos resultados mas favorecedores en las simulaciones. El problema de este algoritmo es que es necesario conocer el estado completo de la partida para poder utillizarlo (saber las cartas del rival y las del mazo), y hacer trampas no es una opción viable para una inteligencia artificial.\\
 
-La forma de solucionar la información oculta viene con una variación del algoritmo original, utilizando el \textit{information set monte carlo tree search}, conocido como \textit{ISMCTS}~\cite{ismcts}. La variación que incluye este algoritmo se basa en determinizar el estado de la partida. Conseguir el estado de la partida completo, pero debido a que es desconocido, se inventa. En cada iteración del algoritmo se 'barajan' las cartas desconocidas para la IA y se reparten al rival y al mazo de forma que en ese momento se tiene un estado conocido (aunque no tiene por qué ser real). El éxito del \textit{ISMCTS} recae en que al realizar un gran número de simulaciones, la determinización aleatoria del estado de la partida tiende a representa el estado real.
+La forma de solucionar la información oculta viene con una variación del algoritmo original, utilizando el \textit{information set monte carlo tree search}, conocido como \textit{ISMCTS}~\cite{ismcts}. La variación que incluye este algoritmo se basa en determinizar el estado de la partida. Conseguir el estado de la partida completo, pero debido a que es desconocido, se inventa. En cada iteración del algoritmo se 'barajan' las cartas desconocidas para la IA y se reparten al rival y al mazo de forma que en ese momento se tiene un estado conocido (aunque no tiene por qué ser real). El éxito del \textit{ISMCTS} recae en que al realizar un gran número de simulaciones, la determinización aleatoria del estado de la partida tiende a representar el estado real.
 
 \begin{figure}[H]
 \centering
@@ -298,21 +254,23 @@ El esquema del algoritmo \textit{MCTS} se basa en cuatro fases, cada nodo del á
   \item[Propagación: ] Cuando la simulación ha finalizado se obtiene el resultado de la partida (ganada o perdida) y se va propagando esa información hacia arriba hasta la raíz.
 \end{description}
 
-Este proceso se repite multiples veces de forma que la simulaciones modelan el resultado real. Cuando se acaba el tiempo para realizar las iteraciones se elige como movimiento a realizar el hijo con más visitas de la raíz del árbol.
+Este proceso se repite múltiples veces de forma que la simulaciones modelan el resultado real. Cuando se acaba el tiempo para realizar las iteraciones se elige como movimiento a realizar el hijo con más visitas de la raíz del árbol.
 
 En el \textit{ISMCTS} implementado se añade un primer paso previo a las cuatro fases. En ese paso se determiniza el estado de la partida. Específicamente en el Guiñote se mezclan las cartas desconocidas por la IA y se reparten de forma que ahora se conocen aunque no representan la realidad.\\
 
 La IA realiza las simulaciones de forma aleatoria pero siguiendo las reglas del juego, de forma que para la implementación sólo ha sido necesario conocer las reglas del Guiñote pero no ninguna estrategia de victoria. El esqueleto de la implementación se ha basado en una implementación realizada en \textit{Python} por quienes publicaron el artículo sobre el \textit{ISMCTS} \cite{ismctspy}.\\
 
-En primer lugar se ha realizado una implementación en \textit{Python} para evaluar y validar que el algoritmo juega correctamente. Una vez comprobada la viabilidad se paso a realizar la implementación definitiva en \textit{Java} que sería conectada con el resto de componentes del sistema. Con la versión definitiva se realizaron una serie de pruebas a fin de determinar el mejor número de iteraciones que no suponga una espera al usuario y el mejor factor de explotación y exploración. A fin poder comparar la IA se le han presentado cutro distintos rivales: 
+En primer lugar se ha realizado una implementación en \textit{Python} para evaluar y validar que el algoritmo juega correctamente. Una vez comprobada la viabilidad se pasó a realizar la implementación definitiva en \textit{Java} que sería conectada con el resto de componentes del sistema. En la aplicación, se trata a la IA como un usuario más, denominado SophIA, que además tiene un avatar personalizado para que se le reconozca del resto de usuarios.\\
+
+Con la versión definitiva se realizaron una serie de pruebas a fin de determinar el mejor número de iteraciones que no suponga una espera al usuario y el mejor factor de explotación y exploración. A fin poder comparar la IA se le han presentado cuatro distintos rivales: 
 \begin{description}
-  \item[random: ] Juega una carta al azar.
-  \item[greedy: ] Jugador voraz que siempre que tira en segundo lugar intenta maximizar los puntos obtenidos (con una penalización a gastar triunfo) y cuando lanza primera minimiza los puntos. Con esta estrategia sencilla se consigue una jugada óptima local que puede representar las jugadas de un rival novato.
-  \item[cheating:] Se trata de la misma IA, pero en vez de determinizar aleatoriamente la partida, 'mira' las cartas del rival y del mazo, de forma que hace trampas.
-  \item[humano:] Ignacio Bitrián, integrante del grupo, es un gran jugador del juego y ha participado en numerosos torneos.
+  \item[Random: ] Juega una carta al azar.
+  \item[Greedy: ] Jugador voraz que siempre que tira en segundo lugar intenta maximizar los puntos obtenidos (con una penalización a gastar triunfo) y cuando lanza primera minimiza los puntos. Con esta estrategia sencilla se consigue una jugada óptima local que puede representar las jugadas de un rival novato.
+  \item[Cheating:] Se trata de la misma IA, pero en vez de determinizar aleatoriamente la partida, 'mira' las cartas del rival y del mazo, de forma que hace trampas.
+  \item[Humano:] Ignacio Bitrián, integrante del grupo, es un gran jugador del juego y ha participado en numerosos torneos.
 \end{description}
 
-El número de iterciones elegido finalmente ha sido 20.000. De esta forma la IA responde en menos de un segundo pero son suficientes para que suponga una notable dificultad ganarle. Para elegir el factor entre explotación y exploración se han comparado distintos factores contra los distintos rivales, obteniendo que el mejor factor es 0.7, coincidiendo con el factor que aparece en algoritmo original. Con los parámetros ajustados se han enfrentado los rivales a partidas entre ellos obteniendo la siguiente matriz de resultado:
+El número de iteraciones elegido finalmente ha sido 20.000. De esta forma la IA responde en menos de un segundo pero son suficientes para que suponga una notable dificultad ganarle. Para elegir el factor entre explotación y exploración se han comparado distintos factores contra los distintos rivales, obteniendo que el mejor factor es 0.7, coincidiendo con el factor que aparece en algoritmo original. Con los parámetros ajustados se han enfrentado los rivales a partidas entre ellos obteniendo la siguiente matriz de resultado:
 
 \begin{figure}[H]
 \centering

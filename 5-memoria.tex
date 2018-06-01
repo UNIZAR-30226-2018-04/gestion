@@ -3,9 +3,7 @@
 A continuación se describen los objetivos principales de cada uno de los equipos de trabajo así como un pequeño resumen de cómo se ha desarrollado el trabajo de cada equipo a lo largo de todo el proyecto. En el resto de la sección se describe más detalladamente el desarrollo del proyecto.\\
 
 \subsubsection*{FrontEnd y Middleware}
-El principal objetivo del Frontend eran desarrollar las interfaces con las que los usuarios interaccionarían con la aplicación. Se distinguen dos interfaces, las de navegación web y la parte jugable del guiñote. La parte jugable se ha podido implementar en su mayoría, a falta del modo espectador y la parte de personalización. Sin embargo, la parte de la interfaz de navegación se completará para la segunda iteración, ya que únicamente se tienen las pantallas de login y la navegación.
-\\
-En cuanto al Middleware, el principal objetivo era comunicar la interfaz de juego para que los usuarios puedan jugar entre ellos, que se ha conseguido con éxito. Aun así, es necesario completar con la funcionalidad de que un usuario puede cambiar de dispositivo en una misma partida.
+El principal objetivo del Frontend ha sido desarrollar las interfaces con las que los usuarios interaccionarían con la aplicación. Se distinguen dos interfaces, las de navegación web y la parte jugable del guiñote. En cuanto al Middleware, el principal objetivo ha sido comunicar la interfaz de juego para que los usuarios puedan jugar entre ellos, tanto individualmente como en parejas, así como la comunicación con el componente de la IA y la posibilidad de reconexión y cambio de dispositivo en una misma partida. Los objetivos del equipo se han cumplido con éxito, a pesar de las dificultades que entrañaba especialmente la comunicación en el entorno de despliegue final.
 
 \subsubsection*{BackEnd}
 El objetivo del equipo de backend era desarrollar un paquete de java que representase la lógica del juego del guiñote, al mismo tiempo que desarrollaba gran parte de la página web dinámica del proyecto. En la primera parte del proyecto el equipo se centro en el análisis, diseño, implementación y pruebas de la lógica del guiñote. Esta parte era fundamental para el correcto avance del proyecto ya que el equipo del FrontEnd y la IA dependía de este módulo para desarrollar al completo sus tareas. Por este motivo, se hizo mucho énfasis en las pruebas de la lógica ya que una vez integrado con los demás componentes del sistema son muy díficiles de detectar los erroes porque al tratarse de un juego de carta es muy difícil reporducir de nuevo el mismo contexto que ha producido el error. \\
@@ -22,9 +20,9 @@ El objetivo del equipo de inteligencia artificial ha sido cumplido con un claro 
 \label{inicio}
 Tal y como se describió, tras un diseño preliminar del sistema en general, cada subequipo se puso a analizar sus necesidades concretas y a buscar ejemplos para comenzar a implementar con cierto contexto. Cabe destacar que entre las búsquedas de esos ejemplos, se estableció contacto con Iván López Asín, desarrollador de la app guiñotepro.es. Fue una sorpresa que usase generalmente las mismas tecnologías que las propuestas preliminarmente (Phaser.io y WebView para móviles), lo que resalta un buen trabajo de documentación previo del equipo. Además, mostró su interés en integrar nuestra  inteligencia artificial, pero habría que portarla a Javascript y adaptarla a su implementación.\\
 
-Posteriormente, se configuró el repositorio en Github debidamente y como denominador común se ha utilizado la suite de IDEs de JetBrains: WebStorm para Javascript, IDEA para Java, JSP y Servlets y, por último, DataGrip para el diseño y la interacción con la base de datos.\\
+Posteriormente, se configuró el repositorio en Github debidamente y como denominador común se ha utilizado la suite de IDEs de JetBrains: WebStorm para Javascript, IDEA para Java, JSP y Servlets y, por último, DataGrip para el diseño y la interacción con la base de datos. Destaca frente al plan inicial estipulado, las dificultades encontradas para obtener un certificado TLS, por lo que finalmente se ha utilizado únicamente un certificado autofirmado que ha imposibilitado la finalización del desarrollo del registro a través de Facebook.\\
 
-Por último, antes de ponerse a implementar, cada equipo de trabajo debió pasar una fase de formación. Sin embargo, se ha intentado centrar la atención exclusivamente en las tecnologías que afectasen directamente a cada equipo para reducir el tiempo invertido en esto. Por suerte, el backend del proyecto está desarrollado en Java, tecnología en la que todo el mundo tiene cierta experiencia, haciendo así más fácil la interacción entre los diferentes componentes y la depuración de errores.\\
+Por último, antes de ponerse a implementar, cada equipo de trabajo debió pasar una fase de formación. Sin embargo, se ha intentado centrar la atención exclusivamente en las tecnologías que afectasen directamente a cada equipo para reducir el tiempo invertido en esto. El backend del proyecto está desarrollado en Java, tecnología en la que todo el mundo tiene cierta experiencia, haciendo así más fácil la interacción entre los diferentes componentes y la depuración de errores.\\
 
 Respecto al aprendizaje de las nuevas tecnologías aplicadas en el proyecto, la experiencia ha sido generalmente positiva. En el caso de la GUI, se ha tenido que aprender a utilizar tanto Javascript como el framework de videojuegos Phaser. Para ello, se han utilizado tutoriales tanto oficiales como de terceros. Además, entre la GUI y el gestor de mensajes la comunicación se realiza a través de websockets, por lo que ha habido que formarse tanto en la perspectiva de websockets para Javascript como para JavaEE con la API de Tomcat. En el backend, los principales problemas de integración se han debido a falta de experiencia con el flujo de trabajo del IDE, lo que era un coste temporal que no estaba calculado a priori. Por último, según lo decidido, se configuró la base de datos en MySQL dentro de Amazon Aurora (AWS), tratándose de una tecnología también novedosa para el equipo. Cabe destacar que el despliegue transcurrió sin mayores incidencias siguiendo las instrucciones provistas por Amazon. Las principales características de la base de datos utilizada para el proyecto son:
 
@@ -41,8 +39,9 @@ Respecto al aprendizaje de las nuevas tecnologías aplicadas en el proyecto, la 
 
 \subsection{Ejecución y control del proyecto}
 \label{ejecucion}
-Los procesos de control no se han llevado a cabo tal y como estipulaba el primer plan de gestión. Ya que el director del proyecto no se ha coordinado con los responsables de grupo. Sin embargo a nivel local, los responsables de grupo si han dirigido y organizado sus respectivos grupos. Además no se ha producido ninguna situación que requiera de mediación ni necesidad de intervención extraordinaria por parte de los responsables. 
-Los procesos técnicos se han llevado a cabo tal y como estaban especificados en la primera versión del plan de gestión. Tanto en el apartado de pruebas como documentación. Aplicar los procesos acordados ha costado bastante por la falta de costumbre, sin embargo los ficheros fuente, pruebas y documentación obtenidos nos han permitido trabajar de forma más eficiente.
+Los procesos de control en general se han seguido pero no tal y como estipulaba el primer plan de gestión. El director del proyecto no se ha coordinado con los responsables de equipo, aunque a nivel local, los responsables sí han dirigido y organizado sus respectivos grupos. Además, no se ha producido ninguna situación que requiera de mediación ni necesidad de intervención extraordinaria por parte de los responsables. 
+Los procesos técnicos se han llevado a cabo tal y como estaban especificados en la primera versión del plan de gestión, tanto en el apartado de pruebas como documentación, a excepción de la creación de ramas locales en GitHub para cada equipo, algo que únicamente llevó a cabo el equipo de Bases de Datos. Aplicar los procesos acordados ha costado bastante en general por la falta de costumbre, sin embargo los ficheros fuente, pruebas y documentación obtenidos nos han permitido trabajar de forma más eficiente.
+
 \subsubsection{Reparto del trabajo}
 En un primer momento, el reparto de trabajo fue definido únicamente en relación a los equipos creados, como se detalla en la sección \ref{repartotrabajo}. Sin embargo, se detectó que este reparto, aunque necesario, era demasiado genérico y no permitía medir el progreso de forma clara. Por ello se decidió que dentro de cada equipo de trabajo se llevaría a cabo una división del trabajo en tareas o paquetes de trabajo, siguiendo la Estructura de Descomposición del Trabajo (WBS \cite{edt}). Cada paquete de trabajo corresponde a una tarea específica y claramente delimitada, como puede ser el desarrollo de una clase, y especifica un único responsable de este (no significa que sea la única persona que trabaje en él pero sí la responsable de su desarrollo). Para el control del progreso en relación a esta división del trabajo se ha utilizado el apartado Projects de GitHub, en el que cada paquete se marca con un tick cuando está finalizado y depurado.
 
@@ -62,8 +61,14 @@ A continuación se muestran los diagramas de paquetes desarrollados:
 
 \begin{figure}[H]
 		\hspace{-2cm}
-		\includegraphics[scale=0.55]{figuras/edtGestorMensajes.pdf}
+		\includegraphics[scale=0.6]{figuras/edtGestorMensajes.pdf}
 		\caption{Diagrama de Paquetes de Trabajo Gestor de Mensajes}
+	\end{figure}
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.7]{figuras/edtIA.pdf}
+		\caption{Diagrama de Paquetes de Trabajo Inteligencia Artificial}
 	\end{figure}
 
 
@@ -77,12 +82,6 @@ A continuación se muestran los diagramas de paquetes desarrollados:
 		\hspace{-1cm}
 		\includegraphics[scale=0.8]{figuras/edtLogica.pdf}
 		\caption{Diagrama de Paquetes de Trabajo Lógica}
-	\end{figure}
-
-\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.8]{figuras/edtIA.pdf}
-		\caption{Diagrama de Paquetes de Trabajo Inteligencia Artificial}
 	\end{figure}
 
 \begin{figure}[H]
@@ -100,49 +99,52 @@ A continuación se muestran los diagramas de paquetes desarrollados:
 Es importante añadir que el trabajo de integración de los diferentes paquetes de trabajo no está reflejado en estos diagramas pero también ha sido necesario repartirlo y realizarlo.
 
 \subsubsection{Comunicación interna}
-La decisión de la nueva estructura de grupos se realizó mediante una reunión entre los miembros afectados por el cambio.
-En cuanto a la parte de BackEnd, al comienzo del proyecto la comunicación ha sido bastante pobre, ya que en algunos momentos los desarrolladores han realizado la misma actividad por duplicado. En el desarrollo de los diferentes componentes cada miembro tenía su propio diseño en mente y ha sido necesario ponerse de acuerdo y plasmar el diseño en un diagrama UML de clases, que todos pudieran consultar y hacer referencia. Hacia el final de la primera iteración el equipo ha mejorado su comunicación en gran medida.
+La comunicación interna en general ha funcionado correctamente, aunque no siempre a través de la figura del director del proyecto, y más de manera acordada entre todos los miembros del equipo. Por ejemplo, la decisión de la nueva estructura de grupos se realizó mediante una reunión entre los miembros afectados por el cambio.
+En el equipo de BackEnd, al comienzo del proyecto la comunicación fue bastante pobre, ya que en algún momento inicial los desarrolladores realizaron la misma actividad por duplicado. En el desarrollo de los diferentes componentes cada miembro tenía su propio diseño en mente y ha sido necesario ponerse de acuerdo y plasmar el diseño en un diagrama UML de clases, que todos pudieran consultar y hacer referencia. Hacia el final de la primera iteración el equipo mejoró su comunicación en gran medida, para acabar con un funcionamiento mucho más organizado en la segunda iteración.
 \\
-La comunicación entre los diferentes equipos se ha llevado a través del servicio de terceros Skype para, principalmente, resolver dudas acerca de como comunicar e integrar las distintas partes de la aplicación. Además, se utiliza el servicio de mensajería WhatsApp para reportar bugs, incidencias y comonunicaciones asíncronas. También se han llevado a cabo varias de tipo presencial reuniones para especificar interfaces comunes para facilitar la integración
+La comunicación entre los diferentes equipos se ha llevado a través del servicio de terceros Skype para, principalmente, resolver dudas acerca de como comunicar e integrar las distintas partes de la aplicación. Además, se utiliza el servicio de mensajería WhatsApp para reportar bugs, incidencias y comonunicaciones asíncronas. También se han llevado a cabo varias reuniones de tipo presencial para especificar interfaces comunes para facilitar la integración, que han servido de gran ayuda para gestionar una mejor comunicación. Es destacable que se ha aprendido a valorar el coste en tiempo y esfuerzo que suponen este tipo de reuniones, y que sería deseable realizar únicamente cuando sea muy necesario.
 \\
 Se ha utilizado Floobits para la programación por parejas para las partes de la aplicación más complejas.
 
 \subsubsection{Adecuación a las herramientas y tecnologías}
+En general la adecuación a las herramientas y tecnologías planteadas desde un principio ha sido total, sin mayores dificultades. \\
 % \subsubsection*{Base de Datos}
 La base de datos se ha desplegado en el gestor elegido en un primer momento, MySQL en Amazon Aurora. Para la implementación se eligió Java como lenguaje de programación lo que ha permitido la utilización de librerias para la conexión de la base de datos (JDBC y c3p0). El desarrollo en Java fue acompañado del software IntelliJ que permitía el soporte para las librerías y el control de versiones. Además permite programar en Java, por lo que el uso de la herramienta es una ventaja.
 \\
-
 % \subsubsection*{FrontEnd y Middleware}
 En cuanto al desarrollo de la interfaz de juego se ha utilizado la herramienta WebStorm, en un primer momento, ya que permite de forma fácil hacer cambios en la interfaz y verlos reflejados de manera inmediata en el navegador. Sin embargo, al integrar esta parte con el resto del proyecto se ha seguido su desarrollo con el software IntelliJ. De esta manera, se consigue probar el funcionamiento del juego gracias al despliegue con el servidor Tomcat para poder probar las comunicaciones entre jugadores.
 \\
-Una vez se despliegua el sistema en Amazon, para depurar las comunicaciones basta con modificar aquel fichero que se necesitaba ajustar, ya que simplemente había que ajustar parametros de retardos al tratarse de un sistema distribuido en cuanto al paso de mensajes se refiere. De esta manera no se despliega toda la aplicación de nuevo sino que sólo una parte de ella.
+Una vez se despliega el sistema en Amazon, para depurar las comunicaciones basta con modificar aquel fichero que se necesitaba ajustar, ya que simplemente había que ajustar parametros de retardos al tratarse de un sistema distribuido en cuanto al paso de mensajes se refiere. De esta manera no se despliega toda la aplicación de nuevo sino que sólo una parte de ella.
 \\
 % \subsubsection*{BackEnd}
 Para el diseño de los diagramas de clases se ha utilizado la herramienta StarUML, la web draw.io y excel para los diagramas de las pruebas de caja blanca y las tablas para las pruebas de caja negra.
-Se ha utilizado un plugin Floobits de Intellij para la programación en parejas ya que nos permitía trabajar remotamente a dos o más miembros sobre el mismo fichero en tiempo real utilizando dos cursores diferentes. Esta herramienta se ha utilizado para los métodos más difíciles como por ejemplo lanzarCarta de la clase EstadoPartida.
+\\
+Se ha utilizado un plugin Floobits de Intellij para la programación en parejas ya que nos permitía trabajar remotamente a dos o más miembros sobre el mismo fichero en tiempo real utilizando dos cursores diferentes. Esta herramienta se ha utilizado para los métodos más difíciles como por ejemplo lanzarCarta o finalizarRonda de la clase EstadoPartida de la lógica.
 \\
 
 
 \subsubsection{Control de versiones}
 %\subsubsection*{FrontEnd y Middleware}
-La utilización de git ha sido de gran ayuda a la hora de integrar el código desarrollado por cada miembro del grupo. Si algún miembro de un equipo modifica algún fichero de otro equipo, el commit que se realice especifica de forma clara y directa que es lo que ha modificado. Para cambios grandes se pone en contacto con el responsable del equipo para solucionar el problema. Se ha utilizado git desde el software de desarrollo intellij IDEA, en vez de hacerlo directamente sobre la línea de comandos, para subir y actualizar el proyecto de manera más rápida y cómoda. Esto ha sumado en el tiempo de aprendizaje del uso de los IDE’s. Para evitar problemas relacionados con que dos miembros del equipo hagan el mismo trabajo se realizan commits de manera frecuente y se utilizan las task lists de github para llevar un control de lo que se ha realizado o de lo que falta por realizarse o probar. Para ficheros con información privada como un fichero \textit{properties} con la información privada de acceso a la base de datos, no se utiliza un software de control de versiones ya que no debe de estar subido al repositorio público. Al no existir este tipo de ficheros en un repositorio público, se tiene que compartir de forma privada y cada miembro debe colocar el fichero teniendo cuidado de provocar errores al compilar dependiendo de la ruta del fichero.
+La utilización de Git ha sido de gran ayuda a la hora de integrar el código desarrollado por cada miembro del grupo. Si algún miembro de un equipo modifica algún fichero de otro equipo, el commit que se realice especifica de forma clara y directa que es lo que ha modificado. Para cambios grandes se pone en contacto con el responsable del equipo para solucionar el problema. Se ha utilizado git desde el software de desarrollo Intellij IDEA, en vez de hacerlo directamente sobre la línea de comandos, para subir y actualizar el proyecto de manera más rápida y cómoda. Esto ha sumado en el tiempo de aprendizaje del uso de los IDE’s. Para evitar problemas de comunicación, se utilizan las tasks lists de github para llevar un control de lo que se ha realizado o de lo que falta por realizarse o probar. Para ficheros con información privada como un fichero \textit{properties} con la información privada de acceso a la base de datos, no se utiliza un software de control de versiones ya que no debe estar subido al repositorio público. Al no existir este tipo de ficheros en un repositorio público, se tiene que compartir de forma privada y cada miembro debe colocar el fichero teniendo cuidado de provocar errores al compilar dependiendo de la ruta del fichero.\\
 
 %\subsubsection*{Base de Datos}
+\subsubsection*{Integración y despliegue}
+En cuanto a la integración entre el acceso a datos y el backend, en un primer momento se detectó un claro problema de comunicación entre los grupos a mitad del desarrollo debido a que no existía una interfaz definida de forma precisa desde un primer momento. Únicamente se había comentado una interfaz ambigua que diferentes partes entendían de forma distinta, y que además, sin las definiciones concretas de las funciones, impedía llevar a cabo el desarrollo en paralelo. Cuando se detectó el problema, hubo una reunión entre ambos grupos para definir esta interfaz de acceso a los datos. Gracias a este incidente se ha aprendido la importancia del desarrollo de interfaces entre los distintos componentes de los sistemas.\\
 
-%\subsubsection*{Integración y despliegue}
-En cuanto a la integración entre el acceso a datos y el backend, se detectó un claro problema de comunicación entre los grupos a mitad del desarrollo debido a que no existía una interfaz definida de forma precisa desde un primer momento. Únicamente se había comentado una interfaz ambigua que diferentes partes entendían de forma distinta, y que además, sin las definiciones concretas de las funciones, impedía llevar a cabo el desarrollo en paralelo. Cuando se detectó el problema, hubo una reunión entre ambos grupos para definir esta interfaz de acceso a los datos. Gracias a este incidente se ha aprendido la importancia del desarrollo de interfaces entre los distintos componentes de los sistemas.
-El despliegue del servidor de bases de datos se realizó en AWS sin mayores problemas. En cuanto al despliegue del servidor web hubo problemas debido a una configuración de red de la máquina virtual. Tras localizar el problema se pudo solventar y finalmente acceder al servidor mediante SSH sin problemas.
+El despliegue del servidor de bases de datos se realizó en AWS sin mayores problemas. En cuanto al despliegue del servidor web hubo problemas debido a una configuración de red de la máquina virtual. Tras localizar el problema se pudo solventar y finalmente acceder al servidor mediante SSH sin problemas.\\
 
-Para desplegar la aplicación web localmente, se ha utilizado el servidor Tomcat junto con la herramienta IntelliJ. Se ha adaptado el código para que funcionara en la última versión para evitar problemas con la versión del Tomcat de cada miembro. En cuanto a la parte jugable, se despliega directamente con la herramienta WebStorm y se ejecuta en el navegador Chrome.
+Para desplegar la aplicación web localmente, se ha utilizado el servidor Tomcat junto con la herramienta IntelliJ. Se ha adaptado el código para que funcionara en la última versión para evitar problemas con la versión del Tomcat de cada miembro. En cuanto a la parte jugable, se despliega directamente con la herramienta WebStorm y se ejecuta en el navegador Chrome.\\
+
+Con respecto al despliegue del sistema final, únicamente comentar las dificultades que este planteó con respecto a las latencias en las comunicaciones, que fue necesario dedicar mucho tiempo para depurarse correctamente.
 
 \subsubsection{Pruebas del software}
-Para asegurar el correcto funcionamiento del software, cada equipo ha realizado pruebas unitarias para las funciones más complicadas que puedan generar errores.
+Para asegurar el correcto funcionamiento del software, cada equipo ha realizado pruebas unitarias para las funciones más complicadas que puedan generar errores.\\
 
 %\subsubsection*{FrontEnd y Middleware}
-Para probar la interfaz de juego se ha utilizado la herramienta Jasmine \footnote{ \url{https://jasmine.github.io/} }, que permite hacer tests unitarios en JavaScript. Se ha creado un protipo de una partida de prueba y se comprueba que el software pasa todos los tests diseñados.
+Para probar la interfaz de juego se ha utilizado la herramienta Jasmine \footnote{ \url{https://jasmine.github.io/} }, que permite hacer tests unitarios en JavaScript. Se ha creado un protipo de una partida de prueba y se comprueba que el software pasa todos los tests diseñados.\\
 %\subsubsection*{Bases datos}
 
-La base de datos implementada en MySQL fue probada mediante la inserción de datos falsos de ejemplo, y la realización de consultas sencillas sobre ella, que garantizan el correcto funcionamiento. La interfaz de acceso a datos ha sido probada mediante pruebas unitarias. Se desarrolló un programa de pruebas al final del desarrollo de cada clase DAO, probando función a función sobre los datos de ejemplo introducidos, y solucionando errores de implementación. Para comprobar el funcionamiento de las clases a una escala mayor se escribió un programa en Python que generaba el código de Java que probaba la base de datos insertando nuevos datos. De esta forma también se tiene la base de datos poblada con datos de apariencia real, lo que puede ser beneficioso para pruebas de otros equipos.
+La base de datos implementada en MySQL fue probada mediante la inserción de datos falsos de ejemplo, y la realización de consultas sencillas sobre ella, que garantizan el correcto funcionamiento. La interfaz de acceso a datos ha sido probada mediante pruebas unitarias. Se desarrolló un programa de pruebas al final del desarrollo de cada clase DAO, probando función a función sobre los datos de ejemplo introducidos, y solucionando errores de implementación. Para comprobar el funcionamiento de las clases a una escala mayor se escribió un programa en Python que generaba el código de Java que probaba la base de datos insertando nuevos datos. De esta forma también se tiene la base de datos poblada con datos de apariencia real, lo que puede ser beneficioso para pruebas de otros equipos.\\
 
 Todas las funciones de la lógica han sido sometido a algún tipo de prueba. El criterio que se ha seguido consiste en probar la funciones más triviales mediante pruebas de caja negra utilizando la técnica de clases de equivalencia y análisis de casos extremos para las funciones más triviales que operan en ciertos rango. 
 Por ejemplo, para la función de getPuntuación perteneciente al módulo Carta se ha utilizado la técnica de análisis de casos extremos. De esta forma se prueban todas las cartas que tienen una puntuación mayor que 0 y una de las que tienen puntuación 0.
@@ -255,35 +257,21 @@ En la última baza el jugador 4 mata con un triunfo superior después de que el 
 \end{table}
 
 Al tratarse de un videojuego, es difícil abordar todos las posibles situaciones de la partida, por lo que para probarlo, se hace el trabajo similar al de un tester, donde juega partidas y fuerza situaciones que se salen de lo normal para comprobar el comportamiento de la partida. Cuando se detecta algún bug, se notifica a través de un issue en GitHub para que el equipo causante del mismo lo solucione. \\
+
 Para las pruebas funcionales, una vez probados los componentes por separado y una vez integrados, todos los miembros del equipo han probado el sistema desplegado haciendo pruebas manuales, como si fuesen usuarios, con todas las funcionalidades detalladas en las especificaciones del sistema para determinar que se cumple los objetivos del sistema y se realizan correctamente. \\
+
 Para realizar las pruebas de rendimiento del sistema, se han jugado varias partidas para comprobar que el tiempo de respuesta tanto de la IA como del sistema es razonable. También se ha probado el sistema en entornos con una conexión mala a internet. En dichas situaciones se percibe un retardo inicial considerable para cargar todas las imagenes de la interfaz, aunque una vez iniciado el juego, el funcionamiento es bastante razonable obteniendo un tiempo de respuesta inferior a los 2 segundos en la mayoría de los casos. \\
+
 Dado que la máquina de Amazon no dispone de unas especificaciones técnicas muy buenas se ha decidido realizar las pruebas de sobrecarga en un ordenador personal. Se han jugado 10 partidas simultáneas estando el servidor desplegado en un Intel i7-7500 y el juego no sufre grandes retrados en las comunicaciones. Además, pueden estar navegando por la página web aproximadamente unos 15 usuarios sin percibir un efecto de relantización. El límite de conexiones a la base de datos es de 90, ya que lo establece Amazon AWS según el servicio contratado.\\
+
 En las pruebas de volumen realizadas en la base de datos se han insertados unos 500 usuarios y todo funcionaba correctamente. Así que, por parte de la base de datos la única limitación que se tiene es el número de conexiones simultáneas, aunque estas podrían resolverse contratando una tarifa mayor en Amazon AWS en un futuro. \\
+
 Las pruebas de seguridad realizadas en la páginas web se basan verificar que la entrada de datos están protegidas, de forma que un usuario no pueda acceder a la cuenta de otro sin saberse su contraseña y usuario. Además, se ha probado a acceder directamente a diferentes vistas del administrador sin serlo, o a ciertas ventanas con contenido específico de cada usuario, como la tienda o perfil, y su acceso fue denegado. \\
-
-
-
-
-\subsubsection*{Progreso y Divergencias frente a la planificación inicial}
-
-Para la primera iteración era necesario realizar una demostración al cliente de una versión funcional el juego del guiñote. Se ha realizado una versión básica funcional jugable a través de interfaz. Sin embargo, se ha dejado para la segunda iteración el requisito de cambio de dispositivo y de personalización del juego principalmente. Además, se garantizó que el modo espectador debía estar implementado. Sin embargo, no está desarrollado plenamente. La situación actual de la implementación de dicho requisito está casi terminada, a falta de la integración con la comunicación entre capas y las pruebas correspondientes.
-
-En el primer plan de gestión se especificó que tanto el matchmaking y como la web dinámica deberían estar avanzados para la primera iteración. En cuanto a la web dinámica, faltan bastantes vistas y funcionalidades básicas debido a la sobre carga de trabajo que han sufrido los equipos de backend y frontend. Ambos equipos se centraron en obtener las funcionalidades básicas del juego dejando de lado el resto de aspectos. Si bien es cierto que ya se ha alcanzado un tercio del total, mientras que el objetivo en esta primera iteración era de la mitad.
-
-En cuanto a la capa de persistencia y la capa de acceso de datos, el equipo de bases de datos ha cumplido el diagrama de Gantt establecido, exceptuando la implementación del acceso a datos relacionado con los torneos, que estaba planificado para la primera iteración y se debe alargar a la segunda, sin suponer ningún problema de dependencias con el resto de componentes del sistema y que no se estima muy costosa. También se puede comentar que, en lo que respecta al diseño de la base de datos, se requirió algo menos tiempo del estimado (se finalizó con una semana de antelación), mientras que el diseño del acceso a datos requirió más tiempo del estimado por lo que fueron compensados, cumpliendo bastante bien la planificación inicial.
-
-En cuanto a la 2ª iteración, se ha conseguido implementar el resto de requisitos en su plenitud. De los cuales, los más importantes eran el matchmaking, torneos, espectadores, permitir el cambio de dispositivo y la incorporación de la inteligencia artificial. El más problemático ha sido implementar la posibilidad de los torneos, ya que el equipo se ha enfrentado a diferentes problemas de diseño relacionados con el abandono de jugadores. La integración de la inteligencia artificial también ha resultado ser problemática ya que respondía practicamente de manera instantánea y el jugador no podía ver la carta que ésta había lanzado.
-\\
-Debido a los problemas comentados anteriormente las horas de trabajo se incrementan considerablemente. Además, habría que sumarle los problemas relacionados al despliegue y la latencia de la red que aparece y como lidiar con este nuevo problema.
-
-\subsubsection*{BackEnd}
-El equipo ha cumplido el diagrama de Gantt en el apartado de implementación de lógica del juego. Si bien es cierto que se ha logrado con un retraso de media semana. Puesto que el equipo se centró en la implementación de la lógica la parte de desarrollo de la web dinámica no ha cumplido el calendario impuesto al comienzo del proyecto y arrastra un leve retraso que deberá ser compensado en la segunda iteración. El retraso se debe a la gran cantidad de trabajo asignado en la planificación inicial, muy superior a la capacidad del equipo.
-
-Debido a las divergencias entre las horas de implementación reales y las estimaciones iniciales, el equipo ha decidido realizar un registro y posteriormente un estudio de las horas empleadas en el desarrollo del proyecto. El equipo ha realizado 349 horas de trabajo, de las cuales 106 se han invertido en tareas de gestión, una cifra muy superior a establecida en la estimación inicial. También cabe destacar las 33 horas de realización de pruebas y corrección de errores, que deberían asegurar la calidad del proyecto. En cuanto a las estimaciones sobre los diferentes componenetes, la implementacion del juego y su comunicación, junto con el desarrollo de la web dinámica están realizadas de forma precisa, completando las horas asignadas. Sin embargo, los componentes de la base de datos y las vistas de la web se han sobredimensionado ligeramente, por lo que el equipo ha tenido que realizar menos trabajo del especificado. 
 
 \subsection{Cierre del proyecto}
 \label{cierre}
-Los procesos de control no se han llevado a cabo tal y como estipulaba el primer plan de gestión, ya que el director del proyecto no se ha coordinado con los responsables de grupo. Sin embargo a nivel local, los responsables de grupo sí han dirigido y organizado sus respectivos grupos. Además no se ha producido ninguna situación que requiera de mediación ni necesidad de intervención por parte de personas ajenas al equipo.
+El proyecto fue presentado públicamente el día 27/05/2018, y el software fue demostrado al cliente el día 28/05/2018 con éxito. Tras la finalización del proyecto, es necesario analizar los resultados y cómo se ha llevado a cabo todo el proceso, con el fin de obtener feedback para futuros proyectos sobre las cosas que han funcionado bien y deberían repetirse de la misma manera, las comparaciones entre estimaciones iniciales y costes reales y los errores cometidos, para poder aprender de ellos.
+
 \subsubsection{Planificación}
 Con respecto a la planificación y los cambios que ha ido sufriendo esta a lo largo del proyecto, se muestran a continuación los diagramas de Gantt inicial y final.\\
 
@@ -316,7 +304,7 @@ Como decisión importante de planificación, destaca que, al final de la primera
 Como conclusión, destacar que la planificación ha sido un elemento esencial de la gestión de este proyecto, y que, a pesar de que pueda haber bastantes divergencias, solamente gracias a ser conscientes de ello se ha aprendido mucho para futuros proyectos.
 
 \subsubsection{Comparación estimaciones iniciales}
-En la fase inicial del proyecto se realizó una estimación inicial del coste de 630 horas de desarrollo de software y 170 horas en gestión del proyecto, de la calidad del software y de las configuraciones. Un total de 800 horas, de las cuales se han llevado a cabo 778 horas, un 97\%. A pesar de que la estimacion global se haya cumplido, una análisis más fino de la distribución de las horas revela unas conclusiones diferentes.
+En la fase inicial del proyecto se realizó una estimación inicial del coste de 630 horas de desarrollo de software y 170 horas en gestión del proyecto, de la calidad del software y de las configuraciones, como se puede observar en el Anexo III. Un total de 800 horas, de las cuales se han llevado a cabo 778 horas, un 97\%. A pesar de que la estimacion global se haya cumplido, una análisis más fino de la distribución de las horas revela unas conclusiones diferentes.
 
 \begin{table}[htb]
 \centering
