@@ -95,7 +95,7 @@ La interfaz se ha desarrollado utilizando la herramienta Phaser, basada en JavaS
 
 Una de las principales decisiones de diseño que se han tenido que llevar a cabo es como representar a cada jugador. Se ha hecho de manera que cada jugador tiene su posición como referencia y la interfaz es capaz de representar al resto en función de éste. Como hay un máximo de 4 jugadores, la interfaz toma cada posición como un rol,  teniendo todos los roles los mismos parámetros simulando un patrón de diseño Strategy, para facilitar la integración. El diagrama de clases de la figura \ref{fig:clasesInterfazJuego} muestra la implementación de la interfaz. Aunque en JavaScript no haya clases como tal, se ha aprovechado la sintaxis UML para visualizar las diferentes partes.
 
-\begin{figure}
+\begin{figure}[H]
   \includegraphics[width=\linewidth]{figuras/clasesInterfazJuego.png}
   \caption{Diagrama de clases de la interfaz de juego}
   \label{fig:clasesInterfazJuego}
@@ -105,7 +105,7 @@ Otra decisión de diseño que sobre la que se ha reflexionado ha sido acerca de 
 
 La aplicación web que no se corresponda con la parte jugable, es decir, el perfil del usuario, la vista del historial de partidas, ligas, torneos, etc. se implementa con JSP y servlets. Se puede observar el mapa de navegación inicial de la aplicación en la figura \ref{fig:mapaDeNavegacion}.
 
-\begin{figure}
+\begin{figure}[H]
   \includegraphics[width=\linewidth]{figuras/mapaNavegacion.png}
   \caption{Mapa de navegación}
   \label{fig:mapaDeNavegacion}
@@ -113,7 +113,7 @@ La aplicación web que no se corresponda con la parte jugable, es decir, el perf
 
 Una vez se ha desarrollado el sistema, con todas las vistas ya implementadas, el mapa de navegación resultate se observa en la figura \ref{fig:mapaDeNavegacionFinal}.
 
-\begin{figure}
+\begin{figure}[H]
   \includegraphics[width=\linewidth]{figuras/mapaNavFinal.png}
   \caption{Mapa de navegación final}
   \label{fig:mapaDeNavegacionFinal}
